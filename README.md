@@ -5,5 +5,5 @@
 
 - `data/timeline.json` … 年表データ（毎月、前の月のできごとを追記）
 - `python3 build.py` … docs/ を生成（これからの予定は ~/knowledge-os/oshi-events.js の Ado 分）
-- `assets/` … Gemini（無料版）で作ったオリジナル画像。公式素材・人物は描かない
+- 画像ファイルは置かない。MV は `data/mv.json`（曲名→公式動画 ID、`tools/find_mv.py` で検索）から YouTube サムネイルを直接表示して MV にリンク。公式 X（@ado1024imokenp / @ado_staff）は timeline.json の `x` を X の埋め込みで表示
 - 広告・アフィリエイトなし。歌詞の引用なし。

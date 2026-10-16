@@ -6,7 +6,10 @@
   毎月の更新では、前の月のできごとをこのファイルに足して build.py を走らせる。
 - これからの予定 … ~/knowledge-os/oshi-events.js（毎週月曜に更新される推しイベント一覧）から
   artist が Ado の行だけを docs/upcoming.js に書き出す。表示は今日以降だけを JS で絞る。
-- 画像 … assets/header.jpg と assets/era/<era>.jpg（Gemini で作成）。無ければ色のタイルで代用。
+- 画像 … 画像ファイルは置かない（公式素材の複製・転載をしないため）。
+  MV は data/mv.json（曲名→公式チャンネルの動画 ID）から YouTube のサムネイルを i.ytimg.com から直接表示し、MV にリンクする。
+  公式 X の画像は timeline.json の "x"（ポスト URL）を X の公式埋め込みで表示する。
+  動画 ID は tools/find_mv.py "曲名" で探す（@Ado1024 = UCln9P4Qm3-EAY4aiEPmRwEA の動画だけを拾う）。
 有志の非公式サイト。アフィリエイト・広告は入れない。歌詞の引用や公式素材は載せない。
 """
 import html, json, os, re, shutil
@@ -33,15 +36,16 @@ CATS = {
 }
 # 時代区分（トップのカードと時代ページ）
 ERAS = [
-    ("hajimari", "はじまりの部屋", "ニコニコ動画の歌ってみた〜デビュー前", "0000", "2020-10-22"),
-    ("debut", "デビューの衝撃", "「うっせぇわ」から『狂言』まで", "2020-10-23", "2022-05-31"),
-    ("shinjidai", "新時代、世界へ", "ウタの歌声とアリーナ・紅白", "2022-06-01", "2023-12-31"),
-    ("sekai", "世界をめぐる", "国立競技場と2つのワールドツアー", "2024-01-01", "2025-12-31"),
-    ("ima", "いま、そしてこれから", "自作曲「ビバリウム」と日産スタジアム", "2026-01-01", "9999"),
+    ("hajimari", "はじまりの部屋", "ニコニコ動画の歌ってみた〜デビュー前", "0000", "2020-10-22", "君の体温"),
+    ("debut", "デビューの衝撃", "「うっせぇわ」から『狂言』まで", "2020-10-23", "2022-05-31", "うっせぇわ"),
+    ("shinjidai", "新時代、世界へ", "ウタの歌声とアリーナ・紅白", "2022-06-01", "2023-12-31", "新時代"),
+    ("sekai", "世界をめぐる", "国立競技場と2つのワールドツアー", "2024-01-01", "2025-12-31", "ルル"),
+    ("ima", "いま、そしてこれから", "自作曲「ビバリウム」と日産スタジアム", "2026-01-01", "9999", "ビバリウム"),
 ]
 CAT_PAGES = [("release", "リリース"), ("live", "ライブ・ツアー"), ("tieup", "タイアップ・テレビ")]
 
 esc = html.escape
+MV = json.load(open(os.path.join(ROOT, "data", "mv.json"), encoding="utf-8"))
 T = sorted(json.load(open(os.path.join(ROOT, "data", "timeline.json"), encoding="utf-8")),
            key=lambda e: e["date"])
 
@@ -63,15 +67,49 @@ def era_of(d):
     return ERAS[-1]
 
 
-def img(path, cls, alt=""):
-    if os.path.exists(os.path.join(ROOT, "assets", path)):
-        return f'<img class="{cls}" src="{{R}}img/{path}" alt="{esc(alt)}" loading="lazy">'
-    return f'<div class="{cls} ph"></div>'
+def thumb_url(vid, size="hqdefault"):
+    return f"https://i.ytimg.com/vi/{vid}/{size}.jpg"
+
+
+def watch(vid):
+    return f"https://www.youtube.com/watch?v={vid}"
+
+
+def thumb(song, cls="pic"):
+    m = MV.get(song)
+    if not m:
+        return f'<div class="{cls} ph"></div>'
+    return f'<img class="{cls}" src="{thumb_url(m["id"])}" alt="{esc(m["title"])} のサムネイル（YouTube）" loading="lazy">'
+
+
+def songs_in(e):
+    """年表の項目の「」から、MV がある曲名を拾う。"""
+    out = []
+    for q in re.findall(r"「([^」]+)」", e["title"] + " " + e.get("note", "")):
+        for k in MV:
+            if (k == q or (len(k) >= 2 and k in q)) and k not in out:
+                out.append(k)
+    return out
+
+
+def mv_card(k):
+    m = MV[k]
+    return (f'<a class="mv" href="{watch(m["id"])}" target="_blank" rel="noopener">'
+            f'<span class="th"><img src="{thumb_url(m["id"], "mqdefault")}" alt="" loading="lazy"><i>▶</i></span>'
+            f'<span class="mt">{esc(m["title"])}<small>YouTube で見る（Ado 公式チャンネル）</small></span></a>')
+
+
+def x_embed(url):
+    return (f'<div class="xpost"><blockquote class="twitter-tweet" data-lang="ja" data-dnt="true">'
+            f'<a href="{url}">公式 X のポストを見る</a></blockquote></div>')
 
 
 def item(e, show_year=True):
     name, color = CATS.get(e["cat"], ("その他", "#64748b"))
     note = f'<p>{esc(e["note"])}</p>' if e.get("note") else ""
+    note += "".join(mv_card(k) for k in songs_in(e))
+    if e.get("x"):
+        note += x_embed(e["x"])
     star = ' big' if e.get("big") else ''
     return (f'<li class="ev{star}"><div class="dt">{fmt(e["date"]) if show_year else fmt(e["date"])[5:] or fmt(e["date"])}</div>'
             f'<div class="bd"><span class="chip" style="--c:{color}">{name}</span>'
@@ -99,7 +137,7 @@ def timeline(events, by_year=True):
 YEARS = sorted({e["date"][:4] for e in T})
 
 NAV = [("index.html", "基地トップ"), ("timeline.html", "全部の年表"), ("era/hajimari.html", "ニコニコ時代"),
-       ("release.html", "リリース"), ("live.html", "ライブ"), ("tieup.html", "タイアップ"),
+       ("release.html", "リリース"), ("live.html", "ライブ"), ("tieup.html", "タイアップ"), ("mv.html", "MV"), ("x.html", "公式Xまとめ"),
        ("schedule.html", "これからの予定"), ("about.html", "この基地について")]
 
 CSS = """
@@ -125,7 +163,7 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .sec-t{display:flex;align-items:center;gap:8px}.sec-t:before{content:"";width:6px;height:22px;background:var(--ac2);border-radius:3px}
 .eras{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
 .era{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg);transition:transform .15s}
-.era:hover{transform:translateY(-3px)}.era .pic{width:100%;aspect-ratio:16/10;object-fit:cover}
+.era:hover{transform:translateY(-3px)}.pic{border-radius:10px;}.era .pic{border-radius:0;width:100%;aspect-ratio:16/10;object-fit:cover}
 .era div.t{padding:10px 12px}.era b{display:block;font-size:16px}.era small{color:var(--sub);font-size:12.5px;line-height:1.5;display:block}
 .era .n{font-size:12px;color:var(--ac2);font-weight:700}
 .years{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
@@ -151,6 +189,19 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
 .pager a{padding:8px 14px;border:1px solid var(--line);border-radius:99px;text-decoration:none;background:var(--card)}
 .empty{color:var(--sub)}
+.mv{display:flex;gap:10px;align-items:center;margin-top:8px;padding:6px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);background:var(--bg);max-width:460px}
+.mv:hover{border-color:#ff0033}.mv .th{position:relative;flex:0 0 160px}.mv .th img{width:160px;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
+.mv .th i{position:absolute;inset:0;margin:auto;width:34px;height:24px;border-radius:7px;background:#ff0033;color:#fff;font-style:normal;font-size:12px;display:grid;place-items:center}
+.mv .mt{font-size:14px;font-weight:700;line-height:1.5}.mv .mt small{display:block;font-weight:400;color:var(--sub);font-size:12px}
+@media(max-width:560px){.mv .th{flex-basis:120px}.mv .th img{width:120px}}
+.xpost{max-width:460px;margin-top:6px}.xpost .twitter-tweet{margin:6px 0!important}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-radius:14px;overflow:hidden}
+.mosaic a{position:relative;display:block}.mosaic img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:opacity .15s}.mosaic a:hover img{opacity:.8}
+@media(max-width:700px){.mosaic{grid-template-columns:repeat(2,1fr)}}
+.mvgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.mvgrid a{text-decoration:none;color:var(--ink);font-size:14px;font-weight:700;line-height:1.5}.mvgrid img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:4px}
+.xgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
+.xgrid h3{font-size:15px;margin:0}.credit{font-size:12.5px;color:var(--sub);margin:6px 0 0}
 footer{background:var(--hd);color:#c8cde0;font-size:13px;text-align:center;padding:24px 16px;line-height:1.9}footer a{color:#fff}
 """
 
@@ -165,6 +216,8 @@ def sidebar():
 <h2 style="margin-top:14px">📣 公式はこちら</h2><ul>
 <li><a href="https://www.universal-music.co.jp/ado/" rel="noopener" target="_blank">公式サイト（ユニバーサル ミュージック）</a></li>
 <li><a href="https://www.youtube.com/@Ado1024" rel="noopener" target="_blank">公式 YouTube チャンネル</a></li>
+<li><a href="https://x.com/ado1024imokenp" rel="noopener" target="_blank">Ado さんの X（@ado1024imokenp）</a></li>
+<li><a href="https://x.com/ado_staff" rel="noopener" target="_blank">Ado Staff の X（@ado_staff）</a></li>
 <li><a href="https://cloud9pro.co.jp/artist/profile/ado/" rel="noopener" target="_blank">クラウドナイン プロフィール</a></li></ul></div>
 </aside>"""
 
@@ -177,8 +230,9 @@ def page(path, title, desc, body, crumb=None, hero=False):
     if crumb:
         cr = '<div class="crumb"><a href="' + R + 'index.html">基地トップ</a> › ' + " › ".join(crumb) + "</div>"
     full = NAME if path == "index.html" else f"{title}｜{NAME}"
-    heroh = f'<div class="hero">{img("header.jpg", "pic", NAME)}</div>' if hero else ""
-    og = SITE + "img/header.jpg" if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")) else ""
+    heroh = f'<div class="hero">{hero}</div>' if hero else ""
+    og = thumb_url(MV["うっせぇわ"]["id"], "hqdefault")
+    widgets = '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' if "twitter-tweet" in body else ""
     doc = f"""<!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(full)}</title><meta name="description" content="{esc(desc)}">
@@ -195,8 +249,8 @@ def page(path, title, desc, body, crumb=None, hero=False):
 <div class="layout"><main>{cr}{body}</main>{sidebar()}</div>
 <footer>{NAME} は、Ado さんを応援する有志による<b>非公式</b>のファンサイトです。Ado さん本人・所属事務所・レーベルとは関係ありません。<br>
 掲載情報は公開されている報道・公式発表をもとにしています。最新・正確な情報は<a href="https://www.universal-music.co.jp/ado/" target="_blank" rel="noopener">公式サイト</a>でご確認ください。<br>
-画像は AI（Gemini）で作成したオリジナルのイラストで、公式の写真・イラストは使っていません。 ／ <a href="{R}about.html">この基地について・プライバシー</a><br>最終更新: {TODAY}</footer>
-</body></html>"""
+画像ファイルの複製・転載はしていません。MV のサムネイルは YouTube から、公式 X の画像は X の埋め込み機能でそのまま表示しています（権利は各権利者に帰属します）。 ／ <a href="{R}about.html">この基地について・プライバシー</a><br>最終更新: {TODAY}</footer>
+{widgets}</body></html>"""
     doc = doc.replace("{R}", R)
     p = os.path.join(OUT, path)
     os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -241,8 +295,6 @@ def build():
                 continue
             shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
     os.makedirs(OUT, exist_ok=True)
-    if os.path.isdir(os.path.join(ROOT, "assets")):
-        shutil.copytree(os.path.join(ROOT, "assets"), os.path.join(OUT, "img"))
     open(os.path.join(OUT, ".nojekyll"), "w").close()
     n_up = write_upcoming()
 
@@ -250,7 +302,7 @@ def build():
     era_cards = []
     for e in ERAS:
         n = sum(1 for x in T if era_of(x["date"]) == e)
-        era_cards.append(f'<a class="era" href="{{R}}era/{e[0]}.html">{img("era/" + e[0] + ".jpg", "pic", e[1])}'
+        era_cards.append(f'<a class="era" href="{{R}}era/{e[0]}.html">{thumb(e[5])}'
                          f'<div class="t"><span class="n">{n} のできごと</span><b>{e[1]}</b><small>{e[2]}</small></div></a>')
     year_cards = "".join(f'<a href="{{R}}year/{y}.html">{y}<small>{sum(1 for x in T if x["date"][:4] == y)} 件</small></a>' for y in YEARS)
     recent = [e for e in T if e["date"] <= TODAY][-6:][::-1]
@@ -261,7 +313,11 @@ def build():
 <section><h2 class="sec-t">最近のできごと</h2>{timeline(recent, by_year=False)}
 <p style="margin:6px 0 0;text-align:right"><a href="{{R}}timeline.html">全部の年表を見る →</a></p></section>
 <section><h2 class="sec-t">年でたどる</h2><div class="years">{year_cards}</div></section>"""
-    page("index.html", NAME, "歌い手 Ado さんの歩みを、ニコニコ動画の歌ってみた時代から今まで年表にまとめた有志の非公式ファンサイト。毎月のイベントごとに更新。", body, hero=True)
+    top = ["うっせぇわ", "新時代", "唱", "踊", "ギラギラ", "ルル", "エルフ", "ビバリウム"]
+    mosaic = '<div class="mosaic">' + "".join(
+        f'<a href="{watch(MV[k]["id"])}" target="_blank" rel="noopener" title="{esc(MV[k]["title"])}"><img src="{thumb_url(MV[k]["id"])}" alt="{esc(MV[k]["title"])}"></a>'
+        for k in top if k in MV) + "</div>"
+    page("index.html", NAME, "歌い手 Ado さんの歩みを、ニコニコ動画の歌ってみた時代から今まで年表にまとめた有志の非公式ファンサイト。毎月のイベントごとに更新。", body, hero=mosaic)
 
     # 全年表
     jump = " ".join(f'<a href="#y{y}">{y}</a>' for y in YEARS)
@@ -275,7 +331,7 @@ def build():
         pv = f'<a href="{e[0] and ERAS[i-1][0]}.html">← {ERAS[i-1][1]}</a>' if i else "<span></span>"
         nx = f'<a href="{ERAS[i+1][0]}.html">{ERAS[i+1][1]} →</a>' if i + 1 < len(ERAS) else "<span></span>"
         page(f"era/{e[0]}.html", e[1], f"Ado さんの「{e[1]}」— {e[2]}の時代を年表でたどります。",
-             f'<section>{img("era/" + e[0] + ".jpg", "pic", e[1])}<h1 style="margin-top:14px">{e[1]}</h1><p class="lead">{e[2]}</p></section>'
+             f'<section><a href="{watch(MV[e[5]]["id"])}" target="_blank" rel="noopener">{thumb(e[5])}</a><p class="credit">画像: 「{esc(MV[e[5]]["title"])}」MV のサムネイル（YouTube・Ado 公式チャンネル）</p><h1 style="margin-top:14px">{e[1]}</h1><p class="lead">{e[2]}</p></section>'
              f'<section>{timeline(ev)}<div class="pager">{pv}{nx}</div></section>', crumb=[e[1]])
 
     # 年ページ
@@ -296,6 +352,25 @@ def build():
         page(f"{k}.html", t, f"Ado さんの{t}の年表。{leads[k]}",
              f'<section><h1>{t}</h1><p class="lead">{leads[k]}</p></section><section>{timeline(ev)}</section>', crumb=[t])
 
+    # MV ギャラリー
+    sec = []
+    for kind, lead in [("オリジナル", "オリジナル曲の MV"), ("ウタ", "映画『ONE PIECE FILM RED』ウタの歌唱曲"), ("歌ってみた", "歌ってみた・カバー")]:
+        cards = "".join(f'<a href="{watch(m["id"])}" target="_blank" rel="noopener"><img src="{thumb_url(m["id"])}" alt="" loading="lazy">{esc(m["title"])}</a>'
+                        for m in MV.values() if m["kind"] == kind)
+        sec.append(f'<section><h2 class="sec-t">{lead}</h2><div class="mvgrid">{cards}</div></section>')
+    page("mv.html", "MV ギャラリー", "Ado さんの MV を、YouTube 公式チャンネルへのリンクでまとめました。",
+         '<section><h1>MV ギャラリー</h1><p class="lead">サムネイルを押すと YouTube の Ado 公式チャンネルで MV が開きます。</p></section>' + "".join(sec),
+         crumb=["MV ギャラリー"])
+
+    # 公式 X まとめ
+    xs = [e for e in T if e.get("x")][::-1]
+    cards = "".join(f'<div><h3>{fmt(e["date"])}｜{esc(e["title"])}</h3>{x_embed(e["x"])}</div>' for e in xs)
+    page("x.html", "公式Xまとめ", "Ado さん・Ado Staff の公式 X から、節目のポストを埋め込みでまとめました。",
+         '<section><h1>公式Xまとめ</h1><p class="lead">デビュー・ライブ・ツアーなど節目のポストを、X の埋め込みで並べています。最新の情報は '
+         '<a href="https://x.com/ado1024imokenp" target="_blank" rel="noopener">@ado1024imokenp</a> と '
+         '<a href="https://x.com/ado_staff" target="_blank" rel="noopener">@ado_staff</a> をご覧ください。</p></section>'
+         f'<section><div class="xgrid">{cards}</div></section>', crumb=["公式Xまとめ"])
+
     # 予定
     page("schedule.html", "これからの予定", "Ado さんのこれからのライブ・リリース・テレビ出演などの予定。毎週更新。",
          '<section><h1>これからの予定</h1><p class="lead">ライブ・リリース・放送・チケットの予定をまとめています。</p></section>'
@@ -310,10 +385,10 @@ def build():
 <li>情報は公式発表・報道・Wikipedia などの公開情報をもとにしています。まちがいに気づいたときは直します</li></ul>
 <h2>やらないこと</h2><ul>
 <li>広告・アフィリエイトは載せません</li>
-<li>歌詞の引用、公式の写真・イラスト・ロゴの転載はしません。サイトの画像は AI（Gemini）で作ったオリジナルのイラストです</li>
+<li>歌詞の引用、公式の写真・イラスト・ロゴの複製・転載はしません。画像は、YouTube 公式チャンネルの MV サムネイル（YouTube から直接表示し、MV にリンク）と、Ado さん・Ado Staff の公式 X ポストの埋め込みだけです。権利は各権利者に帰属します。削除のご依頼があればすぐに対応します</li>
 <li>うわさ話や私生活に関することは書きません</li></ul>
 <h2>プライバシーポリシー</h2>
-<p>アクセスの傾向を知るために Google アナリティクスを使っています。Cookie を使って匿名のアクセス情報を集めますが、個人を特定する情報は集めません。ブラウザの設定で Cookie を無効にできます。</p>
+<p>MV のサムネイルは YouTube（Google）、公式ポストは X の埋め込みを使っているため、それぞれのサービスが Cookie などで情報を取得する場合があります。アクセスの傾向を知るために Google アナリティクスを使っています。Cookie を使って匿名のアクセス情報を集めますが、個人を特定する情報は集めません。ブラウザの設定で Cookie を無効にできます。</p>
 <h2>参考にしている情報源</h2><ul>
 <li><a href="https://www.universal-music.co.jp/ado/" target="_blank" rel="noopener">Ado - UNIVERSAL MUSIC JAPAN</a></li>
 <li><a href="https://cloud9pro.co.jp/artist/profile/ado/" target="_blank" rel="noopener">株式会社クラウドナイン アーティストプロフィール</a></li>
