@@ -21,6 +21,41 @@
   "big": true
  },
  {
+  "date": "2017-04-12",
+  "cat": "niconico",
+  "title": "「スターナイトスノウ」を歌ってみた（ニコニコ動画のみ）",
+  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
+  "big": false
+ },
+ {
+  "date": "2017-06-02",
+  "cat": "niconico",
+  "title": "「Strangers」を歌ってみた（ニコニコ動画のみ）",
+  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
+  "big": false
+ },
+ {
+  "date": "2017-12-27",
+  "cat": "niconico",
+  "title": "「深昏睡」を歌ってみた（ニコニコ動画のみ）",
+  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
+  "big": false
+ },
+ {
+  "date": "2018-02-02",
+  "cat": "niconico",
+  "title": "「わたしのアール」を歌ってみた（ニコニコ動画のみ）",
+  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
+  "big": false
+ },
+ {
+  "date": "2018-03-23",
+  "cat": "niconico",
+  "title": "「バッド・ダンス・ホール」を歌ってみた（ニコニコ動画のみ）",
+  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
+  "big": false
+ },
+ {
   "date": "2019-09-17",
   "cat": "milestone",
   "title": "Zepp DiverCity ワンマンを目標に宣言",
@@ -32,6 +67,13 @@
   "cat": "feat",
   "title": "くじら「金木犀 feat. Ado」",
   "note": "ボカロPのくじらの楽曲にボーカル参加。",
+  "big": false
+ },
+ {
+  "date": "2020-02-02",
+  "cat": "feat",
+  "title": "M.A.K.E.vortex「'20KYO」",
+  "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
   "big": false
  },
  {
@@ -49,10 +91,59 @@
   "big": false
  },
  {
+  "date": "2020-05-11",
+  "cat": "feat",
+  "title": "吐息「ANEMONE」",
+  "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
+  "big": false
+ },
+ {
+  "date": "2020-06-30",
+  "cat": "feat",
+  "title": "南雲ゆうき「Stick Candy」",
+  "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
+  "big": false
+ },
+ {
   "date": "2020-08-14",
   "cat": "feat",
   "title": "biz「東亰カニバリズム」",
   "note": "デビュー前にボカロPの楽曲へ参加が続く。",
+  "big": false
+ },
+ {
+  "date": "2020-08-28",
+  "cat": "feat",
+  "title": "jon-YAKITORY「イート」",
+  "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
+  "big": false
+ },
+ {
+  "date": "2020-09-02",
+  "cat": "feat",
+  "title": "きっと、ずっと、ぼっち。「俯瞰、愛を躍る」",
+  "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
+  "big": false
+ },
+ {
+  "date": "2020-09-11",
+  "cat": "feat",
+  "title": "biz「フロイトメタ」",
+  "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
+  "big": false
+ },
+ {
+  "date": "2020-09-21",
+  "cat": "feat",
+  "title": "Linmu「お洒落番長」",
+  "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
+  "big": false
+ },
+ {
+  "date": "2020-09-23",
+  "cat": "feat",
+  "title": "泣き虫☔︎「Shake It Now.」",
+  "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
   "big": false
  },
  {
@@ -76,6 +167,13 @@
   "note": "syudou 提供。社会現象となり、Ado の名前が一気に広まる。",
   "big": true,
   "x": "https://twitter.com/ado1024imokenp/status/1332939069148467201"
+ },
+ {
+  "date": "2020-12-12",
+  "cat": "feat",
+  "title": "柊キライ「ラブカ？」",
+  "note": "ボカロPの柊キライの楽曲。",
+  "big": false
  },
  {
   "date": "2020-12-24",
@@ -124,6 +222,13 @@
   "cat": "release",
   "title": "「会いたくて」",
   "note": "みゆはん・みきとP 提供。",
+  "big": false
+ },
+ {
+  "date": "2021-08-15",
+  "cat": "niconico",
+  "title": "「daze」を歌ってみた（ニコニコ動画のみ）",
+  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
   "big": false
  },
  {
@@ -194,10 +299,24 @@
   "x": "https://twitter.com/ado_staff/status/1557714352299335681"
  },
  {
+  "date": "2022-08-31",
+  "cat": "niconico",
+  "title": "「Birthday Song for ミク」を歌ってみた（ニコニコ動画のみ）",
+  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
+  "big": false
+ },
+ {
   "date": "2022-09-14",
   "cat": "media",
   "title": "「Ado のオールナイトニッポン」初放送",
   "note": "",
+  "big": false
+ },
+ {
+  "date": "2022-10-11",
+  "cat": "niconico",
+  "title": "「命短し恋せよ乙女」を歌ってみた（ニコニコ動画のみ）",
+  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
   "big": false
  },
  {
@@ -323,6 +442,13 @@
   "big": false
  },
  {
+  "date": "2024-08-31",
+  "cat": "niconico",
+  "title": "「レイジー・クルーズ」を歌ってみた（ニコニコ動画のみ）",
+  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
+  "big": false
+ },
+ {
   "date": "2024-10-24",
   "cat": "release",
   "title": "初の CD シングル「桜日和とタイムマシン with 初音ミク／初夏」",
@@ -334,6 +460,13 @@
   "cat": "tieup",
   "title": "「Episode X」（映画『劇場版ドクターX』主題歌）",
   "note": "",
+  "big": false
+ },
+ {
+  "date": "2024-12-16",
+  "cat": "feat",
+  "title": "Imagine Dragons「Take Me to the Beach」",
+  "note": "世界的バンドの楽曲にボーカル参加。",
   "big": false
  },
  {
@@ -357,6 +490,13 @@
   "note": "5大陸33会場34公演。日本人アーティスト史上最大規模のワールドツアー（〜8月）。",
   "big": true,
   "x": "https://twitter.com/ado_staff/status/1849451026405036178"
+ },
+ {
+  "date": "2025-06-13",
+  "cat": "feat",
+  "title": "Jax Jones「Stay Gold」",
+  "note": "アニメ『BEYBLADE X』の楽曲。",
+  "big": false
  },
  {
   "date": "2025-09-26",

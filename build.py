@@ -10,6 +10,8 @@
   MV は data/mv.json（曲名→公式チャンネルの動画 ID）から YouTube のサムネイルを i.ytimg.com から直接表示し、MV にリンクする。
   公式 X の画像は timeline.json の "x"（ポスト URL）を X の公式埋め込みで表示する。
   動画 ID は tools/find_mv.py "曲名" で探す（@Ado1024 = UCln9P4Qm3-EAY4aiEPmRwEA の動画だけを拾う）。
+  mv.json の項目: id（YouTube）, nico（sm 番号）, nico_thumb, title, kind（オリジナル / ウタ / feat / 歌ってみた / ニコニコのみ）, by（feat の作者）。
+  feat. は tools/find_feat.py "作者|曲名" で作者本人のチャンネルの動画を探す。ニコニコの Ado さんの投稿は user/39170211。
 有志の非公式サイト。アフィリエイト・広告は入れない。歌詞の引用や公式素材は載せない。
 """
 import html, json, os, re, shutil
@@ -24,7 +26,7 @@ EVENTS_JS = os.path.expanduser("~/knowledge-os/oshi-events.js")
 TODAY = date.today().isoformat()
 
 CATS = {
-    "niconico": ("ニコニコ・はじまり", "#22a7a0"),
+    "niconico": ("ニコニコ動画", "#22a7a0"),
     "feat": ("客演・参加", "#8b5cf6"),
     "release": ("リリース", "#2563eb"),
     "live": ("ライブ・ツアー", "#e11d48"),
@@ -75,11 +77,23 @@ def watch(vid):
     return f"https://www.youtube.com/watch?v={vid}"
 
 
+def nico_url(sm):
+    return f"https://www.nicovideo.jp/watch/{sm}"
+
+
+def link_of(m):
+    """動画の飛び先と、サムネイル URL と、サービス名。YouTube を優先し、無ければニコニコ動画。"""
+    if m.get("id"):
+        return watch(m["id"]), thumb_url(m["id"]), "YouTube"
+    return nico_url(m["nico"]), m["nico_thumb"], "ニコニコ動画"
+
+
 def thumb(song, cls="pic"):
     m = MV.get(song)
     if not m:
         return f'<div class="{cls} ph"></div>'
-    return f'<img class="{cls}" src="{thumb_url(m["id"])}" alt="{esc(m["title"])} のサムネイル（YouTube）" loading="lazy">'
+    _, src, svc = link_of(m)
+    return f'<img class="{cls}" src="{src}" alt="{esc(m["title"])} のサムネイル（{svc}）" loading="lazy">'
 
 
 def songs_in(e):
@@ -92,11 +106,23 @@ def songs_in(e):
     return out
 
 
+def where(m, svc):
+    if m.get("by"):
+        return f"{svc} で見る（{esc(m['by'])} 公式）"
+    return f"{svc} で見る（Ado 公式チャンネル）" if svc == "YouTube" else "ニコニコ動画で見る（Ado さんの投稿）"
+
+
 def mv_card(k):
     m = MV[k]
-    return (f'<a class="mv" href="{watch(m["id"])}" target="_blank" rel="noopener">'
-            f'<span class="th"><img src="{thumb_url(m["id"], "mqdefault")}" alt="" loading="lazy"><i>▶</i></span>'
-            f'<span class="mt">{esc(m["title"])}<small>YouTube で見る（Ado 公式チャンネル）</small></span></a>')
+    href, src, svc = link_of(m)
+    if svc == "YouTube":
+        src = thumb_url(m["id"], "mqdefault")
+    nico = ""
+    if m.get("id") and m.get("nico"):
+        nico = f'<a class="nl" href="{nico_url(m["nico"])}" target="_blank" rel="noopener">ニコニコ動画でも見る →</a>'
+    return (f'<div class="mvw"><a class="mv{" nc" if svc != "YouTube" else ""}" href="{href}" target="_blank" rel="noopener">'
+            f'<span class="th"><img src="{src}" alt="" loading="lazy"><i>▶</i></span>'
+            f'<span class="mt">{esc(m["title"])}<small>{where(m, svc)}</small></span></a>{nico}</div>')
 
 
 def x_embed(url):
@@ -190,7 +216,8 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .pager a{padding:8px 14px;border:1px solid var(--line);border-radius:99px;text-decoration:none;background:var(--card)}
 .empty{color:var(--sub)}
 .mv{display:flex;gap:10px;align-items:center;margin-top:8px;padding:6px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);background:var(--bg);max-width:460px}
-.mv:hover{border-color:#ff0033}.mv .th{position:relative;flex:0 0 160px}.mv .th img{width:160px;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
+.mv:hover{border-color:#ff0033}.mv.nc:hover{border-color:#999}.mv.nc .th i{background:#252525}
+.mvw .nl{display:inline-block;font-size:12.5px;margin:4px 0 0 4px}.mv .th{position:relative;flex:0 0 160px}.mv .th img{width:160px;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
 .mv .th i{position:absolute;inset:0;margin:auto;width:34px;height:24px;border-radius:7px;background:#ff0033;color:#fff;font-style:normal;font-size:12px;display:grid;place-items:center}
 .mv .mt{font-size:14px;font-weight:700;line-height:1.5}.mv .mt small{display:block;font-weight:400;color:var(--sub);font-size:12px}
 @media(max-width:560px){.mv .th{flex-basis:120px}.mv .th img{width:120px}}
@@ -249,7 +276,7 @@ def page(path, title, desc, body, crumb=None, hero=False):
 <div class="layout"><main>{cr}{body}</main>{sidebar()}</div>
 <footer>{NAME} は、Ado さんを応援する有志による<b>非公式</b>のファンサイトです。Ado さん本人・所属事務所・レーベルとは関係ありません。<br>
 掲載情報は公開されている報道・公式発表をもとにしています。最新・正確な情報は<a href="https://www.universal-music.co.jp/ado/" target="_blank" rel="noopener">公式サイト</a>でご確認ください。<br>
-画像ファイルの複製・転載はしていません。MV のサムネイルは YouTube から、公式 X の画像は X の埋め込み機能でそのまま表示しています（権利は各権利者に帰属します）。 ／ <a href="{R}about.html">この基地について・プライバシー</a><br>最終更新: {TODAY}</footer>
+画像ファイルの複製・転載はしていません。MV のサムネイルは YouTube・ニコニコ動画から、公式 X の画像は X の埋め込み機能でそのまま表示しています（権利は各権利者に帰属します）。 ／ <a href="{R}about.html">この基地について・プライバシー</a><br>最終更新: {TODAY}</footer>
 {widgets}</body></html>"""
     doc = doc.replace("{R}", R)
     p = os.path.join(OUT, path)
@@ -354,12 +381,18 @@ def build():
 
     # MV ギャラリー
     sec = []
-    for kind, lead in [("オリジナル", "オリジナル曲の MV"), ("ウタ", "映画『ONE PIECE FILM RED』ウタの歌唱曲"), ("歌ってみた", "歌ってみた・カバー")]:
-        cards = "".join(f'<a href="{watch(m["id"])}" target="_blank" rel="noopener"><img src="{thumb_url(m["id"])}" alt="" loading="lazy">{esc(m["title"])}</a>'
-                        for m in MV.values() if m["kind"] == kind)
+    def gcard(m):
+        href, src, svc = link_of(m)
+        by = f'<small style="display:block;font-weight:400;color:var(--sub)">{esc(m["by"])}</small>' if m.get("by") else ""
+        nl = f' ／ <a href="{nico_url(m["nico"])}" target="_blank" rel="noopener" style="font-weight:400;font-size:12.5px">ニコニコ</a>' if m.get("id") and m.get("nico") else ""
+        return f'<div><a href="{href}" target="_blank" rel="noopener"><img src="{src}" alt="" loading="lazy">{esc(m["title"])}</a>{by}<small style="color:var(--sub);font-size:12px">{svc}{nl}</small></div>'
+    for kind, lead in [("オリジナル", "オリジナル曲の MV"), ("ウタ", "映画『ONE PIECE FILM RED』ウタの歌唱曲"),
+                       ("feat", "feat.・客演（ボカロP・アーティストの公式動画）"), ("歌ってみた", "歌ってみた・カバー"),
+                       ("ニコニコのみ", "ニコニコ動画だけの歌ってみた")]:
+        cards = "".join(gcard(m) for m in sorted((m for m in MV.values() if m["kind"] == kind), key=lambda m: m.get("nico", "zz") if kind == "ニコニコのみ" else 0))
         sec.append(f'<section><h2 class="sec-t">{lead}</h2><div class="mvgrid">{cards}</div></section>')
     page("mv.html", "MV ギャラリー", "Ado さんの MV を、YouTube 公式チャンネルへのリンクでまとめました。",
-         '<section><h1>MV ギャラリー</h1><p class="lead">サムネイルを押すと YouTube の Ado 公式チャンネルで MV が開きます。</p></section>' + "".join(sec),
+         '<section><h1>MV ギャラリー</h1><p class="lead">サムネイルを押すと、YouTube（Ado 公式チャンネル・各アーティスト公式）またはニコニコ動画で動画が開きます。</p></section>' + "".join(sec),
          crumb=["MV ギャラリー"])
 
     # 公式 X まとめ
@@ -385,10 +418,10 @@ def build():
 <li>情報は公式発表・報道・Wikipedia などの公開情報をもとにしています。まちがいに気づいたときは直します</li></ul>
 <h2>やらないこと</h2><ul>
 <li>広告・アフィリエイトは載せません</li>
-<li>歌詞の引用、公式の写真・イラスト・ロゴの複製・転載はしません。画像は、YouTube 公式チャンネルの MV サムネイル（YouTube から直接表示し、MV にリンク）と、Ado さん・Ado Staff の公式 X ポストの埋め込みだけです。権利は各権利者に帰属します。削除のご依頼があればすぐに対応します</li>
+<li>歌詞の引用、公式の写真・イラスト・ロゴの複製・転載はしません。画像は、YouTube 公式チャンネル・各アーティスト公式・ニコニコ動画の動画サムネイル（各サービスから直接表示し、動画にリンク）と、Ado さん・Ado Staff の公式 X ポストの埋め込みだけです。権利は各権利者に帰属します。削除のご依頼があればすぐに対応します</li>
 <li>うわさ話や私生活に関することは書きません</li></ul>
 <h2>プライバシーポリシー</h2>
-<p>MV のサムネイルは YouTube（Google）、公式ポストは X の埋め込みを使っているため、それぞれのサービスが Cookie などで情報を取得する場合があります。アクセスの傾向を知るために Google アナリティクスを使っています。Cookie を使って匿名のアクセス情報を集めますが、個人を特定する情報は集めません。ブラウザの設定で Cookie を無効にできます。</p>
+<p>動画のサムネイルは YouTube（Google）・ニコニコ動画、公式ポストは X の埋め込みを使っているため、それぞれのサービスが Cookie などで情報を取得する場合があります。アクセスの傾向を知るために Google アナリティクスを使っています。Cookie を使って匿名のアクセス情報を集めますが、個人を特定する情報は集めません。ブラウザの設定で Cookie を無効にできます。</p>
 <h2>参考にしている情報源</h2><ul>
 <li><a href="https://www.universal-music.co.jp/ado/" target="_blank" rel="noopener">Ado - UNIVERSAL MUSIC JAPAN</a></li>
 <li><a href="https://cloud9pro.co.jp/artist/profile/ado/" target="_blank" rel="noopener">株式会社クラウドナイン アーティストプロフィール</a></li>

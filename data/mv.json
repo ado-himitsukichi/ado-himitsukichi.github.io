@@ -2,7 +2,9 @@
  "君の体温": {
   "id": "QLsXgj4_gOc",
   "title": "【Ado】君の体温 歌いました",
-  "kind": "歌ってみた"
+  "kind": "歌ってみた",
+  "nico": "sm30407954",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/30407954/30407954.M"
  },
  "コールボーイ": {
   "id": "vLa60E1AcWY",
@@ -17,42 +19,58 @@
  "うっせぇわ": {
   "id": "Qp3b-RXtz4w",
   "title": "【Ado】うっせぇわ",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm37761910",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37761910/37761910.66622980.M"
  },
  "レディメイド": {
   "id": "jg09lNupc1s",
   "title": "【Ado】レディメイド",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm38056551",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/38056551/38056551.14109059.M"
  },
  "ギラギラ": {
   "id": "sOiMD45QGLs",
   "title": "【Ado】ギラギラ",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm38325925",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/38325925/38325925.62080980.M"
  },
  "踊": {
   "id": "YnSW8ian29w",
   "title": "【Ado】踊",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm38668379",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/38668379/38668379.88651512.M"
  },
  "夜のピエロ": {
   "id": "cSgZxz3le7s",
   "title": "【Ado】夜のピエロ",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm38908617",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/38908617/38908617.52375512.M"
  },
  "会いたくて": {
   "id": "jTVSU-Lr1ew",
   "title": "【Ado】会いたくて",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm39175915",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39175915/39175915.23443911.M"
  },
  "阿修羅ちゃん": {
   "id": "cyq5-StPISU",
   "title": "【Ado】阿修羅ちゃん",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm39816151",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39816151/39816151.43170340.M"
  },
  "心という名の不可解": {
   "id": "BMb5IetESGE",
   "title": "【Ado】心という名の不可解",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm40065655",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/40065655/40065655.39387805.M"
  },
  "新時代": {
   "id": "1FliVTcX8bQ",
@@ -62,22 +80,30 @@
  "アタシは問題作": {
   "id": "lZGo8jcEW2M",
   "title": "【Ado】アタシは問題作",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm41830202",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/41830202/41830202.40296044.M"
  },
  "向日葵": {
   "id": "aOKa-5AHCtU",
   "title": "【Ado】向日葵",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm42896206",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/42896206/42896206.97704811.M"
  },
  "唱": {
   "id": "pgXpM4l_MwI",
   "title": "【Ado】 唱",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm42896186",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/42896186/42896186.26091575.M"
  },
  "クラクラ": {
   "id": "W_fHWaoQwkw",
   "title": "【Ado】クラクラ",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm42896159",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/42896159/42896159.97704342.M"
  },
  "ショコラカタブラ": {
   "id": "c5j7lpWprro",
@@ -92,7 +118,9 @@
  "初夏": {
   "id": "GORsp0gc2Nc",
   "title": "【Ado】初夏 (Shoka)",
-  "kind": "オリジナル"
+  "kind": "オリジナル",
+  "nico": "sm44254778",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/44254778/44254778.80994047.M"
  },
  "Episode X": {
   "id": "9dKZeL2UbUM",
@@ -162,7 +190,9 @@
  "ボッカデラベリタ": {
   "id": "X9aKVLPoKJk",
   "title": "【Ado】ボッカデラベリタ 歌いました",
-  "kind": "歌ってみた"
+  "kind": "歌ってみた",
+  "nico": "sm36966835",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/36966835/36966835.96271232.M"
  },
  "Overdose": {
   "id": "sGNkT6XyQRc",
@@ -203,5 +233,153 @@
   "id": "x1UsJ2Znjk0",
   "title": "【Ado】罪と罰 歌いました",
   "kind": "歌ってみた"
+ },
+ "スターナイトスノウ": {
+  "title": "【春だけど】スターナイトスノウ歌ってみた【Adovantage】",
+  "kind": "ニコニコのみ",
+  "nico": "sm31014792",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/31014792/31014792.M"
+ },
+ "Strangers": {
+  "title": "Strangers歌いました【Adorment】",
+  "kind": "ニコニコのみ",
+  "nico": "sm31324700",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/31324700/31324700.M"
+ },
+ "深昏睡": {
+  "title": "深昏睡　歌いました /Adoventure",
+  "kind": "ニコニコのみ",
+  "nico": "sm32488469",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/32488469/32488469.M"
+ },
+ "わたしのアール": {
+  "title": "わたしのアール   歌ってみた【Adovice】",
+  "kind": "ニコニコのみ",
+  "nico": "sm32677441",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/32677441/32677441.M"
+ },
+ "バッド・ダンス・ホール": {
+  "title": "バッド・ダンス・ホール歌ってみた【Adovisory】",
+  "kind": "ニコニコのみ",
+  "nico": "sm32932556",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/32932556/32932556.M"
+ },
+ "daze": {
+  "title": "【Ado】daze 歌いました",
+  "kind": "ニコニコのみ",
+  "nico": "sm39184906",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39184906/39184906.39334220.M"
+ },
+ "Birthday Song for ミク": {
+  "title": "【Ado】Birthday Song for ミク 歌いました",
+  "kind": "ニコニコのみ",
+  "nico": "sm41007685",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/41007685/41007685.89885109.M"
+ },
+ "命短し恋せよ乙女": {
+  "title": "【Ado】命短し恋せよ乙女 歌いました",
+  "kind": "ニコニコのみ",
+  "nico": "sm41216131",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/41216131/41216131.23034764.M"
+ },
+ "レイジー・クルーズ": {
+  "title": "【Adoと初音ミク】レイジー・クルーズ 歌いました",
+  "kind": "ニコニコのみ",
+  "nico": "sm44043254",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/44043254/44043254.28138438.M"
+ },
+ "金木犀": {
+  "id": "Baw-cAvS5xc",
+  "title": "金木犀 feat.Ado (Official Video)",
+  "kind": "feat",
+  "by": "くじら"
+ },
+ "'20KYO": {
+  "id": "9cBPLMrCG6o",
+  "title": "'20KYO",
+  "kind": "feat",
+  "by": "M.A.K.E.vortex"
+ },
+ "シカバネーゼ": {
+  "id": "-yl6v5ezpuo",
+  "title": "シカバネーゼ / jon-YAKITORY feat. Ado",
+  "kind": "feat",
+  "by": "jon-YAKITORY",
+  "nico": "sm36585320",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/36585320/36585320.84870735"
+ },
+ "ANEMONE": {
+  "id": "MFqZ6zRGbLg",
+  "title": "ANEMONE / feat.Ado - 吐息",
+  "kind": "feat",
+  "by": "吐息"
+ },
+ "Stick Candy": {
+  "id": "4iuX87nB2Q4",
+  "title": "Stick Candy feat.Ado - 南雲ゆうき",
+  "kind": "feat",
+  "by": "南雲ゆうき",
+  "nico": "sm37114851",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37114851/37114851.95997196"
+ },
+ "東亰カニバリズム": {
+  "id": "zpu9V9lUVhw",
+  "title": "東亰カニバリズム / biz feat Ado",
+  "kind": "feat",
+  "by": "biz",
+  "nico": "sm37346470",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37346470/37346470.89276560"
+ },
+ "イート": {
+  "id": "x5OXBk3Qjsc",
+  "title": "イート / jon-YAKITORY feat.Ado",
+  "kind": "feat",
+  "by": "jon-YAKITORY",
+  "nico": "sm37417943",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37417943/37417943.97436165"
+ },
+ "俯瞰、愛を躍る": {
+  "id": "4wXOmLrH0UI",
+  "title": "俯瞰、愛を躍る。vs Ado",
+  "kind": "feat",
+  "by": "きっと、ずっと、ぼっち。"
+ },
+ "フロイトメタ": {
+  "id": "t40T2gVXDDA",
+  "title": "フロイトメタ / biz feat Ado",
+  "kind": "feat",
+  "by": "biz",
+  "nico": "sm37502106",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37502106/37502106.30211182"
+ },
+ "お洒落番長": {
+  "id": "HbKb73VMQZU",
+  "title": "お洒落番長 feat Ado",
+  "kind": "feat",
+  "by": "Linmu"
+ },
+ "Shake It Now.": {
+  "id": "QZx7Iq1M1xU",
+  "title": "Shake It Now.(feat. Ado)",
+  "kind": "feat",
+  "by": "泣き虫☔︎"
+ },
+ "SAYONARA": {
+  "id": "gTYb8pTz3VU",
+  "title": "TMG / SAYONARA (feat. Ado)",
+  "kind": "feat",
+  "by": "TMG"
+ },
+ "Take Me to the Beach": {
+  "id": "5Duje_sZko8",
+  "title": "Take Me To The Beach (feat. Ado)",
+  "kind": "feat",
+  "by": "Imagine Dragons"
+ },
+ "Stay Gold": {
+  "id": "MExT89HUNUY",
+  "title": "Stay Gold (from BEYBLADE X)",
+  "kind": "feat",
+  "by": "Jax Jones"
  }
 }
