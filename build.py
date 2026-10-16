@@ -22,7 +22,7 @@ from datetime import date
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "docs")
 NAME = "Ado 非公式ワクワク秘密基地"
-SITE = "https://masabee1029.github.io/ado-himitsukichi/"
+SITE = "https://ado-himitsukichi.github.io/"
 GA = "G-EHWF25C1RB"
 EVENTS_JS = os.path.expanduser("~/knowledge-os/oshi-events.js")
 TODAY = date.today().isoformat()
