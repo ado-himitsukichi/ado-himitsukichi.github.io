@@ -165,7 +165,7 @@ def timeline(events, by_year=True):
 
 YEARS = sorted({e["date"][:4] for e in T})
 
-NAV = [("index.html", "基地トップ"), ("timeline.html", "全部の年表"), ("era/hajimari.html", "ニコニコ時代"),
+NAV = [("index.html", "基地トップ"), ("timeline.html", "全部の年表"), ("era/hajimari.html", "ニコニコ時代"), ("covers.html", "歌ってみた"),
        ("release.html", "リリース"), ("live.html", "ライブ"), ("tieup.html", "タイアップ"), ("mv.html", "MV"), ("x.html", "公式Xまとめ"),
        ("schedule.html", "これからの予定"), ("about.html", "この基地について")]
 
@@ -232,6 +232,17 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .mvgrid a{text-decoration:none;color:var(--ink);font-size:14px;font-weight:700;line-height:1.5}.mvgrid img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:4px}
 .xgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
 .xgrid h3{font-size:15px;margin:0}.credit{font-size:12.5px;color:var(--sub);margin:6px 0 0}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.stats div{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 14px;text-align:center;font-size:12.5px;color:var(--sub)}
+.stats b{display:block;font-size:22px;color:var(--ac2)}
+.flt{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0}.flt button{font:inherit;font-size:13.5px;padding:5px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.flt button.on{background:var(--ac2);border-color:var(--ac2);color:#fff}
+.cv{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.cv .c{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)}
+.cv .c img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.cv .c .b{padding:8px 10px 10px}.cv .c b{display:block;font-size:15px;line-height:1.45}.cv .c .d{font-size:12px;color:var(--sub)}
+.cv .c .ln{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.cv .c .ln a{font-size:12px;font-weight:700;text-decoration:none;padding:2px 9px;border-radius:99px;color:#fff}
+.cv .c .ln a.y{background:#ff0033}.cv .c .ln a.n{background:#252525}
+.cv .c .tag{display:inline-block;font-size:11px;color:var(--ac2);border:1px solid var(--ac2);border-radius:99px;padding:0 7px;margin-left:4px}
 footer{background:var(--hd);color:#c8cde0;font-size:13px;text-align:center;padding:24px 16px;line-height:1.9}footer a{color:#fff}
 """
 
@@ -241,6 +252,7 @@ def sidebar():
     years = "".join(f'<li><a href="{{R}}year/{y}.html">{y}年</a></li>' for y in YEARS)
     return f"""<aside class="side">
 <div class="box"><h2>🔑 この基地について</h2><p class="note">Ado さんを応援する有志がつくった<b>非公式</b>の年表サイトです。ニコニコ動画のころから今までの歩みを、毎月のイベントごとに書き足していきます。公式とは関係ありません。</p></div>
+<div class="box"><h2>🎤 歌ってみた</h2><p class="note">ニコニコ動画・YouTube の歌ってみたを投稿順にまとめました。</p><ul><li><a href="{{R}}covers.html">歌ってみた まとめ（{sum(1 for e in T if e["cat"] == "cover") + 1} 曲）</a></li></ul></div>
 <div class="box"><h2>🗺 時代でたどる</h2><ul>{eras}</ul></div>
 <div class="box sticky"><h2>📅 年でたどる</h2><ul>{years}</ul>
 <h2 style="margin-top:14px">📣 公式はこちら</h2><ul>
@@ -412,6 +424,46 @@ def build():
          '<a href="https://x.com/ado1024imokenp" target="_blank" rel="noopener">@ado1024imokenp</a> と '
          '<a href="https://x.com/ado_staff" target="_blank" rel="noopener">@ado_staff</a> をご覧ください。</p></section>'
          f'<section><div class="xgrid">{cards}</div></section>', crumb=["公式Xまとめ"])
+
+    # 歌ってみた まとめ
+    cov = [e for e in T if e["cat"] == "cover" or (e["cat"] == "niconico" and e.get("videos"))]
+    cyears = sorted({e["date"][:4] for e in cov})
+    blocks, n_nico_only, n_both = [], 0, 0
+    for y in cyears:
+        cards = []
+        for e in [x for x in cov if x["date"][:4] == y]:
+            ms = [MV[k] for k in e.get("videos", []) if k in MV]
+            if not ms:
+                continue
+            m0 = ms[0]
+            _, src, _ = link_of(m0)
+            links, has_y, has_n = [], False, False
+            for m in ms:
+                lab = "" if len(ms) == 1 else re.sub(r".*?（(.+)）$", r" \1", next((k for k in e["videos"] if MV.get(k) is m), ""))
+                lab = lab if lab.startswith(" ") else ""
+                if m.get("id"):
+                    links.append(f'<a class="y" href="{watch(m["id"])}" target="_blank" rel="noopener">YouTube{esc(lab)}</a>'); has_y = True
+                if m.get("nico"):
+                    links.append(f'<a class="n" href="{nico_url(m["nico"])}" target="_blank" rel="noopener">ニコニコ{esc(lab)}</a>'); has_n = True
+            typ = "both" if has_y and has_n else ("nico" if has_n else "yt")
+            n_nico_only += typ == "nico"; n_both += typ == "both"
+            name = re.sub(r"^.*?「(.+)」.*$", r"\1", e["title"])
+            tag = '<span class="tag">ニコニコのみ</span>' if typ == "nico" else ""
+            cards.append(f'<div class="c" data-t="{typ}"><img src="{src}" alt="" loading="lazy"><div class="b"><b>{esc(name)}{tag}</b>'
+                         f'<span class="d">{fmt(e["date"])} 初投稿</span><div class="ln">{"".join(links)}</div></div></div>')
+        blocks.append(f'<section class="yb"><h2 class="yr" id="c{y}">{y}年 <small style="font-size:14px;color:var(--sub)">{len(cards)} 曲</small></h2><div class="cv">{"".join(cards)}</div></section>')
+    total = len(cov)
+    jump = " ".join(f'<a href="#c{y}">{y}</a>' for y in cyears)
+    page("covers.html", "歌ってみた まとめ", f"Ado さんの歌ってみた {total} 曲を、ニコニコ動画・YouTube に最初に投稿された順にまとめました。",
+         f'''<section><h1>歌ってみた まとめ</h1><p class="lead">2017年の初投稿「君の体温」から今まで、Ado さんがニコニコ動画・YouTube に投稿した歌ってみたを、最初に投稿された日の順に並べました。ボタンを押すと各サービスの動画が開きます。</p>
+<div class="stats"><div><b>{total}</b>曲</div><div><b>{n_both}</b>両方に投稿</div><div><b>{n_nico_only}</b>ニコニコのみ</div><div><b>{cyears[0]}〜{cyears[-1]}</b>投稿年</div></div>
+<div class="flt"><button class="on" data-f="all">すべて</button><button data-f="nico">ニコニコのみ</button><button data-f="both">両方にある</button><button data-f="yt">YouTube のみ</button></div>
+<p style="margin:10px 0 0;font-size:14px">年へジャンプ: {jump}</p></section>
+{"".join(blocks)}
+<script>document.querySelectorAll('.flt button').forEach(function(b){{b.onclick=function(){{document.querySelectorAll('.flt button').forEach(function(x){{x.classList.toggle('on',x===b)}});var f=b.dataset.f;
+document.querySelectorAll('.cv .c').forEach(function(c){{c.style.display=(f==='all'||c.dataset.t===f)?'':'none'}});
+document.querySelectorAll('.yb').forEach(function(s){{s.style.display=[].some.call(s.querySelectorAll('.c'),function(c){{return c.style.display!=='none'}})?'':'none'}})}}}})</script>''',
+         crumb=["歌ってみた まとめ"])
 
     # 予定
     page("schedule.html", "これからの予定", "Ado さんのこれからのライブ・リリース・テレビ出演などの予定。毎週更新。",
