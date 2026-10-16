@@ -1,0 +1,422 @@
+[
+ {
+  "date": "2009",
+  "cat": "niconico",
+  "title": "ボカロ曲に出会う",
+  "note": "小学1年生のころ、いとこにすすめられたボカロ曲の動画をきっかけに VOCALOID の世界へ。",
+  "big": false
+ },
+ {
+  "date": "2015",
+  "cat": "niconico",
+  "title": "「歌い手」文化を知る",
+  "note": "小学校高学年でニコニコ動画の歌ってみた文化に興味を持つ。",
+  "big": false
+ },
+ {
+  "date": "2017-01-10",
+  "cat": "niconico",
+  "title": "ニコニコ動画に初投稿「君の体温」",
+  "note": "ボカロ曲の歌ってみたを投稿し、歌い手としての活動がスタート（当時14歳）。",
+  "big": true
+ },
+ {
+  "date": "2019-09-17",
+  "cat": "milestone",
+  "title": "Zepp DiverCity ワンマンを目標に宣言",
+  "note": "YouTube 生配信で、Zepp DiverCity でのワンマンライブ開催を目標に掲げる。",
+  "big": true
+ },
+ {
+  "date": "2019-12-23",
+  "cat": "feat",
+  "title": "くじら「金木犀 feat. Ado」",
+  "note": "ボカロPのくじらの楽曲にボーカル参加。",
+  "big": false
+ },
+ {
+  "date": "2020-03-29",
+  "cat": "feat",
+  "title": "jon-YAKITORY「シカバネーゼ」",
+  "note": "Spotify バイラルチャートで1位に。デビュー前から注目が集まる。",
+  "big": true
+ },
+ {
+  "date": "2020-05-06",
+  "cat": "release",
+  "title": "「コールボーイ」「絶え間なく藍色」を配信",
+  "note": "歌ってみたカバーを配信リリース。",
+  "big": false
+ },
+ {
+  "date": "2020-08-14",
+  "cat": "feat",
+  "title": "biz「東亰カニバリズム」",
+  "note": "デビュー前にボカロPの楽曲へ参加が続く。",
+  "big": false
+ },
+ {
+  "date": "2020-10",
+  "cat": "milestone",
+  "title": "クラウドナインに所属",
+  "note": "マネジメント事務所がクラウドナインに。",
+  "big": false
+ },
+ {
+  "date": "2020-10-15",
+  "cat": "milestone",
+  "title": "ユニバーサル ミュージックからメジャーデビュー発表",
+  "note": "レーベルは Virgin Music。",
+  "big": false
+ },
+ {
+  "date": "2020-10-23",
+  "cat": "release",
+  "title": "「うっせぇわ」でメジャーデビュー",
+  "note": "syudou 提供。社会現象となり、Ado の名前が一気に広まる。",
+  "big": true
+ },
+ {
+  "date": "2020-12-24",
+  "cat": "release",
+  "title": "「レディメイド」",
+  "note": "すりぃ 提供の2ndシングル。",
+  "big": false
+ },
+ {
+  "date": "2021-01-22",
+  "cat": "media",
+  "title": "ミュージックステーションに電話出演",
+  "note": "テレビ初出演。",
+  "big": false
+ },
+ {
+  "date": "2021-02-14",
+  "cat": "release",
+  "title": "「ギラギラ」",
+  "note": "てにをは 提供。",
+  "big": false
+ },
+ {
+  "date": "2021-03-15",
+  "cat": "award",
+  "title": "「うっせぇわ」Billboard JAPAN 総合1位",
+  "note": "初の総合首位。MV は同月に1億回再生を突破。",
+  "big": true
+ },
+ {
+  "date": "2021-04-27",
+  "cat": "release",
+  "title": "「踊」",
+  "note": "作詞 DECO*27、作曲 Giga・TeddyLoid。",
+  "big": false
+ },
+ {
+  "date": "2021-06-14",
+  "cat": "release",
+  "title": "「夜のピエロ」",
+  "note": "biz 提供。",
+  "big": false
+ },
+ {
+  "date": "2021-08-12",
+  "cat": "release",
+  "title": "「会いたくて」",
+  "note": "みゆはん・みきとP 提供。",
+  "big": false
+ },
+ {
+  "date": "2021-10-28",
+  "cat": "release",
+  "title": "「阿修羅ちゃん」",
+  "note": "Neru 提供。",
+  "big": false
+ },
+ {
+  "date": "2021-12-01",
+  "cat": "award",
+  "title": "新語・流行語大賞 トップテン",
+  "note": "「うっせぇわ」が選ばれる。",
+  "big": false
+ },
+ {
+  "date": "2021-12-30",
+  "cat": "award",
+  "title": "第63回日本レコード大賞 特別賞",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2022-01-26",
+  "cat": "release",
+  "title": "1st アルバム『狂言』",
+  "note": "「心という名の不可解」などを収録。",
+  "big": true
+ },
+ {
+  "date": "2022-04-04",
+  "cat": "live",
+  "title": "初ワンマンライブ「喜劇」",
+  "note": "Zepp DiverCity。2019年に宣言した目標をかなえる。同日に公式ファンクラブもオープン。",
+  "big": true
+ },
+ {
+  "date": "2022-06-08",
+  "cat": "release",
+  "title": "「新時代」（ウタ from ONE PIECE FILM RED）",
+  "note": "Ayase 提供。世界的なヒットに。",
+  "big": true
+ },
+ {
+  "date": "2022-08-06",
+  "cat": "tieup",
+  "title": "映画『ONE PIECE FILM RED』公開",
+  "note": "歌姫ウタの歌唱キャストを担当。",
+  "big": true
+ },
+ {
+  "date": "2022-08-10",
+  "cat": "release",
+  "title": "『ウタの歌 ONE PIECE FILM RED』",
+  "note": "映画の劇中歌アルバム。",
+  "big": false
+ },
+ {
+  "date": "2022-08-11",
+  "cat": "live",
+  "title": "2nd LIVE「カムパネルラ」",
+  "note": "さいたまスーパーアリーナ。",
+  "big": true
+ },
+ {
+  "date": "2022-09-14",
+  "cat": "media",
+  "title": "「Ado のオールナイトニッポン」初放送",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2022-10-24",
+  "cat": "milestone",
+  "title": "米 Geffen Records とパートナー契約",
+  "note": "海外展開の足がかりに。",
+  "big": false
+ },
+ {
+  "date": "2022-12-02",
+  "cat": "live",
+  "title": "LIVE TOUR 2022-2023「蜃気楼」開幕",
+  "note": "6会場10公演（〜2023年1月）。",
+  "big": false
+ },
+ {
+  "date": "2023-02-20",
+  "cat": "release",
+  "title": "「アタシは問題作」",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2023-04-03",
+  "cat": "media",
+  "title": "オールナイトニッポン 月曜1部パーソナリティに",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2023-06-29",
+  "cat": "live",
+  "title": "全国ツアー 2023「マーズ」開幕",
+  "note": "11会場14公演。日本武道館公演も。",
+  "big": true
+ },
+ {
+  "date": "2023-07-11",
+  "cat": "release",
+  "title": "「向日葵」",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2023-09-06",
+  "cat": "release",
+  "title": "「唱」",
+  "note": "USJ ハロウィーンとのコラボ曲。Billboard JAPAN 総合首位。",
+  "big": true
+ },
+ {
+  "date": "2023-10-05",
+  "cat": "tieup",
+  "title": "「クラクラ」（SPY×FAMILY Season 2）",
+  "note": "アニメ主題歌。",
+  "big": false
+ },
+ {
+  "date": "2023-12-13",
+  "cat": "release",
+  "title": "『Ado の歌ってみたアルバム』",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2023-12-31",
+  "cat": "media",
+  "title": "NHK 紅白歌合戦 初出場",
+  "note": "京都・東本願寺から「唱」を披露。",
+  "big": true
+ },
+ {
+  "date": "2024-01-31",
+  "cat": "release",
+  "title": "「ショコラカタブラ」",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2024-02-04",
+  "cat": "live",
+  "title": "初の世界ツアー「Wish」開幕",
+  "note": "アジア・欧州・北米をめぐる（〜4月）。",
+  "big": true
+ },
+ {
+  "date": "2024-04-19",
+  "cat": "book",
+  "title": "小説『アドロイド』刊行",
+  "note": "てにをは 著。Ado の「前世」を描く SF。",
+  "big": false
+ },
+ {
+  "date": "2024-04-27",
+  "cat": "live",
+  "title": "国立競技場「心臓」",
+  "note": "女性ソロアーティストとして史上初の国立競技場公演。2日間で14万人。",
+  "big": true
+ },
+ {
+  "date": "2024-06-26",
+  "cat": "milestone",
+  "title": "プロデュースするファントムシータがデビュー",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2024-07-10",
+  "cat": "release",
+  "title": "2nd アルバム『残夢』",
+  "note": "",
+  "big": true
+ },
+ {
+  "date": "2024-07-14",
+  "cat": "live",
+  "title": "JAPAN TOUR 2024「モナ・リザの横顔」開幕",
+  "note": "9会場18公演（〜12月）。",
+  "big": false
+ },
+ {
+  "date": "2024-10-24",
+  "cat": "release",
+  "title": "初の CD シングル「桜日和とタイムマシン with 初音ミク／初夏」",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2024-12-06",
+  "cat": "tieup",
+  "title": "「Episode X」（映画『劇場版ドクターX』主題歌）",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2025-01-24",
+  "cat": "tieup",
+  "title": "「エルフ」（ドラマ『クジャクのダンス、誰が見た？』主題歌）",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2025-04-09",
+  "cat": "release",
+  "title": "『Ado のベストアドバム』",
+  "note": "",
+  "big": true
+ },
+ {
+  "date": "2025-04-26",
+  "cat": "live",
+  "title": "世界ツアー「Hibana」開幕",
+  "note": "5大陸33会場34公演。日本人アーティスト史上最大規模のワールドツアー（〜8月）。",
+  "big": true
+ },
+ {
+  "date": "2025-09-26",
+  "cat": "tieup",
+  "title": "アニメ『キャッツ♥アイ』主題歌「MAGIC」ほか",
+  "note": "Disney+ の新作アニメ。",
+  "big": false
+ },
+ {
+  "date": "2025-11-11",
+  "cat": "live",
+  "title": "初のドームツアー「よだか」",
+  "note": "東京ドーム・京セラドーム大阪 各2公演。",
+  "big": true
+ },
+ {
+  "date": "2026-02-18",
+  "cat": "release",
+  "title": "自作曲「ビバリウム」",
+  "note": "作詞・作曲 Ado。2月26日に自伝的小説『ビバリウム Ado と私』、28日に初の実写 MV。",
+  "big": true
+ },
+ {
+  "date": "2026-04-22",
+  "cat": "release",
+  "title": "「綺羅」",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2026-07-04",
+  "cat": "live",
+  "title": "日産スタジアム「Ao」",
+  "note": "2日間で14万人。国内最大キャパでの単独公演。",
+  "big": true
+ },
+ {
+  "date": "2026-08-02",
+  "cat": "live",
+  "title": "米「Lollapalooza 2026」初出演",
+  "note": "シカゴ。ステージのトリを務める。",
+  "big": true
+ },
+ {
+  "date": "2026-08-15",
+  "cat": "live",
+  "title": "SUMMER SONIC 2026 出演",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2026-09-25",
+  "cat": "release",
+  "title": "「DND feat. KUROMI」",
+  "note": "",
+  "big": false
+ },
+ {
+  "date": "2026-10-14",
+  "cat": "feat",
+  "title": "TMG『TMG III SAYONARA』に参加",
+  "note": "参加曲「SAYONARA」。",
+  "big": false
+ },
+ {
+  "date": "2026-10-16",
+  "cat": "release",
+  "title": "「Raven Sky」配信",
+  "note": "映画『バッド・ルーテナント：トウキョウ』主題歌。",
+  "big": true
+ }
+]
