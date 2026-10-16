@@ -2,8 +2,10 @@
 """Ado 非公式ワクワク秘密基地: data/timeline.json から docs/ に静的サイトを生成する。
 
 - data/timeline.json … 年表。{date: "YYYY" | "YYYY-MM" | "YYYY-MM-DD", cat, title, note, big}
-  cat: niconico / feat / release / live / tieup / media / award / milestone / book
+  cat: niconico / feat / cover / release / live / tieup / media / award / milestone / book
   毎月の更新では、前の月のできごとをこのファイルに足して build.py を走らせる。
+  "videos": [mv.json のキー] があればその動画を、無ければタイトルの「」の曲名で mv.json を引いて表示する。
+  歌ってみたは tools/merge_covers.py がニコニコ動画・YouTube の投稿から曲ごとにまとめて入れる（最初の投稿日）。
 - これからの予定 … ~/knowledge-os/oshi-events.js（毎週月曜に更新される推しイベント一覧）から
   artist が Ado の行だけを docs/upcoming.js に書き出す。表示は今日以降だけを JS で絞る。
 - 画像 … 画像ファイルは置かない（公式素材の複製・転載をしないため）。
@@ -28,6 +30,7 @@ TODAY = date.today().isoformat()
 CATS = {
     "niconico": ("ニコニコ動画", "#22a7a0"),
     "feat": ("客演・参加", "#8b5cf6"),
+    "cover": ("歌ってみた", "#db2777"),
     "release": ("リリース", "#2563eb"),
     "live": ("ライブ・ツアー", "#e11d48"),
     "tieup": ("タイアップ", "#ea580c"),
@@ -133,7 +136,7 @@ def x_embed(url):
 def item(e, show_year=True):
     name, color = CATS.get(e["cat"], ("その他", "#64748b"))
     note = f'<p>{esc(e["note"])}</p>' if e.get("note") else ""
-    note += "".join(mv_card(k) for k in songs_in(e))
+    note += "".join(mv_card(k) for k in (e.get("videos") or songs_in(e)) if k in MV)
     if e.get("x"):
         note += x_embed(e["x"])
     star = ' big' if e.get("big") else ''
@@ -371,8 +374,8 @@ def build():
              f'<section>{timeline(ev, by_year=False)}<div class="pager">{pv}{nx}</div></section>', crumb=[f"{y}年"])
 
     # カテゴリページ
-    groups = {"release": {"release", "feat", "book"}, "live": {"live"}, "tieup": {"tieup", "media", "award"}}
-    leads = {"release": "配信シングル・アルバム・客演・本のできごと。", "live": "ワンマンライブ・ツアー・フェス出演の記録。",
+    groups = {"release": {"release", "feat", "book", "cover"}, "live": {"live"}, "tieup": {"tieup", "media", "award"}}
+    leads = {"release": "配信シングル・アルバム・客演・歌ってみた・本のできごと。", "live": "ワンマンライブ・ツアー・フェス出演の記録。",
              "tieup": "映画・アニメ・ドラマのタイアップ、テレビ・ラジオ出演、受賞と記録。"}
     for k, t in CAT_PAGES:
         ev = [x for x in T if x["cat"] in groups[k]]
@@ -389,7 +392,13 @@ def build():
     for kind, lead in [("オリジナル", "オリジナル曲の MV"), ("ウタ", "映画『ONE PIECE FILM RED』ウタの歌唱曲"),
                        ("feat", "feat.・客演（ボカロP・アーティストの公式動画）"), ("歌ってみた", "歌ってみた・カバー"),
                        ("ニコニコのみ", "ニコニコ動画だけの歌ってみた")]:
-        cards = "".join(gcard(m) for m in sorted((m for m in MV.values() if m["kind"] == kind), key=lambda m: m.get("nico", "zz") if kind == "ニコニコのみ" else 0))
+        seen, ms = set(), []
+        for m in sorted((m for m in MV.values() if m["kind"] == kind),
+                        key=lambda m: min(m.get("nico_date") or "9", m.get("yt_date") or "9") if kind in ("歌ってみた", "ニコニコのみ") else ""):
+            vid = m.get("id") or m.get("nico")
+            if vid not in seen:
+                seen.add(vid); ms.append(m)
+        cards = "".join(gcard(m) for m in ms)
         sec.append(f'<section><h2 class="sec-t">{lead}</h2><div class="mvgrid">{cards}</div></section>')
     page("mv.html", "MV ギャラリー", "Ado さんの MV を、YouTube 公式チャンネルへのリンクでまとめました。",
          '<section><h1>MV ギャラリー</h1><p class="lead">サムネイルを押すと、YouTube（Ado 公式チャンネル・各アーティスト公式）またはニコニコ動画で動画が開きます。</p></section>' + "".join(sec),

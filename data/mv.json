@@ -4,7 +4,9 @@
   "title": "【Ado】君の体温 歌いました",
   "kind": "歌ってみた",
   "nico": "sm30407954",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/30407954/30407954.M"
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/30407954/30407954.M",
+  "nico_date": "2017-01-10",
+  "yt_date": "2021-01-10"
  },
  "コールボーイ": {
   "id": "vLa60E1AcWY",
@@ -185,24 +187,29 @@
  "神っぽいな": {
   "id": "7i_nc5GGIsI",
   "title": "【Ado】 神っぽいな 歌いました",
-  "kind": "歌ってみた"
+  "kind": "歌ってみた",
+  "yt_date": "2022-07-24"
  },
  "ボッカデラベリタ": {
   "id": "X9aKVLPoKJk",
   "title": "【Ado】ボッカデラベリタ 歌いました",
   "kind": "歌ってみた",
   "nico": "sm36966835",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/36966835/36966835.96271232.M"
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/36966835/36966835.96271232.M",
+  "nico_date": "2020-06-02",
+  "yt_date": "2020-06-02"
  },
  "Overdose": {
   "id": "sGNkT6XyQRc",
   "title": "【Ado】Overdose 歌いました",
-  "kind": "歌ってみた"
+  "kind": "歌ってみた",
+  "yt_date": "2023-03-10"
  },
  "unravel": {
   "id": "eZuDklxsaRg",
   "title": "【Ado】unravel 歌いました",
-  "kind": "歌ってみた"
+  "kind": "歌ってみた",
+  "yt_date": "2023-11-15"
  },
  "ラブカ": {
   "id": "YTQV48V44Sw",
@@ -212,7 +219,8 @@
  "千本桜": {
   "id": "3tPBEjxqEc4",
   "title": "「千本桜」ver. Ado (Limited Special Track)",
-  "kind": "歌ってみた"
+  "kind": "歌ってみた",
+  "yt_date": "2021-12-29"
  },
  "風のゆくえ": {
   "id": "YO-rXgQKlF8",
@@ -227,66 +235,14 @@
  "ブリキノダンス": {
   "id": "iL7uoLCbJoc",
   "title": "【Ado】ブリキノダンス 歌いました",
-  "kind": "歌ってみた"
+  "kind": "歌ってみた",
+  "yt_date": "2023-11-29"
  },
  "罪と罰": {
   "id": "x1UsJ2Znjk0",
   "title": "【Ado】罪と罰 歌いました",
-  "kind": "歌ってみた"
- },
- "スターナイトスノウ": {
-  "title": "【春だけど】スターナイトスノウ歌ってみた【Adovantage】",
-  "kind": "ニコニコのみ",
-  "nico": "sm31014792",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/31014792/31014792.M"
- },
- "Strangers": {
-  "title": "Strangers歌いました【Adorment】",
-  "kind": "ニコニコのみ",
-  "nico": "sm31324700",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/31324700/31324700.M"
- },
- "深昏睡": {
-  "title": "深昏睡　歌いました /Adoventure",
-  "kind": "ニコニコのみ",
-  "nico": "sm32488469",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/32488469/32488469.M"
- },
- "わたしのアール": {
-  "title": "わたしのアール   歌ってみた【Adovice】",
-  "kind": "ニコニコのみ",
-  "nico": "sm32677441",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/32677441/32677441.M"
- },
- "バッド・ダンス・ホール": {
-  "title": "バッド・ダンス・ホール歌ってみた【Adovisory】",
-  "kind": "ニコニコのみ",
-  "nico": "sm32932556",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/32932556/32932556.M"
- },
- "daze": {
-  "title": "【Ado】daze 歌いました",
-  "kind": "ニコニコのみ",
-  "nico": "sm39184906",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39184906/39184906.39334220.M"
- },
- "Birthday Song for ミク": {
-  "title": "【Ado】Birthday Song for ミク 歌いました",
-  "kind": "ニコニコのみ",
-  "nico": "sm41007685",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/41007685/41007685.89885109.M"
- },
- "命短し恋せよ乙女": {
-  "title": "【Ado】命短し恋せよ乙女 歌いました",
-  "kind": "ニコニコのみ",
-  "nico": "sm41216131",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/41216131/41216131.23034764.M"
- },
- "レイジー・クルーズ": {
-  "title": "【Adoと初音ミク】レイジー・クルーズ 歌いました",
-  "kind": "ニコニコのみ",
-  "nico": "sm44043254",
-  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/44043254/44043254.28138438.M"
+  "kind": "歌ってみた",
+  "yt_date": "2022-07-24"
  },
  "金木犀": {
   "id": "Baw-cAvS5xc",
@@ -381,5 +337,527 @@
   "title": "Stay Gold (from BEYBLADE X)",
   "kind": "feat",
   "by": "Jax Jones"
+ },
+ "cover:スターナイトスノウ": {
+  "title": "【春だけど】スターナイトスノウ歌ってみた【Adovantage】",
+  "kind": "ニコニコのみ",
+  "nico": "sm31014792",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/31014792/31014792.M",
+  "nico_date": "2017-04-12"
+ },
+ "cover:Strangers": {
+  "title": "Strangers歌いました【Adorment】",
+  "kind": "ニコニコのみ",
+  "nico": "sm31324700",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/31324700/31324700.M",
+  "nico_date": "2017-06-02"
+ },
+ "cover:キライ・キライ・ジガヒダイ!": {
+  "title": "キライ・キライ・ジガヒダイ！歌ってみた【Adoballoon】",
+  "kind": "歌ってみた",
+  "nico": "sm31757098",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/31757098/31757098.M",
+  "nico_date": "2017-08-16",
+  "id": "gmJiYoRhO5g",
+  "yt_date": "2018-08-26"
+ },
+ "cover:深昏睡": {
+  "title": "深昏睡　歌いました /Adoventure",
+  "kind": "ニコニコのみ",
+  "nico": "sm32488469",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/32488469/32488469.M",
+  "nico_date": "2017-12-27"
+ },
+ "cover:わたしのアール": {
+  "title": "わたしのアール   歌ってみた【Adovice】",
+  "kind": "ニコニコのみ",
+  "nico": "sm32677441",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/32677441/32677441.M",
+  "nico_date": "2018-02-02"
+ },
+ "cover:バッド・ダンス・ホール": {
+  "title": "バッド・ダンス・ホール歌ってみた【Adovisory】",
+  "kind": "ニコニコのみ",
+  "nico": "sm32932556",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/32932556/32932556.M",
+  "nico_date": "2018-03-23"
+ },
+ "cover:うみなおし": {
+  "title": "【Adokin】うみなおし歌ってみた",
+  "kind": "歌ってみた",
+  "nico": "sm33192595",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/33192595/33192595.M",
+  "nico_date": "2018-05-11",
+  "id": "cfVYSHvAhaQ",
+  "yt_date": "2018-08-26"
+ },
+ "cover:恋愛裁判": {
+  "title": "【ネタ尽きたから誰か名前考えて】恋愛裁判  歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm33404706",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/33404706/33404706.M",
+  "nico_date": "2018-06-22",
+  "id": "iHIrEqU5cwM",
+  "yt_date": "2018-08-26"
+ },
+ "cover:アクシデントコーディネイター": {
+  "title": "【Adoviser】アクシデントコーディネイター　歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm33709059",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/33709059/33709059.M",
+  "nico_date": "2018-08-18",
+  "id": "R8SsFdv35Dg",
+  "yt_date": "2018-08-27"
+ },
+ "cover:アクシデントコーディネイター（Re）": {
+  "title": "【Ado】アクシデントコーディネイター 歌いました【Re】",
+  "kind": "歌ってみた",
+  "id": "o0eEFR6Q9as",
+  "yt_date": "2024-08-01"
+ },
+ "cover:メルティランドナイトメア": {
+  "title": "【Adorty】メルティランドナイトメア　歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm33817960",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/33817960/33817960.M",
+  "nico_date": "2018-09-07",
+  "id": "OZYqBsmtwuA",
+  "yt_date": "2018-10-05"
+ },
+ "cover:アディショナルメモリー": {
+  "title": "【Ado】アディショナルメモリー歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm33955760",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/33955760/33955760.M",
+  "nico_date": "2018-10-02",
+  "id": "h1q7BNK5U9A",
+  "yt_date": "2018-12-15"
+ },
+ "cover:エゴロック": {
+  "title": "【誕生日に】エゴロック歌いました【Ado】",
+  "kind": "歌ってみた",
+  "nico": "sm34065291",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/34065291/34065291.M",
+  "nico_date": "2018-10-23",
+  "id": "V37DacsS_Wg",
+  "yt_date": "2018-12-15"
+ },
+ "cover:エゴロック（long ver.）": {
+  "title": "【Ado】エゴロック(long ver.)　歌いました",
+  "kind": "歌ってみた",
+  "id": "TbOLDRuKsgA",
+  "yt_date": "2025-07-05"
+ },
+ "cover:乙女解剖": {
+  "title": "【Ado】乙女解剖歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm34609548",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/34609548/34609548.15116.M",
+  "nico_date": "2019-02-10",
+  "id": "N5cSFdGANVc",
+  "yt_date": "2019-02-11"
+ },
+ "cover:脳内革命ガール（ワンコーラス）": {
+  "title": "【Ado】脳内革命ガール 歌いました【ワンコーラス】",
+  "kind": "歌ってみた",
+  "id": "qL3chh5M5d0",
+  "yt_date": "2018-08-26"
+ },
+ "cover:脳内革命ガール": {
+  "title": "【Ado】脳内革命ガール歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm34963457",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/34963457/34963457.22468.M",
+  "nico_date": "2019-04-13",
+  "id": "tYMSo9gW8Ks",
+  "yt_date": "2019-04-15"
+ },
+ "cover:邪魔": {
+  "title": "【オリジナルMV】邪魔 歌いました 【Ado】",
+  "kind": "歌ってみた",
+  "nico": "sm35298513",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/35298513/35298513.29254940.M",
+  "nico_date": "2019-06-22",
+  "id": "6uR_UxqGoug",
+  "yt_date": "2019-06-22"
+ },
+ "cover:ハングリーニコル": {
+  "title": "【Ado】ハングリーニコル歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm35487853",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/35487853/35487853.95256904.M",
+  "nico_date": "2019-08-03",
+  "id": "8Lf_sgxIWlg",
+  "yt_date": "2019-08-03"
+ },
+ "cover:bin": {
+  "title": "【オリジナルMV】bin 歌いました 【Ado】",
+  "kind": "歌ってみた",
+  "nico": "sm35680631",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/35680631/35680631.29684007.M",
+  "nico_date": "2019-09-14",
+  "id": "NfkXMkJV98A",
+  "yt_date": "2019-09-14"
+ },
+ "cover:バスケットワーム": {
+  "title": "【Ado】バスケットワーム 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm35926740",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/35926740/35926740.8695927.M",
+  "nico_date": "2019-11-08",
+  "id": "A4fcb5LV1F8",
+  "yt_date": "2019-11-08"
+ },
+ "cover:ラストリゾート": {
+  "title": "【オリジナルMV】ラストリゾート 歌いました【Ado】",
+  "kind": "歌ってみた",
+  "nico": "sm36511466",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/36511466/36511466.22488553.M",
+  "nico_date": "2020-03-14",
+  "id": "slcfa-0urok",
+  "yt_date": "2020-03-14"
+ },
+ "cover:馬鹿": {
+  "title": "【オリジナルMV】馬鹿 歌いました【Ado】",
+  "kind": "歌ってみた",
+  "nico": "sm37074770",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37074770/37074770.99354050.M",
+  "nico_date": "2020-06-22",
+  "id": "aOIrxUTBRgs",
+  "yt_date": "2020-06-22"
+ },
+ "cover:ヒステリックナイトガール": {
+  "title": "【Ado】ヒステリックナイトガール 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm37244891",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37244891/37244891.8559661.M",
+  "nico_date": "2020-07-25",
+  "id": "UoGacSBPYPc",
+  "yt_date": "2020-07-25"
+ },
+ "cover:半色の感傷": {
+  "title": "半色の感傷 feat Ado",
+  "kind": "歌ってみた",
+  "nico": "sm37524925",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37524925/37524925.42118744.M",
+  "nico_date": "2020-09-15",
+  "id": "n_sDtV5oZR0",
+  "yt_date": "2020-09-15"
+ },
+ "cover:Limbo": {
+  "title": "Limbo feat Ado",
+  "kind": "歌ってみた",
+  "nico": "sm37544884",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37544884/37544884.98330000.M",
+  "nico_date": "2020-09-19",
+  "id": "13dECLUD-5Q",
+  "yt_date": "2020-09-19"
+ },
+ "cover:Sunny Wave": {
+  "title": "【Ado】Sunny Wave 歌いました",
+  "kind": "歌ってみた",
+  "id": "1M_A3OIEceg",
+  "yt_date": "2020-09-20",
+  "nico": "sm37552768",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37552768/37552768.36702708.M",
+  "nico_date": "2020-09-21"
+ },
+ "cover:ブラック★ロックシューター": {
+  "title": "【Adolescent】ブラック★ロックシューター歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm37943786",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/37943786/37943786.19344145.M",
+  "nico_date": "2020-12-11",
+  "id": "nMpD5q5wqPM",
+  "yt_date": "2020-12-13"
+ },
+ "cover:恋は戦争": {
+  "title": "【Adorably】恋は戦争 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm38625475",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/38625475/38625475.94506308.M",
+  "nico_date": "2021-04-24",
+  "id": "1OI4Bp8fGYw",
+  "yt_date": "2021-05-08"
+ },
+ "cover:16ビットガール": {
+  "title": "【Adoressee】16ビットガール 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm38819183",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/38819183/38819183.37976065.M",
+  "nico_date": "2021-05-31",
+  "id": "UcpAHDF8yZI",
+  "yt_date": "2021-05-31"
+ },
+ "cover:アンチシステム’s": {
+  "title": "【Ado】アンチシステム’s 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm39034701",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39034701/39034701.58547440.M",
+  "nico_date": "2021-07-15",
+  "id": "P12337hMnbI",
+  "yt_date": "2021-07-15"
+ },
+ "cover:daze": {
+  "title": "【Ado】daze 歌いました",
+  "kind": "ニコニコのみ",
+  "nico": "sm39184906",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39184906/39184906.39334220.M",
+  "nico_date": "2021-08-15"
+ },
+ "cover:ザネリ": {
+  "title": "【Ado】ザネリ 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm39237042",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39237042/39237042.56091479.M",
+  "nico_date": "2021-08-25",
+  "id": "pWZwiUaA0O8",
+  "yt_date": "2021-08-25"
+ },
+ "cover:よくばり": {
+  "title": "【Ado】よくばり 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm39291989",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39291989/39291989.9655810.M",
+  "nico_date": "2021-09-05",
+  "id": "y-dMrhGdCms",
+  "yt_date": "2021-09-05"
+ },
+ "cover:アダムとイブになれたら": {
+  "title": "【Ado】アダムとイブになれたら 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm39473166",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39473166/39473166.99526670.M",
+  "nico_date": "2021-10-14",
+  "id": "PcA3BIzKxiw",
+  "yt_date": "2021-10-16"
+ },
+ "cover:シザーハンズ": {
+  "title": "【Adoringly】シザーハンズ 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm39473254",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39473254/39473254.58599799.M",
+  "nico_date": "2021-10-15",
+  "id": "Flw53ezXBYg",
+  "yt_date": "2021-10-17"
+ },
+ "cover:Snow Song Show": {
+  "title": "【Ado】Snow Song Show 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm39801159",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39801159/39801159.2557457.M",
+  "nico_date": "2021-12-25",
+  "id": "nuvNgt60km4",
+  "yt_date": "2021-12-25"
+ },
+ "cover:嗚呼、素晴らしきニャン生": {
+  "title": "【Ado】嗚呼、素晴らしきニャン生 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm39862242",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39862242/39862242.61398536.M",
+  "nico_date": "2022-01-06",
+  "id": "Uuqp7WH4-Wo",
+  "yt_date": "2022-01-06"
+ },
+ "cover:ラブ&デストロイ": {
+  "title": "【Ado】ラブ＆デストロイ歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm39897865",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/39897865/39897865.65786739.M",
+  "nico_date": "2022-01-14",
+  "id": "wuYIVacOTF8",
+  "yt_date": "2022-01-14"
+ },
+ "cover:ダーリンダンス": {
+  "title": "【Ado】ダーリンダンス 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm40384398",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/40384398/40384398.70125084.M",
+  "nico_date": "2022-04-28",
+  "id": "2EmstVQeEiA",
+  "yt_date": "2022-11-26"
+ },
+ "cover:東京は夜": {
+  "title": "【Adoと初音ミク】東京は夜 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm40970907",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/40970907/40970907.24774734.M",
+  "nico_date": "2022-08-23",
+  "id": "1UVwsed3JQU",
+  "yt_date": "2022-08-23"
+ },
+ "cover:Birthday Song for ミク": {
+  "title": "【Ado】Birthday Song for ミク 歌いました",
+  "kind": "ニコニコのみ",
+  "nico": "sm41007685",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/41007685/41007685.89885109.M",
+  "nico_date": "2022-08-31"
+ },
+ "cover:命短し恋せよ乙女": {
+  "title": "【Ado】命短し恋せよ乙女 歌いました",
+  "kind": "ニコニコのみ",
+  "nico": "sm41216131",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/41216131/41216131.23034764.M",
+  "nico_date": "2022-10-11"
+ },
+ "cover:新人類": {
+  "title": "【Ado】新人類 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm42533796",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/42533796/42533796.36609459.M",
+  "nico_date": "2023-07-27",
+  "id": "eoV6Cb8sYGs",
+  "yt_date": "2023-07-27"
+ },
+ "cover:インタビュア": {
+  "title": "【Ado】インタビュア 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm42963620",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/42963620/42963620.48792796.M",
+  "nico_date": "2023-10-31",
+  "id": "LyorMhAGkxE",
+  "yt_date": "2023-10-31"
+ },
+ "cover:レイジー・クルーズ": {
+  "title": "【Adoと初音ミク】レイジー・クルーズ 歌いました",
+  "kind": "ニコニコのみ",
+  "nico": "sm44043254",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/44043254/44043254.28138438.M",
+  "nico_date": "2024-08-31"
+ },
+ "cover:シュガーバイン": {
+  "title": "【Ado】シュガーバイン 歌いました",
+  "kind": "歌ってみた",
+  "nico": "sm44137296",
+  "nico_thumb": "https://nicovideo.cdn.nimg.jp/thumbnails/44137296/44137296.82537478.M",
+  "nico_date": "2024-09-23",
+  "id": "OyrXt_XnHEE",
+  "yt_date": "2024-09-23"
+ },
+ "cover:Fairytale": {
+  "title": "【Ado】Fairytale,歌いました",
+  "kind": "歌ってみた",
+  "id": "MhViuFoLkbs",
+  "yt_date": "2026-08-25"
+ },
+ "cover:え?あぁ、そう。": {
+  "title": "【茨薔薇咲アドヲ】え？あぁ、そう。　歌いました",
+  "kind": "歌ってみた",
+  "id": "u_xepAGGEGM",
+  "yt_date": "2026-03-31"
+ },
+ "cover:彗星列車のベルが鳴る": {
+  "title": "【Ado】彗星列車のベルが鳴る 歌いました",
+  "kind": "歌ってみた",
+  "id": "j3nwow5QXkw",
+  "yt_date": "2025-12-12"
+ },
+ "cover:勇気のReason": {
+  "title": "【Ado】勇気のReason 歌いました",
+  "kind": "歌ってみた",
+  "id": "JC0R7B3VRiA",
+  "yt_date": "2025-10-04"
+ },
+ "cover:夏夜のマジック": {
+  "title": "【Ado】夏夜のマジック 歌いました",
+  "kind": "歌ってみた",
+  "id": "4NA6FJOCmjE",
+  "yt_date": "2025-09-20"
+ },
+ "cover:怪盗・窪園チヨコは絶対ミスらない": {
+  "title": "【Ado】怪盗・窪園チヨコは絶対ミスらない　歌いました",
+  "kind": "歌ってみた",
+  "id": "Wjzd6O_CsEc",
+  "yt_date": "2025-07-26"
+ },
+ "cover:橙ゲノム": {
+  "title": "【Ado】橙ゲノム 歌いました",
+  "kind": "歌ってみた",
+  "id": "dir5nFkhpcc",
+  "yt_date": "2025-07-22"
+ },
+ "cover:従属ふりったー": {
+  "title": "【Ado】従属ふりったー　歌いました",
+  "kind": "歌ってみた",
+  "id": "Tbi4kahNcdc",
+  "yt_date": "2025-07-12"
+ },
+ "cover:ヒバナ": {
+  "title": "【Ado】ヒバナ 歌いました",
+  "kind": "歌ってみた",
+  "id": "EFsSYiNl2AQ",
+  "yt_date": "2025-04-25"
+ },
+ "cover:とても素敵な六月でした": {
+  "title": "【Ado】とても素敵な六月でした 歌いました",
+  "kind": "歌ってみた",
+  "id": "5cUq9qgez5w",
+  "yt_date": "2024-06-30"
+ },
+ "cover:渇愛論II": {
+  "title": "【Ado】渇愛論II 歌いました",
+  "kind": "歌ってみた",
+  "id": "kRZ9y2yqjxQ",
+  "yt_date": "2024-06-27"
+ },
+ "cover:夜のくじら": {
+  "title": "【Ado】夜のくじら 歌いました",
+  "kind": "歌ってみた",
+  "id": "ZErhdHtPar0",
+  "yt_date": "2024-03-25"
+ },
+ "cover:メーベル（ワンコーラス）": {
+  "title": "【Ado】メーベル 歌いました【ワンコーラス】",
+  "kind": "歌ってみた",
+  "id": "hOxAQO57zyY",
+  "yt_date": "2018-08-26"
+ },
+ "cover:メーベル": {
+  "title": "【Ado】メーベル 歌いました",
+  "kind": "歌ってみた",
+  "id": "CdcSSJZS89w",
+  "yt_date": "2024-01-10"
+ },
+ "cover:カルチャ": {
+  "title": "【Adoと初音ミク】カルチャ 歌いました #MikuChallenge",
+  "kind": "歌ってみた",
+  "id": "13ZBjvLH9NE",
+  "yt_date": "2023-11-03"
+ },
+ "cover:Blue Flame": {
+  "title": "【Ado】Blue Flame cover (원곡：LE SSERAFIM)",
+  "kind": "歌ってみた",
+  "id": "OqmvHWZ2dhc",
+  "yt_date": "2023-11-01"
+ },
+ "cover:Ready Steady": {
+  "title": "【Adoと吉乃と弱酸性】Ready Steady 歌いました",
+  "kind": "歌ってみた",
+  "id": "lZwThdw6IYA",
+  "yt_date": "2023-07-28"
+ },
+ "cover:プリキュア5、スマイル go go!": {
+  "title": "【Ado】プリキュア5、スマイル go go! 歌いました",
+  "kind": "歌ってみた",
+  "id": "LVgCDkzSJwI",
+  "yt_date": "2022-10-24"
+ },
+ "cover:Mr.シャーデンフロイデ": {
+  "title": "【合唱】Mr.シャーデンフロイデ 歌いました【AdoとGooDrugと黒うさぎと弱酸性と吉乃】",
+  "kind": "歌ってみた",
+  "id": "OSVLeArML9c",
+  "yt_date": "2022-09-24"
+ },
+ "cover:ラブカ?": {
+  "title": "【Ado】ラブカ？ 歌いました",
+  "kind": "歌ってみた",
+  "id": "YTQV48V44Sw",
+  "yt_date": "2020-12-11"
+ },
+ "cover:妄想感傷代償連盟（ワンコーラス）": {
+  "title": "【Ado】妄想感傷代償連盟 歌いました【ワンコーラス】",
+  "kind": "歌ってみた",
+  "id": "Io9gOyAlq9g",
+  "yt_date": "2018-08-26"
  }
 }

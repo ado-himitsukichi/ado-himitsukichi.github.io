@@ -18,42 +18,204 @@
   "cat": "niconico",
   "title": "ニコニコ動画に初投稿「君の体温」",
   "note": "ボカロ曲の歌ってみたを投稿し、歌い手としての活動がスタート（当時14歳）。",
-  "big": true
+  "big": true,
+  "videos": [
+   "君の体温"
+  ]
  },
  {
   "date": "2017-04-12",
-  "cat": "niconico",
-  "title": "「スターナイトスノウ」を歌ってみた（ニコニコ動画のみ）",
-  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
-  "big": false
+  "cat": "cover",
+  "title": "「スターナイトスノウ」を歌ってみた",
+  "note": "ニコニコ動画だけに投稿（YouTube にはありません）。",
+  "big": false,
+  "videos": [
+   "cover:スターナイトスノウ"
+  ]
  },
  {
   "date": "2017-06-02",
-  "cat": "niconico",
-  "title": "「Strangers」を歌ってみた（ニコニコ動画のみ）",
-  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
-  "big": false
+  "cat": "cover",
+  "title": "「Strangers」を歌ってみた",
+  "note": "ニコニコ動画だけに投稿（YouTube にはありません）。",
+  "big": false,
+  "videos": [
+   "cover:Strangers"
+  ]
+ },
+ {
+  "date": "2017-08-16",
+  "cat": "cover",
+  "title": "「キライ・キライ・ジガヒダイ!」を歌ってみた",
+  "note": "ニコニコ動画 2017年8月16日・YouTube 2018年8月26日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:キライ・キライ・ジガヒダイ!"
+  ]
  },
  {
   "date": "2017-12-27",
-  "cat": "niconico",
-  "title": "「深昏睡」を歌ってみた（ニコニコ動画のみ）",
-  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
-  "big": false
+  "cat": "cover",
+  "title": "「深昏睡」を歌ってみた",
+  "note": "ニコニコ動画だけに投稿（YouTube にはありません）。",
+  "big": false,
+  "videos": [
+   "cover:深昏睡"
+  ]
  },
  {
   "date": "2018-02-02",
-  "cat": "niconico",
-  "title": "「わたしのアール」を歌ってみた（ニコニコ動画のみ）",
-  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
-  "big": false
+  "cat": "cover",
+  "title": "「わたしのアール」を歌ってみた",
+  "note": "ニコニコ動画だけに投稿（YouTube にはありません）。",
+  "big": false,
+  "videos": [
+   "cover:わたしのアール"
+  ]
  },
  {
   "date": "2018-03-23",
-  "cat": "niconico",
-  "title": "「バッド・ダンス・ホール」を歌ってみた（ニコニコ動画のみ）",
-  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
-  "big": false
+  "cat": "cover",
+  "title": "「バッド・ダンス・ホール」を歌ってみた",
+  "note": "ニコニコ動画だけに投稿（YouTube にはありません）。",
+  "big": false,
+  "videos": [
+   "cover:バッド・ダンス・ホール"
+  ]
+ },
+ {
+  "date": "2018-05-11",
+  "cat": "cover",
+  "title": "「うみなおし」を歌ってみた",
+  "note": "ニコニコ動画 2018年5月11日・YouTube 2018年8月26日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:うみなおし"
+  ]
+ },
+ {
+  "date": "2018-06-22",
+  "cat": "cover",
+  "title": "「恋愛裁判」を歌ってみた",
+  "note": "ニコニコ動画 2018年6月22日・YouTube 2018年8月26日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:恋愛裁判"
+  ]
+ },
+ {
+  "date": "2018-08-18",
+  "cat": "cover",
+  "title": "「アクシデントコーディネイター」を歌ってみた",
+  "note": "ニコニコ動画 2018年8月18日・YouTube 2018年8月27日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:アクシデントコーディネイター",
+   "cover:アクシデントコーディネイター（Re）"
+  ]
+ },
+ {
+  "date": "2018-08-26",
+  "cat": "cover",
+  "title": "「脳内革命ガール」を歌ってみた",
+  "note": "ニコニコ動画 2019年4月13日・YouTube 2018年8月26日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:脳内革命ガール（ワンコーラス）",
+   "cover:脳内革命ガール"
+  ]
+ },
+ {
+  "date": "2018-08-26",
+  "cat": "cover",
+  "title": "「メーベル」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:メーベル（ワンコーラス）",
+   "cover:メーベル"
+  ]
+ },
+ {
+  "date": "2018-08-26",
+  "cat": "cover",
+  "title": "「妄想感傷代償連盟」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:妄想感傷代償連盟（ワンコーラス）"
+  ]
+ },
+ {
+  "date": "2018-09-07",
+  "cat": "cover",
+  "title": "「メルティランドナイトメア」を歌ってみた",
+  "note": "ニコニコ動画 2018年9月7日・YouTube 2018年10月5日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:メルティランドナイトメア"
+  ]
+ },
+ {
+  "date": "2018-10-02",
+  "cat": "cover",
+  "title": "「アディショナルメモリー」を歌ってみた",
+  "note": "ニコニコ動画 2018年10月2日・YouTube 2018年12月15日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:アディショナルメモリー"
+  ]
+ },
+ {
+  "date": "2018-10-23",
+  "cat": "cover",
+  "title": "「エゴロック」を歌ってみた",
+  "note": "ニコニコ動画 2018年10月23日・YouTube 2018年12月15日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:エゴロック",
+   "cover:エゴロック（long ver.）"
+  ]
+ },
+ {
+  "date": "2019-02-10",
+  "cat": "cover",
+  "title": "「乙女解剖」を歌ってみた",
+  "note": "ニコニコ動画 2019年2月10日・YouTube 2019年2月11日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:乙女解剖"
+  ]
+ },
+ {
+  "date": "2019-06-22",
+  "cat": "cover",
+  "title": "「邪魔」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:邪魔"
+  ]
+ },
+ {
+  "date": "2019-08-03",
+  "cat": "cover",
+  "title": "「ハングリーニコル」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:ハングリーニコル"
+  ]
+ },
+ {
+  "date": "2019-09-14",
+  "cat": "cover",
+  "title": "「bin」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:bin"
+  ]
  },
  {
   "date": "2019-09-17",
@@ -61,6 +223,16 @@
   "title": "Zepp DiverCity ワンマンを目標に宣言",
   "note": "YouTube 生配信で、Zepp DiverCity でのワンマンライブ開催を目標に掲げる。",
   "big": true
+ },
+ {
+  "date": "2019-11-08",
+  "cat": "cover",
+  "title": "「バスケットワーム」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:バスケットワーム"
+  ]
  },
  {
   "date": "2019-12-23",
@@ -75,6 +247,16 @@
   "title": "M.A.K.E.vortex「'20KYO」",
   "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
   "big": false
+ },
+ {
+  "date": "2020-03-14",
+  "cat": "cover",
+  "title": "「ラストリゾート」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:ラストリゾート"
+  ]
  },
  {
   "date": "2020-03-29",
@@ -98,11 +280,41 @@
   "big": false
  },
  {
+  "date": "2020-06-02",
+  "cat": "cover",
+  "title": "「ボッカデラベリタ」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "ボッカデラベリタ"
+  ]
+ },
+ {
+  "date": "2020-06-22",
+  "cat": "cover",
+  "title": "「馬鹿」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:馬鹿"
+  ]
+ },
+ {
   "date": "2020-06-30",
   "cat": "feat",
   "title": "南雲ゆうき「Stick Candy」",
   "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
   "big": false
+ },
+ {
+  "date": "2020-07-25",
+  "cat": "cover",
+  "title": "「ヒステリックナイトガール」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:ヒステリックナイトガール"
+  ]
  },
  {
   "date": "2020-08-14",
@@ -131,6 +343,36 @@
   "title": "biz「フロイトメタ」",
   "note": "デビュー前、ボカロP・クリエイターの楽曲にボーカル参加。",
   "big": false
+ },
+ {
+  "date": "2020-09-15",
+  "cat": "cover",
+  "title": "「半色の感傷」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:半色の感傷"
+  ]
+ },
+ {
+  "date": "2020-09-19",
+  "cat": "cover",
+  "title": "「Limbo」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:Limbo"
+  ]
+ },
+ {
+  "date": "2020-09-20",
+  "cat": "cover",
+  "title": "「Sunny Wave」を歌ってみた",
+  "note": "ニコニコ動画 2020年9月21日・YouTube 2020年9月20日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:Sunny Wave"
+  ]
  },
  {
   "date": "2020-09-21",
@@ -169,6 +411,26 @@
   "x": "https://twitter.com/ado1024imokenp/status/1332939069148467201"
  },
  {
+  "date": "2020-12-11",
+  "cat": "cover",
+  "title": "「ブラック★ロックシューター」を歌ってみた",
+  "note": "ニコニコ動画 2020年12月11日・YouTube 2020年12月13日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:ブラック★ロックシューター"
+  ]
+ },
+ {
+  "date": "2020-12-11",
+  "cat": "cover",
+  "title": "「ラブカ?」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:ラブカ?"
+  ]
+ },
+ {
   "date": "2020-12-12",
   "cat": "feat",
   "title": "柊キライ「ラブカ？」",
@@ -204,6 +466,16 @@
   "big": true
  },
  {
+  "date": "2021-04-24",
+  "cat": "cover",
+  "title": "「恋は戦争」を歌ってみた",
+  "note": "ニコニコ動画 2021年4月24日・YouTube 2021年5月8日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:恋は戦争"
+  ]
+ },
+ {
   "date": "2021-04-27",
   "cat": "release",
   "title": "「踊」",
@@ -211,11 +483,31 @@
   "big": false
  },
  {
+  "date": "2021-05-31",
+  "cat": "cover",
+  "title": "「16ビットガール」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:16ビットガール"
+  ]
+ },
+ {
   "date": "2021-06-14",
   "cat": "release",
   "title": "「夜のピエロ」",
   "note": "biz 提供。",
   "big": false
+ },
+ {
+  "date": "2021-07-15",
+  "cat": "cover",
+  "title": "「アンチシステム’s」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:アンチシステム’s"
+  ]
  },
  {
   "date": "2021-08-12",
@@ -226,10 +518,53 @@
  },
  {
   "date": "2021-08-15",
-  "cat": "niconico",
-  "title": "「daze」を歌ってみた（ニコニコ動画のみ）",
-  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
-  "big": false
+  "cat": "cover",
+  "title": "「daze」を歌ってみた",
+  "note": "ニコニコ動画だけに投稿（YouTube にはありません）。",
+  "big": false,
+  "videos": [
+   "cover:daze"
+  ]
+ },
+ {
+  "date": "2021-08-25",
+  "cat": "cover",
+  "title": "「ザネリ」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:ザネリ"
+  ]
+ },
+ {
+  "date": "2021-09-05",
+  "cat": "cover",
+  "title": "「よくばり」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:よくばり"
+  ]
+ },
+ {
+  "date": "2021-10-14",
+  "cat": "cover",
+  "title": "「アダムとイブになれたら」を歌ってみた",
+  "note": "ニコニコ動画 2021年10月14日・YouTube 2021年10月16日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:アダムとイブになれたら"
+  ]
+ },
+ {
+  "date": "2021-10-15",
+  "cat": "cover",
+  "title": "「シザーハンズ」を歌ってみた",
+  "note": "ニコニコ動画 2021年10月15日・YouTube 2021年10月17日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:シザーハンズ"
+  ]
  },
  {
   "date": "2021-10-28",
@@ -246,11 +581,51 @@
   "big": false
  },
  {
+  "date": "2021-12-25",
+  "cat": "cover",
+  "title": "「Snow Song Show」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:Snow Song Show"
+  ]
+ },
+ {
+  "date": "2021-12-29",
+  "cat": "cover",
+  "title": "「千本桜」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "千本桜"
+  ]
+ },
+ {
   "date": "2021-12-30",
   "cat": "award",
   "title": "第63回日本レコード大賞 特別賞",
   "note": "",
   "big": false
+ },
+ {
+  "date": "2022-01-06",
+  "cat": "cover",
+  "title": "「嗚呼、素晴らしきニャン生」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:嗚呼、素晴らしきニャン生"
+  ]
+ },
+ {
+  "date": "2022-01-14",
+  "cat": "cover",
+  "title": "「ラブ&デストロイ」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:ラブ&デストロイ"
+  ]
  },
  {
   "date": "2022-01-26",
@@ -269,11 +644,41 @@
   "x": "https://twitter.com/ado_staff/status/1510961632591048704"
  },
  {
+  "date": "2022-04-28",
+  "cat": "cover",
+  "title": "「ダーリンダンス」を歌ってみた",
+  "note": "ニコニコ動画 2022年4月28日・YouTube 2022年11月26日 に投稿。",
+  "big": false,
+  "videos": [
+   "cover:ダーリンダンス"
+  ]
+ },
+ {
   "date": "2022-06-08",
   "cat": "release",
   "title": "「新時代」（ウタ from ONE PIECE FILM RED）",
   "note": "Ayase 提供。世界的なヒットに。",
   "big": true
+ },
+ {
+  "date": "2022-07-24",
+  "cat": "cover",
+  "title": "「罪と罰」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "罪と罰"
+  ]
+ },
+ {
+  "date": "2022-07-24",
+  "cat": "cover",
+  "title": "「神っぽいな」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "神っぽいな"
+  ]
  },
  {
   "date": "2022-08-06",
@@ -299,11 +704,24 @@
   "x": "https://twitter.com/ado_staff/status/1557714352299335681"
  },
  {
+  "date": "2022-08-23",
+  "cat": "cover",
+  "title": "「東京は夜」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:東京は夜"
+  ]
+ },
+ {
   "date": "2022-08-31",
-  "cat": "niconico",
-  "title": "「Birthday Song for ミク」を歌ってみた（ニコニコ動画のみ）",
-  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
-  "big": false
+  "cat": "cover",
+  "title": "「Birthday Song for ミク」を歌ってみた",
+  "note": "ニコニコ動画だけに投稿（YouTube にはありません）。",
+  "big": false,
+  "videos": [
+   "cover:Birthday Song for ミク"
+  ]
  },
  {
   "date": "2022-09-14",
@@ -313,11 +731,24 @@
   "big": false
  },
  {
+  "date": "2022-09-24",
+  "cat": "cover",
+  "title": "「Mr.シャーデンフロイデ」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:Mr.シャーデンフロイデ"
+  ]
+ },
+ {
   "date": "2022-10-11",
-  "cat": "niconico",
-  "title": "「命短し恋せよ乙女」を歌ってみた（ニコニコ動画のみ）",
-  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
-  "big": false
+  "cat": "cover",
+  "title": "「命短し恋せよ乙女」を歌ってみた",
+  "note": "ニコニコ動画だけに投稿（YouTube にはありません）。",
+  "big": false,
+  "videos": [
+   "cover:命短し恋せよ乙女"
+  ]
  },
  {
   "date": "2022-10-24",
@@ -325,6 +756,16 @@
   "title": "米 Geffen Records とパートナー契約",
   "note": "海外展開の足がかりに。",
   "big": false
+ },
+ {
+  "date": "2022-10-24",
+  "cat": "cover",
+  "title": "「プリキュア5、スマイル go go!」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:プリキュア5、スマイル go go!"
+  ]
  },
  {
   "date": "2022-12-02",
@@ -339,6 +780,16 @@
   "title": "「アタシは問題作」",
   "note": "",
   "big": false
+ },
+ {
+  "date": "2023-03-10",
+  "cat": "cover",
+  "title": "「Overdose」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "Overdose"
+  ]
  },
  {
   "date": "2023-04-03",
@@ -363,6 +814,26 @@
   "big": false
  },
  {
+  "date": "2023-07-27",
+  "cat": "cover",
+  "title": "「新人類」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:新人類"
+  ]
+ },
+ {
+  "date": "2023-07-28",
+  "cat": "cover",
+  "title": "「Ready Steady」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:Ready Steady"
+  ]
+ },
+ {
   "date": "2023-09-06",
   "cat": "release",
   "title": "「唱」",
@@ -375,6 +846,56 @@
   "title": "「クラクラ」（SPY×FAMILY Season 2）",
   "note": "アニメ主題歌。",
   "big": false
+ },
+ {
+  "date": "2023-10-31",
+  "cat": "cover",
+  "title": "「インタビュア」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:インタビュア"
+  ]
+ },
+ {
+  "date": "2023-11-01",
+  "cat": "cover",
+  "title": "「Blue Flame」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:Blue Flame"
+  ]
+ },
+ {
+  "date": "2023-11-03",
+  "cat": "cover",
+  "title": "「カルチャ」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:カルチャ"
+  ]
+ },
+ {
+  "date": "2023-11-15",
+  "cat": "cover",
+  "title": "「unravel」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "unravel"
+  ]
+ },
+ {
+  "date": "2023-11-29",
+  "cat": "cover",
+  "title": "「ブリキノダンス」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "ブリキノダンス"
+  ]
  },
  {
   "date": "2023-12-13",
@@ -406,6 +927,16 @@
   "x": "https://twitter.com/ado_staff/status/1753327403022287321"
  },
  {
+  "date": "2024-03-25",
+  "cat": "cover",
+  "title": "「夜のくじら」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:夜のくじら"
+  ]
+ },
+ {
   "date": "2024-04-19",
   "cat": "book",
   "title": "小説『アドロイド』刊行",
@@ -428,6 +959,26 @@
   "big": false
  },
  {
+  "date": "2024-06-27",
+  "cat": "cover",
+  "title": "「渇愛論II」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:渇愛論II"
+  ]
+ },
+ {
+  "date": "2024-06-30",
+  "cat": "cover",
+  "title": "「とても素敵な六月でした」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:とても素敵な六月でした"
+  ]
+ },
+ {
   "date": "2024-07-10",
   "cat": "release",
   "title": "2nd アルバム『残夢』",
@@ -443,10 +994,23 @@
  },
  {
   "date": "2024-08-31",
-  "cat": "niconico",
-  "title": "「レイジー・クルーズ」を歌ってみた（ニコニコ動画のみ）",
-  "note": "YouTube には上がっていない、ニコニコ動画だけの歌ってみた。",
-  "big": false
+  "cat": "cover",
+  "title": "「レイジー・クルーズ」を歌ってみた",
+  "note": "ニコニコ動画だけに投稿（YouTube にはありません）。",
+  "big": false,
+  "videos": [
+   "cover:レイジー・クルーズ"
+  ]
+ },
+ {
+  "date": "2024-09-23",
+  "cat": "cover",
+  "title": "「シュガーバイン」を歌ってみた",
+  "note": "ニコニコ動画と YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:シュガーバイン"
+  ]
  },
  {
   "date": "2024-10-24",
@@ -484,6 +1048,16 @@
   "big": true
  },
  {
+  "date": "2025-04-25",
+  "cat": "cover",
+  "title": "「ヒバナ」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:ヒバナ"
+  ]
+ },
+ {
   "date": "2025-04-26",
   "cat": "live",
   "title": "世界ツアー「Hibana」開幕",
@@ -499,11 +1073,61 @@
   "big": false
  },
  {
+  "date": "2025-07-12",
+  "cat": "cover",
+  "title": "「従属ふりったー」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:従属ふりったー"
+  ]
+ },
+ {
+  "date": "2025-07-22",
+  "cat": "cover",
+  "title": "「橙ゲノム」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:橙ゲノム"
+  ]
+ },
+ {
+  "date": "2025-07-26",
+  "cat": "cover",
+  "title": "「怪盗・窪園チヨコは絶対ミスらない」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:怪盗・窪園チヨコは絶対ミスらない"
+  ]
+ },
+ {
+  "date": "2025-09-20",
+  "cat": "cover",
+  "title": "「夏夜のマジック」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:夏夜のマジック"
+  ]
+ },
+ {
   "date": "2025-09-26",
   "cat": "tieup",
   "title": "アニメ『キャッツ♥アイ』主題歌「MAGIC」ほか",
   "note": "Disney+ の新作アニメ。",
   "big": false
+ },
+ {
+  "date": "2025-10-04",
+  "cat": "cover",
+  "title": "「勇気のReason」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:勇気のReason"
+  ]
  },
  {
   "date": "2025-11-11",
@@ -514,12 +1138,32 @@
   "x": "https://twitter.com/ado_staff/status/1987809574985007114"
  },
  {
+  "date": "2025-12-12",
+  "cat": "cover",
+  "title": "「彗星列車のベルが鳴る」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:彗星列車のベルが鳴る"
+  ]
+ },
+ {
   "date": "2026-02-18",
   "cat": "release",
   "title": "自作曲「ビバリウム」",
   "note": "作詞・作曲 Ado。2月26日に自伝的小説『ビバリウム Ado と私』、28日に初の実写 MV。",
   "big": true,
   "x": "https://twitter.com/ado_staff/status/2024022902492864644"
+ },
+ {
+  "date": "2026-03-31",
+  "cat": "cover",
+  "title": "「え?あぁ、そう。」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:え?あぁ、そう。"
+  ]
  },
  {
   "date": "2026-04-22",
@@ -549,6 +1193,16 @@
   "title": "SUMMER SONIC 2026 出演",
   "note": "",
   "big": false
+ },
+ {
+  "date": "2026-08-25",
+  "cat": "cover",
+  "title": "「Fairytale」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:Fairytale"
+  ]
  },
  {
   "date": "2026-09-25",
