@@ -51,6 +51,7 @@ CAT_PAGES = [("release", "リリース"), ("live", "ライブ・ツアー"), ("t
 
 esc = html.escape
 MV = json.load(open(os.path.join(ROOT, "data", "mv.json"), encoding="utf-8"))
+MAGS = sorted(json.load(open(os.path.join(ROOT, "data", "magazines.json"), encoding="utf-8")), key=lambda e: e["date"])
 T = sorted(json.load(open(os.path.join(ROOT, "data", "timeline.json"), encoding="utf-8")),
            key=lambda e: e["date"])
 
@@ -165,7 +166,7 @@ def timeline(events, by_year=True):
 
 YEARS = sorted({e["date"][:4] for e in T})
 
-NAV = [("index.html", "基地トップ"), ("timeline.html", "全部の年表"), ("era/hajimari.html", "ニコニコ時代"), ("covers.html", "歌ってみた"),
+NAV = [("index.html", "基地トップ"), ("timeline.html", "全部の年表"), ("era/hajimari.html", "ニコニコ時代"), ("covers.html", "歌ってみた"), ("magazines.html", "雑誌インタビュー"),
        ("release.html", "リリース"), ("live.html", "ライブ"), ("tieup.html", "タイアップ"), ("mv.html", "MV"), ("x.html", "公式Xまとめ"),
        ("schedule.html", "これからの予定"), ("about.html", "この基地について")]
 
@@ -232,6 +233,13 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .mvgrid a{text-decoration:none;color:var(--ink);font-size:14px;font-weight:700;line-height:1.5}.mvgrid img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:4px}
 .xgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
 .xgrid h3{font-size:15px;margin:0}.credit{font-size:12.5px;color:var(--sub);margin:6px 0 0}
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;align-items:start}
+.mg .c{border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:14px}
+.mg .c .mz{font-size:18px;font-weight:800;line-height:1.35}.mg .c .is{font-size:14px;color:var(--sub);font-weight:700}
+.mg .c .dt2{font-size:12.5px;color:var(--sub);margin-top:2px}.mg .c p{font-size:14px;margin:8px 0 0}
+.mg .c .k{display:inline-block;font-size:11.5px;font-weight:700;border-radius:99px;padding:0 8px;border:1px solid var(--c);color:var(--c);margin-bottom:6px}
+.xbtn{display:inline-block;margin-top:10px;font:inherit;font-size:12.5px;font-weight:700;padding:3px 12px;border-radius:99px;background:#000;color:#e6e6e6;border:1px solid #e6e6e6;cursor:pointer;margin-right:6px}
+.xbtn:hover{background:#1a1a1a}.mg .xwrap .xpost{max-width:100%}
 .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.stats div{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 14px;text-align:center;font-size:12.5px;color:var(--sub)}
 .stats b{display:block;font-size:22px;color:var(--ac2)}
 .flt{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0}.flt button{font:inherit;font-size:13.5px;padding:5px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
@@ -254,6 +262,7 @@ def sidebar():
     return f"""<aside class="side">
 <div class="box"><h2>🔑 この基地について</h2><p class="note">Ado さんを応援する有志がつくった<b>非公式</b>の年表サイトです。ニコニコ動画のころから今までの歩みを、毎月のイベントごとに書き足していきます。公式とは関係ありません。</p></div>
 <div class="box"><h2>🎤 歌ってみた</h2><p class="note">ニコニコ動画・YouTube の歌ってみたを投稿順にまとめました。</p><ul><li><a href="{{R}}covers.html">歌ってみた まとめ（{sum(1 for e in T if e["cat"] == "cover") + 1} 曲）</a></li></ul></div>
+<div class="box"><h2>📚 雑誌インタビュー</h2><p class="note">表紙・インタビュー・対談など、公式 X で告知された雑誌掲載をまとめました。</p><ul><li><a href="{{R}}magazines.html">雑誌インタビュー まとめ（{len(MAGS)} 件）</a></li></ul></div>
 <div class="box"><h2>🗺 時代でたどる</h2><ul>{eras}</ul></div>
 <div class="box sticky"><h2>📅 年でたどる</h2><ul>{years}</ul>
 <h2 style="margin-top:14px">📣 公式はこちら</h2><ul>
@@ -465,6 +474,38 @@ def build():
 document.querySelectorAll('.cv .c').forEach(function(c){{c.style.display=(f==='all'||c.dataset.t===f)?'':'none'}});
 document.querySelectorAll('.yb').forEach(function(s){{s.style.display=[].some.call(s.querySelectorAll('.c'),function(c){{return c.style.display!=='none'}})?'':'none'}})}}}})</script>''',
          crumb=["歌ってみた まとめ"])
+
+    # 雑誌インタビュー
+    KC = {"表紙・巻頭": "#e0457b", "表紙": "#e0457b", "インタビュー": "#2f5bea", "対談": "#8b5cf6", "特集": "#ca8a04", "ライブレポート": "#16a34a"}
+    myears = sorted({e["date"][:4] for e in MAGS})
+    mblocks = []
+    for y in myears:
+        cards = []
+        for e in [x for x in MAGS if x["date"][:4] == y]:
+            grp = "cover" if "表紙" in e["kind"] else ("interview" if e["kind"] in ("インタビュー", "対談") else "other")
+            dl = ("発売 " if e["on_sale"] else "公式 X で告知 ") + fmt(e["date"])
+            btns = "".join(f'<button class="xbtn" data-x="{esc(u)}">{"Ado さんのポスト" if "ado1024imokenp" in u else "Ado Staff のポスト"}を表示</button>' for u in e["x"])
+            cards.append(f'<div class="c" data-g="{grp}"><span class="k" style="--c:{KC.get(e["kind"], "#475569")}">{esc(e["kind"])}</span>'
+                         f'<div class="mz">{esc(e["magazine"])}</div><div class="is">{esc(e["issue"])}</div><div class="dt2">{dl}</div>'
+                         f'<p>{esc(e["note"])}</p>{btns}<div class="xwrap"></div></div>')
+        mblocks.append(f'<section class="yb"><h2 class="yr" id="m{y}">{y}年 <small style="font-size:14px;color:var(--sub)">{len(cards)} 件</small></h2><div class="mg">{"".join(cards)}</div></section>')
+    n_cover = sum(1 for e in MAGS if "表紙" in e["kind"])
+    n_mag = len({e["magazine"] for e in MAGS})
+    jump = " ".join(f'<a href="#m{y}">{y}</a>' for y in myears)
+    page("magazines.html", "雑誌インタビュー", f"Ado さんの雑誌の表紙・インタビュー・対談 {len(MAGS)} 件を、Ado さん・Ado Staff の公式 X の告知からまとめました。",
+         f'''<section><h1>雑誌インタビュー</h1><p class="lead">Ado さん（@ado1024imokenp）と Ado Staff（@ado_staff）の公式 X で告知された、雑誌の表紙・インタビュー・対談をまとめました。ボタンを押すと、その公式ポストが X の埋め込みで表示されます。誌面の内容は各雑誌でお楽しみください。</p>
+<div class="stats"><div><b>{len(MAGS)}</b>掲載</div><div><b>{n_cover}</b>表紙</div><div><b>{n_mag}</b>誌</div><div><b>{myears[0]}〜{myears[-1]}</b>年</div></div>
+<div class="flt"><button class="on" data-f="all">すべて</button><button data-f="cover">表紙・巻頭</button><button data-f="interview">インタビュー・対談</button><button data-f="other">特集・ライブレポート</button></div>
+<p style="margin:10px 0 0;font-size:14px">年へジャンプ: {jump}</p>
+<p class="notice" style="margin-top:12px">発売日は公式の告知に書かれた日付です。「公式 X で告知」となっているものは、告知ポストの日付です。最新の情報は各雑誌の公式サイトでご確認ください。</p></section>
+{"".join(mblocks)}
+<script>document.querySelectorAll('.flt button').forEach(function(b){{b.onclick=function(){{document.querySelectorAll('.flt button').forEach(function(x){{x.classList.toggle('on',x===b)}});var f=b.dataset.f;
+document.querySelectorAll('.mg .c').forEach(function(c){{c.style.display=(f==='all'||c.dataset.g===f)?'':'none'}});
+document.querySelectorAll('.yb').forEach(function(s){{s.style.display=[].some.call(s.querySelectorAll('.c'),function(c){{return c.style.display!=='none'}})?'':'none'}})}}}});
+document.querySelectorAll('.xbtn').forEach(function(b){{b.onclick=function(){{var w=b.parentNode.querySelector('.xwrap');if(b.dataset.done){{return}}b.dataset.done=1;b.textContent='表示しました';
+var d=document.createElement('div');d.className='xpost';d.innerHTML='<blockquote class="twitter-tweet" data-lang="ja" data-dnt="true"><a href="'+b.dataset.x+'"></a></blockquote>';w.appendChild(d);
+function go(){{window.twttr&&twttr.widgets?twttr.widgets.load(d):setTimeout(go,300)}}if(!window.__tw){{window.__tw=1;var s=document.createElement('script');s.src='https://platform.twitter.com/widgets.js';s.async=true;document.body.appendChild(s)}}go()}}}});</script>''',
+         crumb=["雑誌インタビュー"])
 
     # 予定
     page("schedule.html", "これからの予定", "Ado さんのこれからのライブ・リリース・テレビ出演などの予定。毎週更新。",
