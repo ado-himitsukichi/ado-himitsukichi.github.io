@@ -333,6 +333,7 @@ box-shadow:inset 0 0 0 1px rgba(170,195,255,.4),inset 0 -3px 6px rgba(0,8,40,.5)
 .mv .mt{font-size:14px;font-weight:700;line-height:1.5}.mv .mt small{display:block;font-weight:400;color:var(--sub);font-size:12px}
 @media(max-width:560px){.mv .th{flex-basis:120px}.mv .th img{width:120px}}
 .xpost{max-width:460px;margin-top:6px}.xpost .twitter-tweet{margin:6px 0!important}
+.hero .hdr{width:100%;height:auto;aspect-ratio:auto;border-radius:14px;display:block;margin-bottom:10px}
 .mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-radius:14px;overflow:hidden}
 .mosaic a{position:relative;display:block}.mosaic img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:opacity .15s}.mosaic a:hover img{opacity:.8}
 @media(max-width:700px){.mosaic{grid-template-columns:repeat(2,1fr)}}
@@ -391,7 +392,7 @@ def page(path, title, desc, body, crumb=None, hero=False):
         cr = '<div class="crumb"><a href="' + R + 'index.html">基地トップ</a> › ' + " › ".join(crumb) + "</div>"
     full = NAME if path == "index.html" else f"{title}｜{NAME}"
     heroh = f'<div class="hero">{hero}</div>' if hero else ""
-    og = thumb_url(MV["うっせぇわ"]["id"], "hqdefault")
+    og = SITE + "img/header.jpg" if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")) else thumb_url(MV["うっせぇわ"]["id"], "hqdefault")
     widgets = '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' if "twitter-tweet" in body else ""
     doc = f"""<!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -409,7 +410,7 @@ def page(path, title, desc, body, crumb=None, hero=False):
 <div class="layout"><main>{cr}{body}</main>{sidebar()}</div>
 <footer>{NAME} は、Ado さんを応援する有志による<b>非公式</b>のファンサイトです。Ado さん本人・所属事務所・レーベルとは関係ありません。<br>
 掲載情報は公開されている報道・公式発表をもとにしています。最新・正確な情報は<a href="https://www.universal-music.co.jp/ado/" target="_blank" rel="noopener">公式サイト</a>でご確認ください。<br>
-画像ファイルの複製・転載はしていません。MV のサムネイルは YouTube・ニコニコ動画から、公式 X の画像は X の埋め込み機能でそのまま表示しています（権利は各権利者に帰属します）。 ／ <a href="{R}about.html">この基地について・プライバシー</a><br>最終更新: {TODAY}</footer>
+トップのヘッダー画像は運営者が用意したイラストです。公式の画像ファイルの複製・転載はしていません。MV のサムネイルは YouTube・ニコニコ動画から、公式 X の画像は X の埋め込み機能でそのまま表示しています（権利は各権利者に帰属します）。 ／ <a href="{R}about.html">この基地について・プライバシー</a><br>最終更新: {TODAY}</footer>
 {widgets}</body></html>"""
     doc = doc.replace("{R}", R)
     p = os.path.join(OUT, path)
@@ -456,6 +457,10 @@ def build():
             shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
     os.makedirs(OUT, exist_ok=True)
     open(os.path.join(OUT, ".nojekyll"), "w").close()
+    # ユーザーが用意したヘッダー画像（assets/header.jpg）だけを置く。公式素材はコピーしない
+    if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")):
+        os.makedirs(os.path.join(OUT, "img"), exist_ok=True)
+        shutil.copy(os.path.join(ROOT, "assets", "header.jpg"), os.path.join(OUT, "img", "header.jpg"))
     n_up = write_upcoming()
 
     # トップ
@@ -493,7 +498,7 @@ def build():
     mosaic = '<div class="mosaic">' + "".join(
         f'<a href="{watch(MV[k]["id"])}" target="_blank" rel="noopener" title="{esc(MV[k]["title"])}"><img src="{thumb_url(MV[k]["id"])}" alt="{esc(MV[k]["title"])}"></a>'
         for k in top if k in MV) + "</div>"
-    page("index.html", NAME, "歌い手 Ado さんの歩みを、ニコニコ動画の歌ってみた時代から今まで年表にまとめた有志の非公式ファンサイト。毎月のイベントごとに更新。", body, hero=mosaic)
+    page("index.html", NAME, "歌い手 Ado さんの歩みを、ニコニコ動画の歌ってみた時代から今まで年表にまとめた有志の非公式ファンサイト。毎月のイベントごとに更新。", body, hero=(f'<img class="hdr" src="img/header.jpg" alt="{esc(NAME)}" width="1600" height="640">' if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")) else "") + mosaic)
 
     # 全年表
     jump = " ".join(f'<a href="#y{y}">{y}</a>' for y in YEARS)
@@ -645,7 +650,7 @@ function go(){{window.twttr&&twttr.widgets?twttr.widgets.load(d):setTimeout(go,3
 <li>情報は公式発表・報道・Wikipedia などの公開情報をもとにしています。まちがいに気づいたときは直します</li></ul>
 <h2>やらないこと</h2><ul>
 <li>広告・アフィリエイトは載せません</li>
-<li>歌詞の引用、公式の写真・イラスト・ロゴの複製・転載はしません。画像は、YouTube 公式チャンネル・各アーティスト公式・ニコニコ動画の動画サムネイル（各サービスから直接表示し、動画にリンク）と、Ado さん・Ado Staff の公式 X ポストの埋め込みだけです。権利は各権利者に帰属します。削除のご依頼があればすぐに対応します</li>
+<li>歌詞の引用、公式の写真・イラスト・ロゴの複製・転載はしません。トップのヘッダー画像は運営者が用意したイラストです。それ以外の画像は、YouTube 公式チャンネル・各アーティスト公式・ニコニコ動画の動画サムネイル（各サービスから直接表示し、動画にリンク）と、Ado さん・Ado Staff の公式 X ポストの埋め込みだけです。権利は各権利者に帰属します。削除のご依頼があればすぐに対応します</li>
 <li>うわさ話や私生活に関することは書きません</li></ul>
 <h2>プライバシーポリシー</h2>
 <p>動画のサムネイルは YouTube（Google）・ニコニコ動画、公式ポストは X の埋め込みを使っているため、それぞれのサービスが Cookie などで情報を取得する場合があります。アクセスの傾向を知るために Google アナリティクスを使っています。Cookie を使って匿名のアクセス情報を集めますが、個人を特定する情報は集めません。ブラウザの設定で Cookie を無効にできます。</p>
