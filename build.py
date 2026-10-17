@@ -311,10 +311,7 @@ box-shadow:inset 0 0 0 1px rgba(255,255,255,.45),0 0 8px rgba(110,210,255,.45)}
 .b2{background:linear-gradient(180deg,#4a67c9 0%,#1f3a8f 40%,#132a6e 70%,#2a4aa8 100%);
 box-shadow:inset 0 0 0 1px rgba(170,195,255,.4),inset 0 -3px 6px rgba(0,8,40,.5),0 0 10px rgba(40,80,200,.55)}
 .bt i::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.65) 0%,rgba(255,255,255,.12) 45%,transparent 55%);mix-blend-mode:screen}
-.bt i::after{content:"";position:absolute;top:0;bottom:0;width:40px;left:-60px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-20deg);opacity:0}
-.bars.on .bt i::after{animation:shine 2.6s ease-in-out calc(var(--d,0s) + 1.3s) infinite}
-@keyframes shine{0%{left:-60px;opacity:0}10%{opacity:1}60%{left:110%;opacity:.9}61%,100%{left:110%;opacity:0}}
-@media (prefers-reduced-motion:reduce){.bt i{transition:none}.bars.on .bt i::after{animation:none}}.bn small{color:var(--sub);font-size:12px}
+@media (prefers-reduced-motion:reduce){.bt i{transition:none}}.bn small{color:var(--sub);font-size:12px}
 .br:hover .by{color:var(--ac2)}
 .shows{margin-top:8px;border:1px solid var(--line);border-radius:10px;background:var(--bg);max-width:560px}
 .shows summary{cursor:pointer;padding:6px 12px;font-size:14px;font-weight:700;color:var(--ac)}
