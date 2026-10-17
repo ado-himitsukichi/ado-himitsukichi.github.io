@@ -53,6 +53,8 @@ esc = html.escape
 MV = json.load(open(os.path.join(ROOT, "data", "mv.json"), encoding="utf-8"))
 SETLISTS = json.load(open(os.path.join(ROOT, "data", "setlists.json"), encoding="utf-8"))  # setlist.fm から（ファン投稿）
 SL_ID = {x["sfid"]: x for x in SETLISTS}
+OFFICIAL = json.load(open(os.path.join(ROOT, "data", "official_setlists.json"), encoding="utf-8"))  # Ado Staff 公式 X の告知（優先）
+OFF_DATE = {d: o for o in OFFICIAL for d in o["dates"]}
 SL_DATE = {}
 for x in SETLISTS:
     SL_DATE.setdefault(x["date"], []).append(x)
@@ -174,26 +176,43 @@ def x_embed(url):
             f'<a href="{url}">公式 X のポストを見る</a></blockquote></div>')
 
 
+def setlist_body(songs):
+    body, n, cur, start = "", 0, [], 1
+    for x in songs:
+        if x.get("sec"):
+            if cur:
+                body += f'<ol start="{start}">' + "".join(cur) + "</ol>"
+            start, cur = n + 1, []
+            body += f'<p class="sec">{esc(x["sec"])}</p>'
+        else:
+            n += 1
+            small = f'<small>{esc(x["n"])}</small>' if x.get("n") else ""
+            cur.append(f'<li>{esc(x["t"])}{small}</li>')
+    if cur:
+        body += f'<ol start="{start}">' + "".join(cur) + "</ol>"
+    return f'<div class="slb">{body}</div>', n
+
+
 def item(e, show_year=True):
     name, color = CATS.get(e["cat"], ("その他", "#64748b"))
     note = f'<p>{esc(e["note"])}</p>' if e.get("note") else ""
     note += "".join(mv_card(k) for k in (e.get("videos") or songs_in(e)) if k in MV)
     sl = SL_ID.get(e.get("sfid")) or (SL_DATE[e["date"]][0] if e["cat"] == "live" and len(SL_DATE.get(e["date"], [])) == 1 else None)
+    off = OFF_DATE.get(e["date"]) if e["cat"] == "live" else None
+    if off:
+        src = f'出典: <a href="{esc(off["x"])}" target="_blank" rel="noopener">Ado Staff 公式 X</a>'
+        if off.get("playlist"):
+            src += f'・<a href="{esc(off["playlist"])}" target="_blank" rel="noopener">公式プレイリスト</a>'
+        if len(off["dates"]) > 1:
+            src += "（ツアー共通のセットリスト）"
+        if off.get("note"):
+            src += "。" + esc(off["note"])
+        body, n = setlist_body(off["songs"])
+        note += f'<details class="sl"><summary>セットリスト（公式・{n} 曲）</summary>{body}<p class="src">{src}</p></details>'
     if sl and sl.get("songs"):
-        body, n, cur = "", 0, []
-        def flush(cur, start):
-            return f'<ol start="{start}">' + "".join(cur) + "</ol>" if cur else ""
-        start = 1
-        for x in sl["songs"]:
-            if x.get("sec"):
-                body += flush(cur, start); start = n + 1; cur = []
-                body += f'<p class="sec">{esc(x["sec"])}</p>'
-            else:
-                n += 1
-                small = f'<small>{esc(x["n"])}</small>' if x.get("n") else ""
-                cur.append(f'<li>{esc(x["t"])}{small}</li>')
-        body += flush(cur, start)
-        note += (f'<details class="sl"><summary>セットリスト（{n} 曲）</summary><div class="slb">{body}</div>'
+        body, n = setlist_body(sl["songs"])
+        lab = f"この日のファンの記録（setlist.fm・{n} 曲）" if off else f"セットリスト（{n} 曲）"
+        note += (f'<details class="sl{" fan" if off else ""}"><summary>{lab}</summary>{body}'
                  f'<p class="src">出典: <a href="{esc(sl["url"])}" target="_blank" rel="noopener">setlist.fm</a>（ファンによる投稿をもとに曲名を日本語にしています。公式発表と違う場合があります）</p></details>')
     if e.get("x"):
         note += x_embed(e["x"])
@@ -278,7 +297,7 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .pager a{padding:8px 14px;border:1px solid var(--line);border-radius:99px;text-decoration:none;background:var(--card)}
 .empty{color:var(--sub)}
 .sl{margin-top:8px}.sl summary{display:inline-block;cursor:pointer;list-style:none;font-size:13px;font-weight:700;padding:3px 14px;border-radius:99px;background:#000;color:#ffd84d;border:1px solid #ffd84d}
-.sl summary::-webkit-details-marker{display:none}.sl summary:hover{background:#1a1a1a}.sl[open] summary{margin-bottom:6px}
+.sl summary::-webkit-details-marker{display:none}.sl.fan summary{color:#c9c9c9;border-color:#777;font-weight:600}.sl summary:hover{background:#1a1a1a}.sl[open] summary{margin-bottom:6px}
 .sl .slb{padding:8px 12px;background:var(--bg);border:1px solid var(--line);border-radius:10px;max-width:520px}
 .sl ol{margin:0;padding-left:24px;font-size:14px;line-height:1.75}.sl .sec{margin:6px 0 2px;font-weight:700;color:var(--ac2);font-size:13px}
 .sl ol li small{color:var(--sub);font-size:12px;margin-left:6px}.sl .src{font-size:12px;color:var(--sub);margin:4px 0 0}
