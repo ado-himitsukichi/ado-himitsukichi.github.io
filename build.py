@@ -303,8 +303,19 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .sl ol li small{color:var(--sub);font-size:12px;margin-left:6px}.sl .src{font-size:12px;color:var(--sub);margin:4px 0 0}
 .ys{font-size:13px;color:var(--sub);font-weight:400}.ys2{margin:4px 0 0;font-size:14px;color:var(--ac2);font-weight:700}
 .bars{display:grid;gap:6px}.br{display:grid;grid-template-columns:44px 1fr 110px;gap:8px;align-items:center;text-decoration:none;color:var(--ink);font-size:13.5px}
-.bt{position:relative;height:16px;background:var(--bg);border-radius:8px;overflow:hidden}.bt i{position:absolute;left:0;top:0;bottom:0;border-radius:8px}
-.b1{background:color-mix(in srgb,var(--ac) 35%,transparent)}.b2{background:var(--ac2)}.bn small{color:var(--sub);font-size:12px}
+.bt{position:relative;height:18px;background:linear-gradient(180deg,rgba(120,160,255,.08),rgba(120,160,255,.02));border:1px solid rgba(130,170,255,.18);border-radius:9px;overflow:hidden}
+.bt i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:9px;transition:width 1.3s cubic-bezier(.2,.8,.2,1) var(--d,0s);overflow:hidden}
+.bars.on .bt i{width:var(--w)}
+.b1{background:linear-gradient(135deg,rgba(190,232,255,.85) 0%,rgba(90,170,255,.7) 35%,rgba(40,110,240,.6) 60%,rgba(150,210,255,.75) 100%);
+box-shadow:inset 0 0 0 1px rgba(255,255,255,.35),0 0 8px rgba(110,180,255,.35)}
+.b2{background:linear-gradient(135deg,#d8f1ff 0%,#5fb4ff 22%,#1d5fe0 50%,#0b2f9e 68%,#4f9dff 86%,#c7e7ff 100%);
+box-shadow:inset 0 0 0 1px rgba(255,255,255,.55),inset 0 -3px 6px rgba(0,20,90,.45),0 0 12px rgba(60,140,255,.75)}
+.bt i::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.65) 0%,rgba(255,255,255,.12) 45%,transparent 55%),
+repeating-linear-gradient(115deg,transparent 0 10px,rgba(255,255,255,.18) 10px 12px,transparent 12px 22px);mix-blend-mode:screen}
+.bt i::after{content:"";position:absolute;top:0;bottom:0;width:40px;left:-60px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent);transform:skewX(-20deg);opacity:0}
+.bars.on .bt i::after{animation:shine 2.6s ease-in-out calc(var(--d,0s) + 1.3s) infinite}
+@keyframes shine{0%{left:-60px;opacity:0}10%{opacity:1}60%{left:110%;opacity:.9}61%,100%{left:110%;opacity:0}}
+@media (prefers-reduced-motion:reduce){.bt i{transition:none}.bars.on .bt i::after{animation:none}}.bn small{color:var(--sub);font-size:12px}
 .br:hover .by{color:var(--ac2)}
 .shows{margin-top:8px;border:1px solid var(--line);border-radius:10px;background:var(--bg);max-width:560px}
 .shows summary{cursor:pointer;padding:6px 12px;font-size:14px;font-weight:700;color:var(--ac)}
@@ -451,13 +462,18 @@ def build():
     # 活動のあしあと（年ごとのできごと数とライブ公演数）
     mx = max(sum(1 for x in T if x["date"][:4] == y) for y in YEARS)
     bars = ""
+    bars_n = []
     for y in YEARS:
+        bars_n.append(y)
         tot = sum(1 for x in T if x["date"][:4] == y); lv = sum(1 for x in T if x["date"][:4] == y and x["cat"] == "live")
-        bars += (f'<a class="br" href="{{R}}year/{y}.html"><span class="by">{y}</span><span class="bt"><i class="b1" style="width:{tot / mx * 100:.1f}%"></i>'
-                 f'<i class="b2" style="width:{lv / mx * 100:.1f}%"></i></span><span class="bn">{tot}<small>（ライブ {lv}）</small></span></a>')
+        bars += (f'<a class="br" href="{{R}}year/{y}.html"><span class="by">{y}</span><span class="bt"><i class="b1" style="--w:{tot / mx * 100:.1f}%;--d:{len(bars_n) * 0.07:.2f}s"></i>'
+                 f'<i class="b2" style="--w:{lv / mx * 100:.1f}%;--d:{len(bars_n) * 0.07 + 0.25:.2f}s"></i></span><span class="bn">{tot}<small>（ライブ {lv}）</small></span></a>')
     n_live = sum(1 for x in T if x["cat"] == "live")
     activity = (f'<section><h2 class="sec-t">活動のあしあと</h2><p class="lead" style="margin-bottom:10px">これまでのできごと {len(T)} 件、ライブ・フェス出演 {n_live} 公演。'
-                f'年ごとにどれだけ動いてきたかを並べました（濃い色がライブ公演）。</p><div class="bars">{bars}</div></section>')
+                f'年ごとにどれだけ動いてきたかを並べました（濃い青がライブ公演）。</p><div class="bars" id="bars">{bars}</div></section>'
+                '<script>(function(){var b=document.getElementById("bars");if(!b)return;function go(){b.classList.add("on")}'
+                'if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){go();return}'
+                'var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go();o.disconnect()}})},{threshold:.25});o.observe(b)})()</script>')
     recent = [e for e in T if e["date"] <= TODAY][-6:][::-1]
     body = f"""<section><h1>ようこそ、ワクワク秘密基地へ！</h1>
 <p class="lead">2017年、ニコニコ動画に投稿された1本の「歌ってみた」から、国立競技場・日産スタジアム・世界のステージまで。歌い手 Ado さんの歩みを、ファンの手で年表にまとめた非公式の秘密基地です。これからも毎月、新しいできごとを書き足していきます。</p></section>
