@@ -138,6 +138,11 @@ def item(e, show_year=True):
     name, color = CATS.get(e["cat"], ("その他", "#64748b"))
     note = f'<p>{esc(e["note"])}</p>' if e.get("note") else ""
     note += "".join(mv_card(k) for k in (e.get("videos") or songs_in(e)) if k in MV)
+    if e.get("shows"):
+        rows = "".join(f'<tr><td>{fmt(x["date"])[5:] if x["date"][:4] == e["date"][:4] else fmt(x["date"])}</td><td>{esc(x["place"])}</td><td>{esc(x["venue"])}</td></tr>'
+                       for x in e["shows"])
+        note += (f'<details class="shows"{" open" if len(e["shows"]) <= 4 else ""}><summary>公演日と開催地（{len(e["shows"])} 公演）</summary>'
+                 f'<table><tr><th>日付</th><th>開催地</th><th>会場</th></tr>{rows}</table></details>')
     if e.get("x"):
         note += x_embed(e["x"])
     star = ' big' if e.get("big") else ''
@@ -219,6 +224,10 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
 .pager a{padding:8px 14px;border:1px solid var(--line);border-radius:99px;text-decoration:none;background:var(--card)}
 .empty{color:var(--sub)}
+.shows{margin-top:8px;border:1px solid var(--line);border-radius:10px;background:var(--bg);max-width:560px}
+.shows summary{cursor:pointer;padding:6px 12px;font-size:14px;font-weight:700;color:var(--ac)}
+.shows table{width:100%;border-collapse:collapse;font-size:13.5px}.shows th,.shows td{padding:5px 10px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+.shows th{font-size:12px;color:var(--sub);font-weight:700}.shows td:first-child{white-space:nowrap;color:var(--sub)}
 .mv{display:flex;gap:10px;align-items:center;margin-top:8px;padding:6px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);background:var(--bg);max-width:460px}
 .mv:hover{border-color:#ff4d6a}.mv.nc:hover{border-color:#bbb}.mv.nc .th i{color:#e6e6e6;border-color:#e6e6e6}
 .mvw .nl{display:inline-block;font-size:12.5px;margin:4px 0 0 4px}.mv .th{position:relative;flex:0 0 160px}.mv .th img{width:160px;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
