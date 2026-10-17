@@ -51,6 +51,13 @@ CAT_PAGES = [("release", "リリース"), ("live", "ライブ・ツアー"), ("t
 
 esc = html.escape
 MV = json.load(open(os.path.join(ROOT, "data", "mv.json"), encoding="utf-8"))
+# 公式のライブ映像（【LIVE映像】）。date はその公演の年表の日付で、年表のその日の項目に動画をのせる
+LIVE_BY_DATE = {}
+for _v in json.load(open(os.path.join(ROOT, "data", "live_videos.json"), encoding="utf-8")):
+    _k = f"live:{_v['song']}（{_v['where']}）"
+    MV[_k] = {"id": _v["id"], "title": f"【LIVE映像】{_v['song']} {_v['where']}", "kind": "ライブ映像", "live_date": _v["date"]}
+    if _v["date"]:
+        LIVE_BY_DATE.setdefault(_v["date"], []).append(_k)
 SETLISTS = json.load(open(os.path.join(ROOT, "data", "setlists.json"), encoding="utf-8"))  # setlist.fm から（ファン投稿）
 SL_ID = {x["sfid"]: x for x in SETLISTS}
 OFFICIAL = json.load(open(os.path.join(ROOT, "data", "official_setlists.json"), encoding="utf-8"))  # Ado Staff 公式 X の告知（優先）
@@ -197,6 +204,8 @@ def item(e, show_year=True):
     name, color = CATS.get(e["cat"], ("その他", "#64748b"))
     note = f'<p>{esc(e["note"])}</p>' if e.get("note") else ""
     note += "".join(mv_card(k) for k in (e.get("videos") or songs_in(e)) if k in MV)
+    if e["cat"] == "live":
+        note += "".join(mv_card(k) for k in LIVE_BY_DATE.get(e["date"], []) if k not in (e.get("videos") or []))
     sl = SL_ID.get(e.get("sfid")) or (SL_DATE[e["date"]][0] if e["cat"] == "live" and len(SL_DATE.get(e["date"], [])) == 1 else None)
     off = OFF_DATE.get(e["date"]) if e["cat"] == "live" else None
     if off:
@@ -361,6 +370,7 @@ def sidebar():
 <div class="box"><h2>🔑 この基地について</h2><p class="note">Ado さんを応援する有志がつくった<b>非公式</b>の年表サイトです。ニコニコ動画のころから今までの歩みを、毎月のイベントごとに書き足していきます。公式とは関係ありません。</p></div>
 <div class="box"><h2>🎤 歌ってみた</h2><p class="note">ニコニコ動画・YouTube の歌ってみたを投稿順にまとめました。</p><ul><li><a href="{{R}}covers.html">歌ってみた まとめ（{sum(1 for e in T if e["cat"] == "cover") + 1} 曲）</a></li></ul></div>
 <div class="box"><h2>📚 雑誌インタビュー</h2><p class="note">表紙・インタビュー・対談など、公式 X で告知された雑誌掲載をまとめました。</p><ul><li><a href="{{R}}magazines.html">雑誌インタビュー まとめ（{len(MAGS)} 件）</a></li></ul></div>
+<div class="box"><h2>🫧 姉妹サイト</h2><p class="note">同じく有志でつくっている、シンガー yama さんの非公式年表サイトです。</p><ul><li><a href="https://masabee1029.github.io/yama-kossori/" target="_blank" rel="noopener">yamaファンのこっそり部屋 →</a></li></ul></div>
 <div class="box"><h2>🗺 時代でたどる</h2><ul>{eras}</ul></div>
 <div class="box sticky"><h2>📅 年でたどる</h2><ul>{years}</ul>
 <h2 style="margin-top:14px">📣 公式はこちら</h2><ul>
@@ -526,11 +536,11 @@ def build():
         nl = f' ／ <a href="{nico_url(m["nico"])}" target="_blank" rel="noopener" style="font-weight:400;font-size:12.5px">ニコニコ</a>' if m.get("id") and m.get("nico") else ""
         return f'<div><a href="{href}" target="_blank" rel="noopener"><img src="{src}" alt="" loading="lazy">{esc(m["title"])}</a>{by}<small style="color:var(--sub);font-size:12px">{svc}{nl}</small></div>'
     for kind, lead in [("オリジナル", "オリジナル曲の MV"), ("ウタ", "映画『ONE PIECE FILM RED』ウタの歌唱曲"),
-                       ("feat", "feat.・客演（ボカロP・アーティストの公式動画）"), ("歌ってみた", "歌ってみた・カバー"),
+                       ("ライブ映像", "公式のライブ映像（押すと YouTube で開きます）"), ("feat", "feat.・客演（ボカロP・アーティストの公式動画）"), ("歌ってみた", "歌ってみた・カバー"),
                        ("ニコニコのみ", "ニコニコ動画だけの歌ってみた")]:
         seen, ms = set(), []
         for m in sorted((m for m in MV.values() if m["kind"] == kind),
-                        key=lambda m: min(m.get("nico_date") or "9", m.get("yt_date") or "9") if kind in ("歌ってみた", "ニコニコのみ") else ""):
+                        key=lambda m: min(m.get("nico_date") or "9", m.get("yt_date") or "9") if kind in ("歌ってみた", "ニコニコのみ") else (m.get("live_date") or "9") if kind == "ライブ映像" else ""):
             vid = m.get("id") or m.get("nico")
             if vid not in seen:
                 seen.add(vid); ms.append(m)
