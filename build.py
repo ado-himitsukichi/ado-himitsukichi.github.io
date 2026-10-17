@@ -56,6 +56,41 @@ T = sorted(json.load(open(os.path.join(ROOT, "data", "timeline.json"), encoding=
            key=lambda e: e["date"])
 
 
+def expand_shows(T):
+    """ツアー・複数日公演の "shows" を 1 公演 = 1 項目に展開する（どれだけ行動したかを日ごとに見せるため）。"""
+    out = []
+    for e in T:
+        shows = e.get("shows")
+        if not shows:
+            out.append(e)
+            continue
+        m = re.search(r"「([^」]+)」", e["title"])
+        name = m.group(1) if m else e["title"]
+        n = len(shows)
+        for i, x in enumerate(shows, 1):
+            tag = "初日" if i == 1 else ("千秋楽" if i == n else "")
+            info = f"{x['venue']}。全 {n} 公演の {i} 公演目" + (f"（{tag}）" if tag and n > 1 else "") + "。"
+            if i == 1:
+                e2 = dict(e)
+                e2["note"] = (e.get("note", "") + " " if e.get("note") else "") + f"{x['place']}・{info}"
+                e2.pop("shows", None)
+                out.append(e2)
+            else:
+                out.append({"date": x["date"], "cat": "live", "title": f"「{name}」{x['place']} 公演", "note": info, "big": False, "show": True})
+    return sorted(out, key=lambda e: e["date"])
+
+
+T = expand_shows(T)
+
+
+def year_stats(y):
+    ev = [e for e in T if e["date"][:4] == y]
+    c = lambda cats: sum(1 for e in ev if e["cat"] in cats)
+    parts = [("ライブ", c({"live"}), "公演"), ("リリース", c({"release", "tieup"}), "件"), ("歌ってみた", c({"cover"}), "曲"),
+             ("客演", c({"feat"}), "曲"), ("テレビ・ラジオ", c({"media"}), "件")]
+    return " ／ ".join(f"{a} {n} {u}" for a, n, u in parts if n)
+
+
 def fmt(d):
     p = d.split("-")
     s = p[0] + "年"
@@ -138,11 +173,6 @@ def item(e, show_year=True):
     name, color = CATS.get(e["cat"], ("その他", "#64748b"))
     note = f'<p>{esc(e["note"])}</p>' if e.get("note") else ""
     note += "".join(mv_card(k) for k in (e.get("videos") or songs_in(e)) if k in MV)
-    if e.get("shows"):
-        rows = "".join(f'<tr><td>{fmt(x["date"])[5:] if x["date"][:4] == e["date"][:4] else fmt(x["date"])}</td><td>{esc(x["place"])}</td><td>{esc(x["venue"])}</td></tr>'
-                       for x in e["shows"])
-        note += (f'<details class="shows"{" open" if len(e["shows"]) <= 4 else ""}><summary>公演日と開催地（{len(e["shows"])} 公演）</summary>'
-                 f'<table><tr><th>日付</th><th>開催地</th><th>会場</th></tr>{rows}</table></details>')
     if e.get("x"):
         note += x_embed(e["x"])
     star = ' big' if e.get("big") else ''
@@ -160,7 +190,8 @@ def timeline(events, by_year=True):
         if by_year and y != cur:
             if cur:
                 out.append("</ol>")
-            out.append(f'<h2 class="yr" id="y{y}"><a href="{{R}}year/{y}.html">{y}年</a></h2><ol class="tl">')
+            st = year_stats(y)
+            out.append(f'<h2 class="yr" id="y{y}"><a href="{{R}}year/{y}.html">{y}年</a> <small class="ys">{len([x for x in T if x["date"][:4] == y])} のできごと{"（" + st + "）" if st else ""}</small></h2><ol class="tl">')
             cur = y
         out.append(item(e))
     out.append("</ol>")
@@ -224,6 +255,11 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
 .pager a{padding:8px 14px;border:1px solid var(--line);border-radius:99px;text-decoration:none;background:var(--card)}
 .empty{color:var(--sub)}
+.ys{font-size:13px;color:var(--sub);font-weight:400}.ys2{margin:4px 0 0;font-size:14px;color:var(--ac2);font-weight:700}
+.bars{display:grid;gap:6px}.br{display:grid;grid-template-columns:44px 1fr 110px;gap:8px;align-items:center;text-decoration:none;color:var(--ink);font-size:13.5px}
+.bt{position:relative;height:16px;background:var(--bg);border-radius:8px;overflow:hidden}.bt i{position:absolute;left:0;top:0;bottom:0;border-radius:8px}
+.b1{background:color-mix(in srgb,var(--ac) 35%,transparent)}.b2{background:var(--ac2)}.bn small{color:var(--sub);font-size:12px}
+.br:hover .by{color:var(--ac2)}
 .shows{margin-top:8px;border:1px solid var(--line);border-radius:10px;background:var(--bg);max-width:560px}
 .shows summary{cursor:pointer;padding:6px 12px;font-size:14px;font-weight:700;color:var(--ac)}
 .shows table{width:100%;border-collapse:collapse;font-size:13.5px}.shows th,.shows td{padding:5px 10px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
@@ -366,10 +402,21 @@ def build():
         era_cards.append(f'<a class="era" href="{{R}}era/{e[0]}.html">{thumb(e[5])}'
                          f'<div class="t"><span class="n">{n} のできごと</span><b>{e[1]}</b><small>{e[2]}</small></div></a>')
     year_cards = "".join(f'<a href="{{R}}year/{y}.html">{y}<small>{sum(1 for x in T if x["date"][:4] == y)} 件</small></a>' for y in YEARS)
+    # 活動のあしあと（年ごとのできごと数とライブ公演数）
+    mx = max(sum(1 for x in T if x["date"][:4] == y) for y in YEARS)
+    bars = ""
+    for y in YEARS:
+        tot = sum(1 for x in T if x["date"][:4] == y); lv = sum(1 for x in T if x["date"][:4] == y and x["cat"] == "live")
+        bars += (f'<a class="br" href="{{R}}year/{y}.html"><span class="by">{y}</span><span class="bt"><i class="b1" style="width:{tot / mx * 100:.1f}%"></i>'
+                 f'<i class="b2" style="width:{lv / mx * 100:.1f}%"></i></span><span class="bn">{tot}<small>（ライブ {lv}）</small></span></a>')
+    n_live = sum(1 for x in T if x["cat"] == "live")
+    activity = (f'<section><h2 class="sec-t">活動のあしあと</h2><p class="lead" style="margin-bottom:10px">これまでのできごと {len(T)} 件、ライブ・フェス出演 {n_live} 公演。'
+                f'年ごとにどれだけ動いてきたかを並べました（濃い色がライブ公演）。</p><div class="bars">{bars}</div></section>')
     recent = [e for e in T if e["date"] <= TODAY][-6:][::-1]
     body = f"""<section><h1>ようこそ、ワクワク秘密基地へ！</h1>
 <p class="lead">2017年、ニコニコ動画に投稿された1本の「歌ってみた」から、国立競技場・日産スタジアム・世界のステージまで。歌い手 Ado さんの歩みを、ファンの手で年表にまとめた非公式の秘密基地です。これからも毎月、新しいできごとを書き足していきます。</p></section>
 {upcoming_box(5)}
+{activity}
 <section><h2 class="sec-t">時代でたどる Ado の歩み</h2><div class="eras">{"".join(era_cards)}</div></section>
 <section><h2 class="sec-t">最近のできごと</h2>{timeline(recent, by_year=False)}
 <p style="margin:6px 0 0;text-align:right"><a href="{{R}}timeline.html">全部の年表を見る →</a></p></section>
@@ -401,7 +448,7 @@ def build():
         pv = f'<a href="{YEARS[i-1]}.html">← {YEARS[i-1]}年</a>' if i else "<span></span>"
         nx = f'<a href="{YEARS[i+1]}.html">{YEARS[i+1]}年 →</a>' if i + 1 < len(YEARS) else "<span></span>"
         page(f"year/{y}.html", f"{y}年の Ado", f"{y}年の Ado さんのできごと（{len(ev)}件）を年表で。",
-             f'<section><h1>{y}年の Ado</h1><p class="lead">{len(ev)} 件のできごと</p></section>'
+             f'<section><h1>{y}年の Ado</h1><p class="lead">{len(ev)} 件のできごと</p><p class="ys2">{year_stats(y)}</p></section>'
              f'<section>{timeline(ev, by_year=False)}<div class="pager">{pv}{nx}</div></section>', crumb=[f"{y}年"])
 
     # カテゴリページ
