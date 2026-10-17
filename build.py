@@ -51,6 +51,11 @@ CAT_PAGES = [("release", "リリース"), ("live", "ライブ・ツアー"), ("t
 
 esc = html.escape
 MV = json.load(open(os.path.join(ROOT, "data", "mv.json"), encoding="utf-8"))
+SETLISTS = json.load(open(os.path.join(ROOT, "data", "setlists.json"), encoding="utf-8"))  # setlist.fm から（ファン投稿）
+SL_ID = {x["sfid"]: x for x in SETLISTS}
+SL_DATE = {}
+for x in SETLISTS:
+    SL_DATE.setdefault(x["date"], []).append(x)
 MAGS = sorted(json.load(open(os.path.join(ROOT, "data", "magazines.json"), encoding="utf-8")), key=lambda e: e["date"])
 T = sorted(json.load(open(os.path.join(ROOT, "data", "timeline.json"), encoding="utf-8")),
            key=lambda e: e["date"])
@@ -173,6 +178,23 @@ def item(e, show_year=True):
     name, color = CATS.get(e["cat"], ("その他", "#64748b"))
     note = f'<p>{esc(e["note"])}</p>' if e.get("note") else ""
     note += "".join(mv_card(k) for k in (e.get("videos") or songs_in(e)) if k in MV)
+    sl = SL_ID.get(e.get("sfid")) or (SL_DATE[e["date"]][0] if e["cat"] == "live" and len(SL_DATE.get(e["date"], [])) == 1 else None)
+    if sl and sl.get("songs"):
+        body, n, cur = "", 0, []
+        def flush(cur, start):
+            return f'<ol start="{start}">' + "".join(cur) + "</ol>" if cur else ""
+        start = 1
+        for x in sl["songs"]:
+            if x.get("sec"):
+                body += flush(cur, start); start = n + 1; cur = []
+                body += f'<p class="sec">{esc(x["sec"])}</p>'
+            else:
+                n += 1
+                small = f'<small>{esc(x["n"])}</small>' if x.get("n") else ""
+                cur.append(f'<li>{esc(x["t"])}{small}</li>')
+        body += flush(cur, start)
+        note += (f'<details class="sl"><summary>セットリスト（{n} 曲）</summary><div class="slb">{body}</div>'
+                 f'<p class="src">出典: <a href="{esc(sl["url"])}" target="_blank" rel="noopener">setlist.fm</a>（ファンによる投稿をもとに曲名を日本語にしています。公式発表と違う場合があります）</p></details>')
     if e.get("x"):
         note += x_embed(e["x"])
     star = ' big' if e.get("big") else ''
@@ -255,6 +277,11 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
 .pager a{padding:8px 14px;border:1px solid var(--line);border-radius:99px;text-decoration:none;background:var(--card)}
 .empty{color:var(--sub)}
+.sl{margin-top:8px}.sl summary{display:inline-block;cursor:pointer;list-style:none;font-size:13px;font-weight:700;padding:3px 14px;border-radius:99px;background:#000;color:#ffd84d;border:1px solid #ffd84d}
+.sl summary::-webkit-details-marker{display:none}.sl summary:hover{background:#1a1a1a}.sl[open] summary{margin-bottom:6px}
+.sl .slb{padding:8px 12px;background:var(--bg);border:1px solid var(--line);border-radius:10px;max-width:520px}
+.sl ol{margin:0;padding-left:24px;font-size:14px;line-height:1.75}.sl .sec{margin:6px 0 2px;font-weight:700;color:var(--ac2);font-size:13px}
+.sl ol li small{color:var(--sub);font-size:12px;margin-left:6px}.sl .src{font-size:12px;color:var(--sub);margin:4px 0 0}
 .ys{font-size:13px;color:var(--sub);font-weight:400}.ys2{margin:4px 0 0;font-size:14px;color:var(--ac2);font-weight:700}
 .bars{display:grid;gap:6px}.br{display:grid;grid-template-columns:44px 1fr 110px;gap:8px;align-items:center;text-decoration:none;color:var(--ink);font-size:13.5px}
 .bt{position:relative;height:16px;background:var(--bg);border-radius:8px;overflow:hidden}.bt i{position:absolute;left:0;top:0;bottom:0;border-radius:8px}

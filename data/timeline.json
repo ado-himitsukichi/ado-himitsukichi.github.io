@@ -901,7 +901,16 @@
   "cat": "live",
   "title": "「COUNTDOWN JAPAN 22/23」初出演",
   "note": "幕張メッセ。",
-  "big": false
+  "big": false,
+  "sfid": "23bc2cd3"
+ },
+ {
+  "date": "2022-12-30",
+  "cat": "media",
+  "title": "第64回日本レコード大賞で歌唱",
+  "note": "新国立劇場。",
+  "big": false,
+  "sfid": "73ad4aa1"
  },
  {
   "date": "2023-02-20",
@@ -1131,7 +1140,16 @@
   "cat": "media",
   "title": "「ベストアーティスト2023」でテレビ初の生歌唱",
   "note": "「唱」と「Tot Musica」を披露。",
-  "big": true
+  "big": true,
+  "sfid": "1baed958"
+ },
+ {
+  "date": "2023-12-06",
+  "cat": "media",
+  "title": "フジテレビの音楽特番で歌唱",
+  "note": "フジテレビ湾岸スタジオ。",
+  "big": false,
+  "sfid": "23ae30ab"
  },
  {
   "date": "2023-12-13",
@@ -1145,7 +1163,8 @@
   "cat": "media",
   "title": "NHK 紅白歌合戦 初出場",
   "note": "京都・東本願寺から「唱」を披露。",
-  "big": true
+  "big": true,
+  "sfid": "2baff48e"
  },
  {
   "date": "2024-01-31",
@@ -1516,6 +1535,14 @@
   "big": false
  },
  {
+  "date": "2025-04-07",
+  "cat": "media",
+  "title": "「CDTVライブ！ライブ！」で歌唱",
+  "note": "",
+  "big": false,
+  "sfid": "2b59c08a"
+ },
+ {
   "date": "2025-04-09",
   "cat": "release",
   "title": "『Ado のベストアドバム』",
@@ -1828,6 +1855,22 @@
   ]
  },
  {
+  "date": "2025-11-29",
+  "cat": "media",
+  "title": "日本テレビの音楽特番で歌唱",
+  "note": "",
+  "big": false,
+  "sfid": "534f6f39"
+ },
+ {
+  "date": "2025-12-03",
+  "cat": "media",
+  "title": "フジテレビの音楽特番で歌唱",
+  "note": "",
+  "big": false,
+  "sfid": "4b4f634e"
+ },
+ {
   "date": "2025-12-12",
   "cat": "cover",
   "title": "「彗星列車のベルが鳴る」を歌ってみた",
@@ -1838,11 +1881,44 @@
   ]
  },
  {
+  "date": "2025-12-15",
+  "cat": "media",
+  "title": "「CDTVライブ！ライブ！」で歌唱",
+  "note": "",
+  "big": false,
+  "sfid": "234c0867"
+ },
+ {
+  "date": "2025-12-22",
+  "cat": "media",
+  "title": "「CDTVライブ！ライブ！」で歌唱",
+  "note": "",
+  "big": false,
+  "sfid": "b4da13e"
+ },
+ {
+  "date": "2025-12-29",
+  "cat": "live",
+  "title": "幕張でパフォーマンス（ホテルニューオータニ幕張）",
+  "note": "",
+  "big": false,
+  "sfid": "234d24ab"
+ },
+ {
+  "date": "2025-12-30",
+  "cat": "media",
+  "title": "第67回日本レコード大賞で歌唱",
+  "note": "新国立劇場。特別国際音楽賞を受賞。",
+  "big": false,
+  "sfid": "34d05bb"
+ },
+ {
   "date": "2026-01-01",
   "cat": "media",
   "title": "「V/S THE FIRST TAKE」にファントムシータと出演",
   "note": "",
-  "big": false
+  "big": false,
+  "sfid": "334d00b1"
  },
  {
   "date": "2026-01-26",
@@ -1884,11 +1960,28 @@
   "big": false
  },
  {
+  "date": "2026-04-23",
+  "cat": "media",
+  "title": "フジテレビ「STAR」に出演して歌唱",
+  "note": "",
+  "big": false,
+  "sfid": "73737e79"
+ },
+ {
   "date": "2026-04-27",
   "cat": "media",
   "title": "「CDTVライブ！ライブ！」で「ビバリウム」を歌唱",
   "note": "",
-  "big": false
+  "big": false,
+  "sfid": "4b76d37a"
+ },
+ {
+  "date": "2026-05-06",
+  "cat": "media",
+  "title": "日本テレビの音楽番組で歌唱",
+  "note": "",
+  "big": false,
+  "sfid": "37ff943"
  },
  {
   "date": "2026-05-12",
@@ -1930,6 +2023,14 @@
     "venue": "日産スタジアム"
    }
   ]
+ },
+ {
+  "date": "2026-07-31",
+  "cat": "live",
+  "title": "シカゴ公演（Aragon Ballroom）",
+  "note": "「Lollapalooza 2026」の前に行われた公演。",
+  "big": false,
+  "sfid": "3759d4f"
  },
  {
   "date": "2026-08-02",
@@ -2001,6 +2102,14 @@
   "title": "「DND feat. KUROMI」",
   "note": "",
   "big": false
+ },
+ {
+  "date": "2026-10-03",
+  "cat": "live",
+  "title": "韓国・仁川 Paradise City でライブ",
+  "note": "",
+  "big": false,
+  "sfid": "4b703b6a"
  },
  {
   "date": "2026-10-14",
