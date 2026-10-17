@@ -372,7 +372,7 @@ def sidebar():
 <div class="box"><h2>🔑 この基地について</h2><p class="note">Ado さんを応援する有志がつくった<b>非公式</b>の年表サイトです。ニコニコ動画のころから今までの歩みを、毎月のイベントごとに書き足していきます。公式とは関係ありません。</p></div>
 <div class="box"><h2>🎤 歌ってみた</h2><p class="note">ニコニコ動画・YouTube の歌ってみたを投稿順にまとめました。</p><ul><li><a href="{{R}}covers.html">歌ってみた まとめ（{sum(1 for e in T if e["cat"] == "cover") + 1} 曲）</a></li></ul></div>
 <div class="box"><h2>📚 雑誌インタビュー</h2><p class="note">表紙・インタビュー・対談など、公式 X で告知された雑誌掲載をまとめました。</p><ul><li><a href="{{R}}magazines.html">雑誌インタビュー まとめ（{len(MAGS)} 件）</a></li></ul></div>
-<div class="box"><h2>🫧 姉妹サイト</h2><p class="note">同じく有志でつくっている、シンガー yama さんの非公式年表サイトです。</p><ul><li><a href="https://masabee1029.github.io/yama-kossori/" target="_blank" rel="noopener">yamaファンのこっそり部屋 →</a></li></ul></div>
+<div class="box"><h2>🫧 姉妹サイト</h2><p class="note">同じく有志でつくっている、シンガー yama さんの非公式年表サイトです。</p><ul><li><a href="https://yama-kossori.github.io/" target="_blank" rel="noopener">yamaファンのこっそり部屋 →</a></li></ul></div>
 <div class="box"><h2>🗺 時代でたどる</h2><ul>{eras}</ul></div>
 <div class="box sticky"><h2>📅 年でたどる</h2><ul>{years}</ul>
 <h2 style="margin-top:14px">📣 公式はこちら</h2><ul>
