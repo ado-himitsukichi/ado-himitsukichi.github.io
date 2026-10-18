@@ -14,7 +14,7 @@
   動画 ID は tools/find_mv.py "曲名" で探す（@Ado1024 = UCln9P4Qm3-EAY4aiEPmRwEA の動画だけを拾う）。
   mv.json の項目: id（YouTube）, nico（sm 番号）, nico_thumb, title, kind（オリジナル / ウタ / feat / 歌ってみた / ニコニコのみ）, by（feat の作者）。
   feat. は tools/find_feat.py "作者|曲名" で作者本人のチャンネルの動画を探す。ニコニコの Ado さんの投稿は user/39170211。
-有志の非公式サイト。アフィリエイト・広告は入れない。歌詞の引用や公式素材は載せない。
+非公式サイト。アフィリエイト・広告は入れない。歌詞の引用や公式素材は載せない。
 """
 import html, json, os, re, shutil
 from datetime import date
@@ -369,10 +369,10 @@ def sidebar():
     eras = "".join(f'<li><a href="{{R}}era/{e[0]}.html">{e[1]}</a></li>' for e in ERAS)
     years = "".join(f'<li><a href="{{R}}year/{y}.html">{y}年</a></li>' for y in YEARS)
     return f"""<aside class="side">
-<div class="box"><h2>🔑 この基地について</h2><p class="note">Ado さんを応援する有志がつくった<b>非公式</b>の年表サイトです。ニコニコ動画のころから今までの歩みを、毎月のイベントごとに書き足していきます。公式とは関係ありません。</p></div>
+<div class="box"><h2>🔑 この基地について</h2><p class="note">Ado さんを応援する<b>非公式</b>の年表サイトです。ニコニコ動画のころから今までの歩みを、毎月のイベントごとに書き足していきます。公式とは関係ありません。</p></div>
 <div class="box"><h2>🎤 歌ってみた</h2><p class="note">ニコニコ動画・YouTube の歌ってみたを投稿順にまとめました。</p><ul><li><a href="{{R}}covers.html">歌ってみた まとめ（{sum(1 for e in T if e["cat"] == "cover") + 1} 曲）</a></li></ul></div>
 <div class="box"><h2>📚 雑誌インタビュー</h2><p class="note">表紙・インタビュー・対談など、公式 X で告知された雑誌掲載をまとめました。</p><ul><li><a href="{{R}}magazines.html">雑誌インタビュー まとめ（{len(MAGS)} 件）</a></li></ul></div>
-<div class="box"><h2>🫧 姉妹サイト</h2><p class="note">同じく有志でつくっている、シンガー yama さんの非公式年表サイトです。</p><ul><li><a href="https://yama-kossori.github.io/" target="_blank" rel="noopener">yamaファンのこっそり部屋 →</a></li></ul></div>
+<div class="box"><h2>🫧 姉妹サイト</h2><p class="note">こちらも非公式でつくっている、シンガー yama さんの年表サイトです。</p><ul><li><a href="https://yama-kossori.github.io/" target="_blank" rel="noopener">yamaファンのこっそり部屋 →</a></li></ul></div>
 <div class="box"><h2>🗺 時代でたどる</h2><ul>{eras}</ul></div>
 <div class="box sticky"><h2>📅 年でたどる</h2><ul>{years}</ul>
 <h2 style="margin-top:14px">📣 公式はこちら</h2><ul>
@@ -405,13 +405,13 @@ def page(path, title, desc, body, crumb=None, hero=False):
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA}"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{GA}');</script>
 <style>{CSS}</style></head><body>
-<header class="top"><div class="in"><a class="logo" href="{R}index.html">Ado 非公式<span>ワクワク</span>秘密基地</a><span class="badge">有志の非公式ファンサイト</span></div></header>
+<header class="top"><div class="in"><a class="logo" href="{R}index.html">Ado 非公式<span>ワクワク</span>秘密基地</a><span class="badge">非公式ファンサイト</span></div></header>
 <nav class="gnav"><ul>{nav}</ul></nav>
 {heroh}
 <div class="layout"><main>{cr}{body}</main>{sidebar()}</div>
 <footer><div class="fi">
 <p class="f1">{NAME}</p>
-<p>Ado さんを応援する有志による<b>非公式</b>のファンサイトです。<br>Ado さん本人・所属事務所・レーベルとは関係ありません。</p>
+<p>Ado さんを応援する<b>非公式</b>のファンサイトです。<br>Ado さん本人・所属事務所・レーベルとは関係ありません。</p>
 <p>掲載情報は、公開されている報道・公式発表をもとにしています。<br>最新・正確な情報は<a href="https://www.universal-music.co.jp/ado/" target="_blank" rel="noopener">公式サイト</a>でご確認ください。</p>
 <p>ヘッダー画像は運営者が用意したイラストです。<br>公式の画像ファイルの複製・転載はしていません。<br>MV のサムネイルは YouTube・ニコニコ動画から、<br>公式 X の画像は X の埋め込みで表示しています。<br>（権利は各権利者に帰属します）</p>
 <p class="fl"><a href="{R}about.html">この基地について・プライバシー</a><br>最終更新: {TODAY}</p>
@@ -503,7 +503,7 @@ def build():
     mosaic = '<div class="mosaic">' + "".join(
         f'<a href="{watch(MV[k]["id"])}" target="_blank" rel="noopener" title="{esc(MV[k]["title"])}"><img src="{thumb_url(MV[k]["id"])}" alt="{esc(MV[k]["title"])}"></a>'
         for k in top if k in MV) + "</div>"
-    page("index.html", NAME, "歌い手 Ado さんの歩みを、ニコニコ動画の歌ってみた時代から今まで年表にまとめた有志の非公式ファンサイト。毎月のイベントごとに更新。", body, hero=(f'<img class="hdr" src="img/header.jpg" alt="{esc(NAME)}" width="1600" height="640">' if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")) else "") + mosaic)
+    page("index.html", NAME, "歌い手 Ado さんの歩みを、ニコニコ動画の歌ってみた時代から今まで年表にまとめた非公式ファンサイト。毎月のイベントごとに更新。", body, hero=(f'<img class="hdr" src="img/header.jpg" alt="{esc(NAME)}" width="1600" height="640">' if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")) else "") + mosaic)
 
     # 全年表
     jump = " ".join(f'<a href="#y{y}">{y}</a>' for y in YEARS)
@@ -648,7 +648,7 @@ function go(){{window.twttr&&twttr.widgets?twttr.widgets.load(d):setTimeout(go,3
 
     # この基地について
     page("about.html", "この基地について", "Ado 非公式ワクワク秘密基地について、運営方針とプライバシーポリシー。", """<section><h1>この基地について</h1>
-<p>「Ado 非公式ワクワク秘密基地」は、歌い手 Ado さんを応援する有志がつくった<b>非公式</b>のファンサイトです。Ado さん本人、所属事務所（クラウドナイン）、レーベル（ユニバーサル ミュージック）とは一切関係ありません。</p>
+<p>「Ado 非公式ワクワク秘密基地」は、歌い手 Ado さんを応援する<b>非公式</b>のファンサイトです。Ado さん本人、所属事務所（クラウドナイン）、レーベル（ユニバーサル ミュージック）とは一切関係ありません。</p>
 <h2>このサイトでやっていること</h2><ul>
 <li>ニコニコ動画の歌ってみた時代から今までのできごとを、年表にまとめています</li>
 <li>毎月、前の月のできごとを書き足します。これからの予定は毎週更新します</li>
