@@ -200,10 +200,21 @@ def setlist_body(songs):
     return f'<div class="slb">{body}</div>', n
 
 
+def tieup_cards(t):
+    """タイアップ先（映画・アニメ・CM など）の公式動画。ファイルは置かず、YouTube のサムネイルを直接表示して動画にリンクする。"""
+    cards = "".join(
+        f'<a class="mv tu" href="{watch(v["id"])}" target="_blank" rel="noopener">'
+        f'<span class="th"><img src="{thumb_url(v["id"], "mqdefault")}" alt="" loading="lazy"><i>▶</i></span>'
+        f'<span class="mt">{esc(v["kind"])}<small>{esc(v["by"])}（YouTube 公式）</small></span></a>' for v in t["videos"])
+    return f'<div class="tuw"><p class="tul">🎬 タイアップ先の動画 — {esc(t["work"])}</p>{cards}</div>'
+
+
 def item(e, show_year=True):
     name, color = CATS.get(e["cat"], ("その他", "#64748b"))
     note = f'<p>{esc(e["note"])}</p>' if e.get("note") else ""
     note += "".join(mv_card(k) for k in (e.get("videos") or songs_in(e)) if k in MV)
+    if e.get("tieup"):
+        note += tieup_cards(e["tieup"])
     if e["cat"] == "live":
         note += "".join(mv_card(k) for k in LIVE_BY_DATE.get(e["date"], []) if k not in (e.get("videos") or []))
     sl = SL_ID.get(e.get("sfid")) or (SL_DATE[e["date"]][0] if e["cat"] == "live" and len(SL_DATE.get(e["date"], [])) == 1 else None)
@@ -328,7 +339,9 @@ box-shadow:inset 0 0 0 1px rgba(170,195,255,.4),inset 0 -3px 6px rgba(0,8,40,.5)
 .shows th{font-size:12px;color:var(--sub);font-weight:700}.shows td:first-child{white-space:nowrap;color:var(--sub)}
 .mv{display:flex;gap:10px;align-items:center;margin-top:8px;padding:6px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);background:var(--bg);max-width:460px}
 .mv:hover{border-color:#ff4d6a}.mv.nc:hover{border-color:#bbb}.mv.nc .th i{color:#e6e6e6;border-color:#e6e6e6}
-.mvw .nl{display:inline-block;font-size:12.5px;margin:4px 0 0 4px}.mv .th{position:relative;flex:0 0 160px}.mv .th img{width:160px;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
+.mvw .nl{display:inline-block;font-size:12.5px;margin:4px 0 0 4px}
+.tuw{margin-top:10px;padding:8px 10px 4px;border-left:3px solid #ffd84d;background:color-mix(in srgb,#ffd84d 6%,transparent);border-radius:0 10px 10px 0;max-width:480px}
+.tul{margin:0 0 4px;font-size:13px;font-weight:700;color:#ffd84d}.tuw .mv{margin:6px 0}.tuw .mv:hover{border-color:#ffd84d}.tuw .mv .th i{color:#ffd84d;border-color:#ffd84d}.mv .th{position:relative;flex:0 0 160px}.mv .th img{width:160px;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
 .mv .th i{position:absolute;inset:0;margin:auto;width:34px;height:24px;border-radius:7px;background:#000c;color:#ff4d6a;border:1px solid #ff4d6a;font-style:normal;font-size:12px;display:grid;place-items:center}
 .mv .mt{font-size:14px;font-weight:700;line-height:1.5}.mv .mt small{display:block;font-weight:400;color:var(--sub);font-size:12px}
 @media(max-width:560px){.mv .th{flex-basis:120px}.mv .th img{width:120px}}
@@ -532,9 +545,9 @@ def build():
     # カテゴリページ
     groups = {"release": {"release", "feat", "book", "cover"}, "live": {"live"}, "tieup": {"tieup", "media", "award"}}
     leads = {"release": "配信シングル・アルバム・客演・歌ってみた・本のできごと。", "live": "ワンマンライブ・ツアー・フェス出演の記録。",
-             "tieup": "映画・アニメ・ドラマのタイアップ、テレビ・ラジオ出演、受賞と記録。"}
+             "tieup": "映画・アニメ・ドラマ・CM のタイアップ（タイアップ先の公式動画つき）、テレビ・ラジオ出演、受賞と記録。"}
     for k, t in CAT_PAGES:
-        ev = [x for x in T if x["cat"] in groups[k]]
+        ev = [x for x in T if x["cat"] in groups[k] or (k == "tieup" and x.get("tieup"))]
         page(f"{k}.html", t, f"Ado さんの{t}の年表。{leads[k]}",
              f'<section><h1>{t}</h1><p class="lead">{leads[k]}</p></section><section>{timeline(ev)}</section>', crumb=[t])
 

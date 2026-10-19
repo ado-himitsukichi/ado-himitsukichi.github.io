@@ -497,7 +497,18 @@
   "cat": "release",
   "title": "「夜のピエロ」",
   "note": "biz 提供。",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "ドラマ『初情事まであと1時間』オープニング",
+   "videos": [
+    {
+     "id": "slTLDuWxfWU",
+     "kind": "番組予告",
+     "title": "ドラマ特区「初情事まであと１時間」番組予告",
+     "by": "MBS公式"
+    }
+   ]
+  }
  },
  {
   "date": "2021-07-03",
@@ -686,7 +697,18 @@
   "cat": "release",
   "title": "「新時代」（ウタ from ONE PIECE FILM RED）",
   "note": "Ayase 提供。世界的なヒットに。",
-  "big": true
+  "big": true,
+  "tieup": {
+   "work": "映画『ONE PIECE FILM RED』主題歌",
+   "videos": [
+    {
+     "id": "8dfGSzacxzc",
+     "kind": "映画予告",
+     "title": "『ONE PIECE FILM RED』予告 Trailer ／8月6日（土）公開",
+     "by": "ONE PIECE公式YouTubeチャンネル"
+    }
+   ]
+  }
  },
  {
   "date": "2022-06-22",
@@ -728,7 +750,30 @@
   "title": "映画『ONE PIECE FILM RED』公開",
   "note": "歌姫ウタの歌唱キャストを担当。",
   "big": true,
-  "x": "https://twitter.com/ado_staff/status/1559332933944545280"
+  "x": "https://twitter.com/ado_staff/status/1559332933944545280",
+  "tieup": {
+   "work": "映画『ONE PIECE FILM RED』",
+   "videos": [
+    {
+     "id": "8dfGSzacxzc",
+     "kind": "映画予告",
+     "title": "『ONE PIECE FILM RED』予告 Trailer ／8月6日（土）公開",
+     "by": "ONE PIECE公式YouTubeチャンネル"
+    },
+    {
+     "id": "YH6xhIq_Yi4",
+     "kind": "ウタ「新時代」国立競技場ライブ映像",
+     "title": "ウタ - 新時代 (Live at 国立競技場 2022.11.03)",
+     "by": "ONE PIECE公式YouTubeチャンネル"
+    },
+    {
+     "id": "yyd5Cz6UjhI",
+     "kind": "ウタ LIVE in 日本武道館 配信特別ver.",
+     "title": "【ウタ】\"ウタ\" LIVE in 日本武道館 2022.07.22 配信特別ver.【UTA】",
+     "by": "ONE PIECE公式YouTubeチャンネル"
+    }
+   ]
+  }
  },
  {
   "date": "2022-08-06",
@@ -1076,14 +1121,42 @@
   "cat": "tieup",
   "title": "「DIGNITY」（映画『沈黙の艦隊』主題歌）",
   "note": "B'z 提供。",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "映画『沈黙の艦隊』主題歌",
+   "videos": [
+    {
+     "id": "yYVY7za94dI",
+     "kind": "主題歌コラボPV",
+     "title": "【主題歌コラボPV】映画『沈黙の艦隊』｜9月29日(金)全国劇場公開！",
+     "by": "東宝MOVIEチャンネル"
+    },
+    {
+     "id": "nzH1QIa9t4Q",
+     "kind": "予告②（主題歌入り）",
+     "title": "【Ado×B’z 主題歌入り最新映像解禁！】映画『沈黙の艦隊』【予告②】｜9月29日(金)全国劇場公開！",
+     "by": "東宝MOVIEチャンネル"
+    }
+   ]
+  }
  },
  {
   "date": "2023-10-05",
   "cat": "tieup",
   "title": "「クラクラ」（SPY×FAMILY Season 2）",
   "note": "アニメ主題歌。",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "アニメ『SPY×FAMILY』Season 2 オープニング",
+   "videos": [
+    {
+     "id": "YOIJOJsUkUg",
+     "kind": "ノンクレジットOP映像",
+     "title": "『SPY×FAMILY』第2クールオープニング主題歌アニメ映像(ノンクレジット)／“SPY x FAMILY” part2  Opening theme song animation",
+     "by": "TOHO animation チャンネル"
+    }
+   ]
+  }
  },
  {
   "date": "2023-10-14",
@@ -1178,7 +1251,18 @@
   "cat": "release",
   "title": "「ショコラカタブラ」",
   "note": "",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "ロッテ チョコレート60周年 CM ソング",
+   "videos": [
+    {
+     "id": "dXFFxDmhSB0",
+     "kind": "CM「ショコラカタブラ篇」60秒",
+     "title": "ロッテ×Ado ショコラカタブラ篇 60秒",
+     "by": "お口の恋人 ロッテ 【LOTTE】 公式チャンネル"
+    }
+   ]
+  }
  },
  {
   "date": "2024-02-04",
@@ -1504,7 +1588,24 @@
   "cat": "tieup",
   "title": "「Episode X」（映画『劇場版ドクターX』主題歌）",
   "note": "",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "映画『劇場版ドクターX FINAL』主題歌",
+   "videos": [
+    {
+     "id": "Ejo0TqsGDKs",
+     "kind": "主題歌スペシャルPV",
+     "title": "『劇場版ドクターX』主題歌　Ado「Episode X」ーMusic by AyaseースペシャルPV【12月6日(金)公開】",
+     "by": "東宝MOVIEチャンネル"
+    },
+    {
+     "id": "6bGbhOG91N4",
+     "kind": "映画予告",
+     "title": "『劇場版ドクターX FINAL』予告【12月6日(金)公開】",
+     "by": "東宝MOVIEチャンネル"
+    }
+   ]
+  }
  },
  {
   "date": "2024-12-16",
@@ -1525,7 +1626,18 @@
   "cat": "tieup",
   "title": "「エルフ」（ドラマ『クジャクのダンス、誰が見た？』主題歌）",
   "note": "",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "TBS 金曜ドラマ『クジャクのダンス、誰が見た？』主題歌",
+   "videos": [
+    {
+     "id": "xt75QGudJ2A",
+     "kind": "長編予告",
+     "title": "主演 広瀬すず『クジャクのダンス､誰が見た？』長編予告 解禁!! 1/24スタート! 【TBS】",
+     "by": "TBS公式 YouTuboo"
+    }
+   ]
+  }
  },
  {
   "date": "2025-03-10",
@@ -1758,7 +1870,24 @@
   "cat": "feat",
   "title": "Jax Jones「Stay Gold」",
   "note": "アニメ『BEYBLADE X』の楽曲。",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "アニメ『BEYBLADE X』エンディング",
+   "videos": [
+    {
+     "id": "KubZLN5OY3M",
+     "kind": "ノンクレジットED映像",
+     "title": "TVアニメ【BEYBLADE X】 Jax Jones, Ado 「Stay Gold」 ノンクレジットEDムービー",
+     "by": "ベイチューブ | BEYBLADE Channel"
+    },
+    {
+     "id": "oUwKcuQmVHk",
+     "kind": "アニメMV",
+     "title": "BEYBLADE X × Jax Jones, Ado 「Stay Gold」 アニメMV",
+     "by": "ベイチューブ | BEYBLADE Channel"
+    }
+   ]
+  }
  },
  {
   "date": "2025-07-12",
@@ -1795,7 +1924,18 @@
   "cat": "release",
   "title": "「CAT'S EYE」（カバー）",
   "note": "アニメ『キャッツ♥アイ』の主題歌。",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "アニメ『キャッツ♥アイ』エンディング",
+   "videos": [
+    {
+     "id": "zRXYrg6zvCc",
+     "kind": "エンディング映像",
+     "title": "『キャッツ♥アイ』｜エンディング映像｜80年代ポップスをリスペクトするAdoが「CAT’S EYE」をカバー ！映像制作は話題のユニット「擬態するメタ」が担当｜Disney+ (ディズニープラス）",
+     "by": "ディズニープラス"
+    }
+   ]
+  }
  },
  {
   "date": "2025-09-20",
@@ -1812,14 +1952,42 @@
   "cat": "tieup",
   "title": "アニメ『キャッツ♥アイ』主題歌「MAGIC」ほか",
   "note": "Disney+ の新作アニメ。",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "アニメ『キャッツ♥アイ』オープニング",
+   "videos": [
+    {
+     "id": "0WsL3ysqGKQ",
+     "kind": "オープニング映像",
+     "title": "『キャッツ♥アイ』｜オープニング映像｜昼と夜、2つの顔を持つ来生三姉妹の魅力が炸裂♡Adoの新曲「MAGIC」が流れるOP映像公開！｜Disney+ (ディズニープラス）",
+     "by": "ディズニープラス"
+    }
+   ]
+  }
  },
  {
   "date": "2025-09-26",
   "cat": "tieup",
   "title": "「風と私の物語」（映画『沈黙の艦隊 北極海大海戦』主題歌）",
   "note": "宮本浩次さん作詞作曲、まふまふさん編曲。",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "映画『沈黙の艦隊 北極海大海戦』主題歌",
+   "videos": [
+    {
+     "id": "7eWc6sp_WJ0",
+     "kind": "主題歌コラボPV",
+     "title": "映画『沈黙の艦隊 北極海大海戦』【主題歌コラボPV】2025年9月26日(金)公開",
+     "by": "東宝MOVIEチャンネル"
+    },
+    {
+     "id": "tqo7cfKRKKc",
+     "kind": "予告①（主題歌入り）",
+     "title": "【Ado×宮本浩次×まふまふ 主題歌入り最新映像解禁！】『沈黙の艦隊 北極海大海戦』【予告①】2025年9月26日(金)公開",
+     "by": "東宝MOVIEチャンネル"
+    }
+   ]
+  }
  },
  {
   "date": "2025-10-04",
@@ -1932,7 +2100,18 @@
   "cat": "tieup",
   "title": "「エンゼルシーク」",
   "note": "アニメ『ヤンドク！』の主題歌。",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "フジテレビ 月9ドラマ『ヤンドク！』主題歌",
+   "videos": [
+    {
+     "id": "UvxT8S-cfLY",
+     "kind": "第1話予告",
+     "title": "【主演・橋本環奈】「ヤンドク！」第1話予告 ～プロフェッショナル編～",
+     "by": "フジテレビ公式"
+    }
+   ]
+  }
  },
  {
   "date": "2026-02-18",
@@ -1964,7 +2143,18 @@
   "cat": "release",
   "title": "「綺羅」",
   "note": "",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "adidas サッカー日本代表ユニフォームソング",
+   "videos": [
+    {
+     "id": "SBwPUXg3oyM",
+     "kind": "adidas「Go Beyond. Play Free.」Ado × Japan Kits",
+     "title": "Go Beyond. Play Free. | Ado × Japan Kits 🇯🇵 ⚽️",
+     "by": "adidas Football"
+    }
+   ]
+  }
  },
  {
   "date": "2026-04-23",
@@ -1993,9 +2183,26 @@
  {
   "date": "2026-05-12",
   "cat": "tieup",
-  "title": "「春に舞う」（ABEMA ドラマ主題歌）",
+  "title": "「春に舞う」（ABEMA『今日、好きになりました。』主題歌）",
   "note": "",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "ABEMA『今日、好きになりました。』主題歌",
+   "videos": [
+    {
+     "id": "NCGL-YdhNCA",
+     "kind": "『今日、好きになりました。』ver.",
+     "title": "【Ado】春に舞う -『今日、好きになりました。』ver.",
+     "by": "Ado"
+    },
+    {
+     "id": "uVDCsvYaeGw",
+     "kind": "夏休み編2026 ver.",
+     "title": "【Ado】春に舞う -『今日、好きになりました。』夏休み編2026 ver.",
+     "by": "Ado"
+    }
+   ]
+  }
  },
  {
   "date": "2026-05-16",
@@ -2009,7 +2216,24 @@
   "cat": "tieup",
   "title": "「Love me forever!」",
   "note": "ゲーム『リズム天国 ミラクルスターズ』の楽曲。つんく♂さん提供。",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "Nintendo Switch『リズム天国 ミラクルスターズ』",
+   "videos": [
+    {
+     "id": "uZ_i-ur2Z0g",
+     "kind": "紹介映像",
+     "title": "リズム天国 ミラクルスターズ 紹介映像",
+     "by": "Nintendo 公式チャンネル"
+    },
+    {
+     "id": "-fLrOkLc4iI",
+     "kind": "Nintendo Direct 2025.3.27",
+     "title": "リズム天国 ミラクルスターズ [Nintendo Direct 2025.3.27]",
+     "by": "Nintendo 公式チャンネル"
+    }
+   ]
+  }
  },
  {
   "date": "2026-07-04",
@@ -2051,7 +2275,24 @@
   "cat": "tieup",
   "title": "「モンストロ」（映画『ブルーロック』主題歌）",
   "note": "",
-  "big": false
+  "big": false,
+  "tieup": {
+   "work": "映画『ブルーロック』主題歌",
+   "videos": [
+    {
+     "id": "X7_5nHpbOe8",
+     "kind": "主題歌スペシャルコラボPV",
+     "title": "映画『ブルーロック』主題歌Ado「モンストロ」スペシャルコラボPV　【8月7日(金)公開】",
+     "by": "映画『ブルーロック』チャンネル"
+    },
+    {
+     "id": "7z-mf3a4X2E",
+     "kind": "予告②（主題歌入り）",
+     "title": "主題歌はAdo「モンストロ」｜映画『ブルーロック』予告②【8月7日(金)公開】",
+     "by": "映画『ブルーロック』チャンネル"
+    }
+   ]
+  }
  },
  {
   "date": "2026-08-15",
@@ -2131,6 +2372,17 @@
   "title": "「Raven Sky」配信",
   "note": "映画『バッド・ルーテナント：トウキョウ』主題歌。",
   "big": true,
-  "x": "https://twitter.com/ado_staff/status/2108512813497131132"
+  "x": "https://twitter.com/ado_staff/status/2108512813497131132",
+  "tieup": {
+   "work": "映画『バッド・ルーテナント：トウキョウ』主題歌",
+   "videos": [
+    {
+     "id": "qHjo_7Fbxyw",
+     "kind": "予告60秒",
+     "title": "予告60秒 映像解禁！　『バッド・ルーテナント：トウキョウ』10月23日（金）公開",
+     "by": "ソニー・ピクチャーズ 映画"
+    }
+   ]
+  }
  }
 ]
