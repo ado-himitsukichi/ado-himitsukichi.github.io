@@ -382,10 +382,10 @@ def sidebar():
     eras = "".join(f'<li><a href="{{R}}era/{e[0]}.html">{e[1]}</a></li>' for e in ERAS)
     years = "".join(f'<li><a href="{{R}}year/{y}.html">{y}年</a></li>' for y in YEARS)
     return f"""<aside class="side">
-<div class="box"><h2>🔑 この基地について</h2><p class="note">Ado さんを応援する<b>非公式</b>の年表サイトです。ニコニコ動画のころから今までの歩みを、毎月のイベントごとに書き足していきます。公式とは関係ありません。</p></div>
-<div class="box"><h2>🎤 歌ってみた</h2><p class="note">ニコニコ動画・YouTube の歌ってみたを投稿順にまとめました。</p><ul><li><a href="{{R}}covers.html">歌ってみた まとめ（{sum(1 for e in T if e["cat"] == "cover") + 1} 曲）</a></li></ul></div>
-<div class="box"><h2>📚 雑誌インタビュー</h2><p class="note">表紙・インタビュー・対談など、公式 X で告知された雑誌掲載をまとめました。</p><ul><li><a href="{{R}}magazines.html">雑誌インタビュー まとめ（{len(MAGS)} 件）</a></li></ul></div>
-<div class="box"><h2>🫧 姉妹サイト</h2><p class="note">こちらも非公式でつくっている、シンガー yama さんの年表サイトです。</p><ul><li><a href="https://yama-kossori.github.io/" target="_blank" rel="noopener">yamaファンのこっそり部屋 →</a></li></ul></div>
+<div class="box"><h2>🔑 この基地について</h2><p class="note">Ado さんの歩みを、ニコニコ動画のころから今まで、あなたと一緒にたどれる<b>非公式</b>の年表サイトです。毎月のイベントごとに書き足していきます。公式とは関係ありません。</p></div>
+<div class="box"><h2>🎤 歌ってみた</h2><p class="note">Ado さんの歌声の原点を、投稿順にたどれます。</p><ul><li><a href="{{R}}covers.html">歌ってみた まとめ（{sum(1 for e in T if e["cat"] == "cover") + 1} 曲）</a></li></ul></div>
+<div class="box"><h2>📚 雑誌インタビュー</h2><p class="note">Ado さんの言葉に、誌面でも触れられます。公式 X で告知された表紙・インタビュー・対談をまとめました。</p><ul><li><a href="{{R}}magazines.html">雑誌インタビュー まとめ（{len(MAGS)} 件）</a></li></ul></div>
+<div class="box"><h2>🫧 姉妹サイト</h2><p class="note">シンガー yama さんの歩みもたどれる、こちらも非公式の年表サイトです。</p><ul><li><a href="https://yama-kossori.github.io/" target="_blank" rel="noopener">yamaファンのこっそり部屋 →</a></li></ul></div>
 <div class="box"><h2>🗺 時代でたどる</h2><ul>{eras}</ul></div>
 <div class="box sticky"><h2>📅 年でたどる</h2><ul>{years}</ul>
 <h2 style="margin-top:14px">📣 公式はこちら</h2><ul>
@@ -441,7 +441,7 @@ def upcoming_box(limit, title="これからの予定", more=True):
     link = '<p style="margin:10px 0 0;text-align:right"><a href="{R}schedule.html">予定をもっと見る →</a></p>' if more else ""
     return f"""<section><h2 class="sec-t">{title}</h2>
 <ul class="up" id="up" data-limit="{limit}"><li class="empty">読み込み中…</li></ul>{link}
-<p class="notice" style="margin-top:12px">予定は公式発表・報道をもとに毎週まとめています。変更になることがあるので、参加前に必ず公式でご確認ください。</p></section>
+<p class="notice" style="margin-top:12px">予定は公式発表・報道をもとに毎週まとめています。変更になることがあるので、お出かけ前に公式の最新情報もあわせてご確認ください。</p></section>
 <script src="{{R}}upcoming.js"></script><script>
 (function(){{var el=document.getElementById('up'),lim=+el.dataset.limit,t=new Date(),pad=function(n){{return('0'+n).slice(-2)}},
 today=t.getFullYear()+'-'+pad(t.getMonth()+1)+'-'+pad(t.getDate()),K={{live:'ライブ',release:'リリース',tieup:'タイアップ',event:'イベント',anniv:'記念日',media:'テレビ・ラジオ・配信',ticket:'チケット'}},
@@ -505,7 +505,8 @@ def build():
                 'var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go();o.disconnect()}})},{threshold:.25});o.observe(b)})()</script>')
     recent = [e for e in T if e["date"] <= TODAY][-6:][::-1]
     body = f"""<section><h1>ようこそ、ワクワク秘密基地へ！</h1>
-<p class="lead">2017年、ニコニコ動画に投稿された1本の「歌ってみた」から、国立競技場・日産スタジアム・世界のステージまで。歌い手 Ado さんの歩みを、ファンの手で年表にまとめた非公式の秘密基地です。これからも毎月、新しいできごとを書き足していきます。</p></section>
+<p class="lead">Ado さんの歩みを、あなたの思い出と一緒にたどれます。2017年、ニコニコ動画に投稿された1本の「歌ってみた」から、国立競技場・日産スタジアム・世界のステージまで。その一歩一歩を重ねてきた Ado さんの歌声と、曲を生んだ作詞・作曲のクリエイター、MV を手がけた映像・イラストの作り手の皆さんへの拍手を込めて、ファンの手で年表にまとめた非公式の秘密基地です。これからも毎月、新しいできごとを書き足していきます。</p>
+<p class="lead" style="margin-top:8px">あなたがいちばん好きな Ado さんの曲は、どれですか？　見に来てくださって、ありがとうございます。</p></section>
 {upcoming_box(5)}
 {activity}
 <section><h2 class="sec-t">時代でたどる Ado の歩み</h2><div class="eras">{"".join(era_cards)}</div></section>
@@ -516,12 +517,12 @@ def build():
     mosaic = '<div class="mosaic">' + "".join(
         f'<a href="{watch(MV[k]["id"])}" target="_blank" rel="noopener" title="{esc(MV[k]["title"])}"><img src="{thumb_url(MV[k]["id"])}" alt="{esc(MV[k]["title"])}"></a>'
         for k in top if k in MV) + "</div>"
-    page("index.html", NAME, "歌い手 Ado さんの歩みを、ニコニコ動画の歌ってみた時代から今まで年表にまとめた非公式ファンサイト。毎月のイベントごとに更新。", body, hero=(f'<img class="hdr" src="img/header.jpg" alt="{esc(NAME)}" width="1600" height="640">' if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")) else "") + mosaic)
+    page("index.html", NAME, "歌い手 Ado さんの歩みを、あなたの思い出と一緒にたどれる非公式ファンサイト。ニコニコ動画の歌ってみた時代から今までを年表に。毎月のイベントごとに更新。", body, hero=(f'<img class="hdr" src="img/header.jpg" alt="{esc(NAME)}" width="1600" height="640">' if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")) else "") + mosaic)
 
     # 全年表
     jump = " ".join(f'<a href="#y{y}">{y}</a>' for y in YEARS)
     page("timeline.html", "全部の年表", "Ado さんの活動を最初の歌ってみたから最新ニュースまで、すべて時系列で。",
-         f'<section><h1>全部の年表</h1><p class="lead">黄色い印は特に大きなできごとです。 年へジャンプ: {jump}</p></section><section>{timeline(T)}</section>',
+         f'<section><h1>全部の年表</h1><p class="lead">Ado さんの歩みを、最初から通してたどれます。黄色い印は特に大きなできごとです。 年へジャンプ: {jump}</p></section><section>{timeline(T)}</section>',
          crumb=["全部の年表"])
 
     # 時代ページ
@@ -544,8 +545,8 @@ def build():
 
     # カテゴリページ
     groups = {"release": {"release", "feat", "book", "cover"}, "live": {"live"}, "tieup": {"tieup", "media", "award"}}
-    leads = {"release": "配信シングル・アルバム・客演・歌ってみた・本のできごと。", "live": "ワンマンライブ・ツアー・フェス出演の記録。",
-             "tieup": "映画・アニメ・ドラマ・CM のタイアップ（タイアップ先の公式動画つき）、テレビ・ラジオ出演、受賞と記録。"}
+    leads = {"release": "Ado さんの歌声が届けられた作品を、順にたどれます。配信シングル・アルバム・客演・歌ってみた・本のできごと。", "live": "あの日の会場の記憶を、もう一度たどれます。ワンマンライブ・ツアー・フェス出演の記録。",
+             "tieup": "あの作品で出会った一曲に、また会えます。映画・アニメ・ドラマ・CM のタイアップ（タイアップ先の公式動画つき）、テレビ・ラジオ出演、受賞と記録。"}
     for k, t in CAT_PAGES:
         ev = [x for x in T if x["cat"] in groups[k] or (k == "tieup" and x.get("tieup"))]
         page(f"{k}.html", t, f"Ado さんの{t}の年表。{leads[k]}",
@@ -570,14 +571,14 @@ def build():
         cards = "".join(gcard(m) for m in ms)
         sec.append(f'<section><h2 class="sec-t">{lead}</h2><div class="mvgrid">{cards}</div></section>')
     page("mv.html", "MV ギャラリー", "Ado さんの MV を、YouTube 公式チャンネルへのリンクでまとめました。",
-         '<section><h1>MV ギャラリー</h1><p class="lead">サムネイルを押すと、YouTube（Ado 公式チャンネル・各アーティスト公式）またはニコニコ動画で動画が開きます。</p></section>' + "".join(sec),
+         '<section><h1>MV ギャラリー</h1><p class="lead">Ado さんの歌声と、映像・イラストで曲の世界を形にした作り手の皆さんの表現を、まとめて楽しめます。サムネイルを押すと、YouTube（Ado 公式チャンネル・各アーティスト公式）またはニコニコ動画で動画が開きます。あなたのお気に入りの MV は、どれですか？</p></section>' + "".join(sec),
          crumb=["MV ギャラリー"])
 
     # 公式 X まとめ
     xs = [e for e in T if e.get("x")][::-1]
     cards = "".join(f'<div><h3>{fmt(e["date"])}｜{esc(e["title"])}</h3>{x_embed(e["x"])}</div>' for e in xs)
     page("x.html", "公式Xまとめ", "Ado さん・Ado Staff の公式 X から、節目のポストを埋め込みでまとめました。",
-         '<section><h1>公式Xまとめ</h1><p class="lead">デビュー・ライブ・ツアーなど節目のポストを、X の埋め込みで並べています。最新の情報は '
+         '<section><h1>公式Xまとめ</h1><p class="lead">節目の瞬間を、公式の言葉でふり返れます。デビュー・ライブ・ツアーなど節目のポストを、X の埋め込みで並べています。最新の情報は '
          '<a href="https://x.com/ado1024imokenp" target="_blank" rel="noopener">@ado1024imokenp</a> と '
          '<a href="https://x.com/ado_staff" target="_blank" rel="noopener">@ado_staff</a> をご覧ください。</p></section>'
          f'<section><div class="xgrid">{cards}</div></section>', crumb=["公式Xまとめ"])
@@ -612,7 +613,7 @@ def build():
     total = len(cov)
     jump = " ".join(f'<a href="#c{y}">{y}</a>' for y in cyears)
     page("covers.html", "歌ってみた まとめ", f"Ado さんの歌ってみた {total} 曲を、ニコニコ動画・YouTube に最初に投稿された順にまとめました。",
-         f'''<section><h1>歌ってみた まとめ</h1><p class="lead">2017年の初投稿「君の体温」から今まで、Ado さんがニコニコ動画・YouTube に投稿した歌ってみたを、最初に投稿された日の順に並べました。ボタンを押すと各サービスの動画が開きます。</p>
+         f'''<section><h1>歌ってみた まとめ</h1><p class="lead">Ado さんの歌声の原点を、あなたも一緒にたどれます。2017年の初投稿「君の体温」から今まで、Ado さんがニコニコ動画・YouTube に投稿した歌ってみたを、最初に投稿された日の順に並べました。原曲を生んだボカロP・作り手の皆さんにも感謝を込めて。ボタンを押すと各サービスの動画が開きます。あなたが最初に聴いた一曲は、どれですか？</p>
 <div class="stats"><div><b>{total}</b>曲</div><div><b>{n_both}</b>両方に投稿</div><div><b>{n_nico_only}</b>ニコニコのみ</div><div><b>{cyears[0]}〜{cyears[-1]}</b>投稿年</div></div>
 <div class="flt"><button class="on" data-f="all">すべて</button><button data-f="nico">ニコニコのみ</button><button data-f="both">両方にある</button><button data-f="yt">YouTube のみ</button></div>
 <p style="margin:10px 0 0;font-size:14px">年へジャンプ: {jump}</p></section>
@@ -640,7 +641,7 @@ document.querySelectorAll('.yb').forEach(function(s){{s.style.display=[].some.ca
     n_mag = len({e["magazine"] for e in MAGS})
     jump = " ".join(f'<a href="#m{y}">{y}</a>' for y in myears)
     page("magazines.html", "雑誌インタビュー", f"Ado さんの雑誌の表紙・インタビュー・対談 {len(MAGS)} 件を、Ado さん・Ado Staff の公式 X の告知からまとめました。",
-         f'''<section><h1>雑誌インタビュー</h1><p class="lead">Ado さん（@ado1024imokenp）と Ado Staff（@ado_staff）の公式 X で告知された、雑誌の表紙・インタビュー・対談をまとめました。ボタンを押すと、その公式ポストが X の埋め込みで表示されます。誌面の内容は各雑誌でお楽しみください。</p>
+         f'''<section><h1>雑誌インタビュー</h1><p class="lead">Ado さんの言葉に、誌面でもっと触れられます。Ado さん（@ado1024imokenp）と Ado Staff（@ado_staff）の公式 X で告知された、雑誌の表紙・インタビュー・対談をまとめました。ボタンを押すと、その公式ポストが X の埋め込みで表示されます。誌面の内容は各雑誌でお楽しみください。</p>
 <div class="stats"><div><b>{len(MAGS)}</b>掲載</div><div><b>{n_cover}</b>表紙</div><div><b>{n_mag}</b>誌</div><div><b>{myears[0]}〜{myears[-1]}</b>年</div></div>
 <div class="flt"><button class="on" data-f="all">すべて</button><button data-f="cover">表紙・巻頭</button><button data-f="interview">インタビュー・対談</button><button data-f="other">特集・ライブレポート</button></div>
 <p style="margin:10px 0 0;font-size:14px">年へジャンプ: {jump}</p>
@@ -656,12 +657,12 @@ function go(){{window.twttr&&twttr.widgets?twttr.widgets.load(d):setTimeout(go,3
 
     # 予定
     page("schedule.html", "これからの予定", "Ado さんのこれからのライブ・リリース・テレビ出演などの予定。毎週更新。",
-         '<section><h1>これからの予定</h1><p class="lead">ライブ・リリース・放送・チケットの予定をまとめています。</p></section>'
+         '<section><h1>これからの予定</h1><p class="lead">次に Ado さんの歌声に会える日が、ひと目でわかります。ライブ・リリース・放送・チケットの予定をまとめています。</p></section>'
          + upcoming_box(60, "予定一覧", more=False), crumb=["これからの予定"])
 
     # この基地について
     page("about.html", "この基地について", "Ado 非公式ワクワク秘密基地について、運営方針とプライバシーポリシー。", """<section><h1>この基地について</h1>
-<p>「Ado 非公式ワクワク秘密基地」は、歌い手 Ado さんを応援する<b>非公式</b>のファンサイトです。Ado さん本人、所属事務所（クラウドナイン）、レーベル（ユニバーサル ミュージック）とは一切関係ありません。</p>
+<p>「Ado 非公式ワクワク秘密基地」は、Ado さんの歩みを、ファンのあなたが好きなときにたどれるようにつくった<b>非公式</b>のファンサイトです。Ado さん本人、所属事務所（クラウドナイン）、レーベル（ユニバーサル ミュージック）とは一切関係ありません。</p>
 <h2>このサイトでやっていること</h2><ul>
 <li>ニコニコ動画の歌ってみた時代から今までのできごとを、年表にまとめています</li>
 <li>毎月、前の月のできごとを書き足します。これからの予定は毎週更新します</li>
@@ -670,6 +671,9 @@ function go(){{window.twttr&&twttr.widgets?twttr.widgets.load(d):setTimeout(go,3
 <li>広告・アフィリエイトは載せません</li>
 <li>歌詞の引用、公式の写真・イラスト・ロゴの複製・転載はしません。トップのヘッダー画像は運営者が用意したイラストです。それ以外の画像は、YouTube 公式チャンネル・各アーティスト公式・ニコニコ動画の動画サムネイル（各サービスから直接表示し、動画にリンク）と、Ado さん・Ado Staff の公式 X ポストの埋め込みだけです。権利は各権利者に帰属します。削除のご依頼があればすぐに対応します</li>
 <li>うわさ話や私生活に関することは書きません</li></ul>
+<h2>見に来てくださって、ありがとうございます</h2>
+<p>歌声ひとつで道を切りひらいてきた Ado さん、その曲を生んだ作詞・作曲のクリエイター、MV を手がけた映像・イラストの作り手の皆さん、そして応援を続けるファンの皆さんに、心から感謝しています。この基地が、あなたの「好き」をもう一度たしかめる場所になればうれしいです。</p>
+<p>あなたの好きな Ado さんの曲は、何ですか？</p>
 <h2>プライバシーポリシー</h2>
 <p>動画のサムネイルは YouTube（Google）・ニコニコ動画、公式ポストは X の埋め込みを使っているため、それぞれのサービスが Cookie などで情報を取得する場合があります。アクセスの傾向を知るために Google アナリティクスを使っています。Cookie を使って匿名のアクセス情報を集めますが、個人を特定する情報は集めません。ブラウザの設定で Cookie を無効にできます。</p>
 <h2>参考にしている情報源</h2><ul>
