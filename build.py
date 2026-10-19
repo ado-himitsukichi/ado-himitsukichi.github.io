@@ -505,8 +505,9 @@ def build():
                 'var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){go();o.disconnect()}})},{threshold:.25});o.observe(b)})()</script>')
     recent = [e for e in T if e["date"] <= TODAY][-6:][::-1]
     body = f"""<section><h1>ようこそ、ワクワク秘密基地へ！</h1>
-<p class="lead">Ado さんの歩みを、あなたの思い出と一緒にたどれます。2017年、ニコニコ動画に投稿された1本の「歌ってみた」から、国立競技場・日産スタジアム・世界のステージまで。その一歩一歩を重ねてきた Ado さんの歌声と、曲を生んだ作詞・作曲のクリエイター、MV を手がけた映像・イラストの作り手の皆さんへの拍手を込めて、ファンの手で年表にまとめた非公式の秘密基地です。これからも毎月、新しいできごとを書き足していきます。</p>
-<p class="lead" style="margin-top:8px">あなたがいちばん好きな Ado さんの曲は、どれですか？　見に来てくださって、ありがとうございます。</p></section>
+<p class="lead">見に来てくださって、ありがとうございます。ここは、歌い手 Ado さんの「これまで」をぜんぶ並べた、ファン手づくりの非公式の秘密基地です。</p>
+<p class="lead" style="margin-top:8px">2017年1月、ニコニコ動画に投稿された「君の体温」の歌ってみたが、すべての始まりでした。そこから「うっせぇわ」での衝撃のデビュー、ウタとして歌った『ONE PIECE FILM RED』、国立競技場、世界をめぐるツアー、そして日産スタジアムへ。顔を出さずに、声だけで世界に届いた歩みを、ライブは1公演ずつ、歌ってみたは1曲ずつ、できごとの日付どおりに書きとめています。曲を生んだボカロ P・作詞作曲家、MV を手がけたイラストレーターや映像作家の皆さんの名前も、できるだけ一緒に。</p>
+<p class="lead" style="margin-top:8px">年表は毎月、新しいできごとを書き足していきます。あなたが Ado さんを好きになったきっかけの曲は、どれでしたか？</p></section>
 {upcoming_box(5)}
 {activity}
 <section><h2 class="sec-t">時代でたどる Ado の歩み</h2><div class="eras">{"".join(era_cards)}</div></section>
