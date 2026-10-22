@@ -385,7 +385,7 @@ def sidebar():
 <div class="box"><h2>🔑 この基地について</h2><p class="note">Ado さんの歩みを、ニコニコ動画のころから今まで、あなたと一緒にたどれる<b>非公式</b>の年表サイトです。毎月のイベントごとに書き足していきます。公式とは関係ありません。</p></div>
 <div class="box"><h2>🎤 歌ってみた</h2><p class="note">Ado さんの歌声の原点を、投稿順にたどれます。</p><ul><li><a href="{{R}}covers.html">歌ってみた まとめ（{sum(1 for e in T if e["cat"] == "cover") + 1} 曲）</a></li></ul></div>
 <div class="box"><h2>📚 雑誌インタビュー</h2><p class="note">Ado さんの言葉に、誌面でも触れられます。公式 X で告知された表紙・インタビュー・対談をまとめました。</p><ul><li><a href="{{R}}magazines.html">雑誌インタビュー まとめ（{len(MAGS)} 件）</a></li></ul></div>
-<div class="box"><h2>🫧 姉妹サイト</h2><p class="note">シンガー yama さんの歩みもたどれる、こちらも非公式の年表サイトです。</p><ul><li><a href="https://yama-kossori.github.io/" target="_blank" rel="noopener">yamaファンのこっそり部屋 →</a></li></ul></div>
+<div class="box"><h2>🫧 姉妹サイト</h2><p class="note">yama さん・CLAN QUEEN の歩みもたどれる、こちらも非公式の年表サイトです。</p><ul><li><a href="https://yama-kossori.github.io/" target="_blank" rel="noopener">yamaファンのこっそり部屋 →</a></li><li><a href="https://clanqueen-teikoku.github.io/" target="_blank" rel="noopener">CLAN QUEEN 秘密の帝国 →</a></li></ul></div>
 <div class="box"><h2>🗺 時代でたどる</h2><ul>{eras}</ul></div>
 <div class="box sticky"><h2>📅 年でたどる</h2><ul>{years}</ul>
 <h2 style="margin-top:14px">📣 公式はこちら</h2><ul>
