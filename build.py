@@ -316,15 +316,15 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
 .pager a{padding:8px 14px;border:1px solid var(--line);border-radius:99px;text-decoration:none;background:var(--card)}
 .empty{color:var(--sub)}
-.side{display:none;position:fixed;top:0;bottom:0;width:170px;pointer-events:none;z-index:0;overflow:hidden}
-.side.l{left:0}.side.r{right:0;transform:scaleX(-1)}
-@media(min-width:1200px){.side{display:block;width:calc((100vw - 1000px) / 2 - 6px);max-width:190px}}
-.side .rb{position:absolute;inset:0;width:100%;height:100%;opacity:.92;animation:sway 9s ease-in-out infinite alternate}
-.side.r .rb{animation-delay:-4.5s}
+.deco{display:none;position:fixed;top:0;bottom:0;width:170px;pointer-events:none;z-index:0;overflow:hidden}
+.deco.l{left:0}.deco.r{right:0;transform:scaleX(-1)}
+@media(min-width:1200px){.deco{display:block;width:calc((100vw - 1000px) / 2 - 6px);max-width:190px}}
+.deco .rb{position:absolute;inset:0;width:100%;height:100%;opacity:.92;animation:sway 9s ease-in-out infinite alternate}
+.deco.r .rb{animation-delay:-4.5s}
 @keyframes sway{from{transform:translateY(-14px) rotate(-1.5deg)}to{transform:translateY(14px) rotate(1.5deg)}}
-.side .pt{position:absolute;top:-40px;left:0;transform:translate(var(--x),-40px) scale(var(--s));filter:blur(var(--b));opacity:.9;animation:fall var(--t) linear var(--d) infinite}
+.deco .pt{position:absolute;top:-40px;left:0;transform:translate(var(--x),-40px) scale(var(--s));filter:blur(var(--b));opacity:.9;animation:fall var(--t) linear var(--d) infinite}
 @keyframes fall{0%{transform:translate(var(--x),-40px) scale(var(--s)) rotate(0deg)}50%{transform:translate(calc(var(--x) + 28px),50vh) scale(var(--s)) rotate(170deg)}100%{transform:translate(var(--x),105vh) scale(var(--s)) rotate(340deg)}}
-@media(prefers-reduced-motion:reduce){.side .rb,.side .pt{animation:none}}
+@media(prefers-reduced-motion:reduce){.deco .rb,.deco .pt{animation:none}}
 .layout,.hero,.gnav,.top{position:relative;z-index:1}
 .sl{margin-top:8px}.sl summary{display:inline-block;cursor:pointer;list-style:none;font-size:13px;font-weight:700;padding:3px 14px;border-radius:99px;background:#000;color:#ffd84d;border:1px solid #ffd84d}
 .sl summary::-webkit-details-marker{display:none}.sl.fan summary{color:#c9c9c9;border-color:#777;font-weight:600}.sl summary:hover{background:#1a1a1a}.sl[open] summary{margin-bottom:6px}
@@ -426,12 +426,12 @@ def side_deco(R):
               '<filter id="sh" x="-20%" y="-5%" width="140%" height="110%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity=".6"/></filter></defs>'
               '<use href="#rp" stroke="url(#rg)" stroke-width="40" fill="none" filter="url(#sh)"/>'
               '<text class="rt" font-size="15" letter-spacing="2" fill="#3a3020" dominant-baseline="middle"><textPath href="#rp" startOffset="0">' + label * 14 + '</textPath></text></svg>')
-    js = ('<script>(function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var tps=document.querySelectorAll(".side .rt textPath");'
+    js = ('<script>(function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var tps=document.querySelectorAll(".deco .rt textPath");'
           'if(!tps.length)return;var unit=0;try{var t=document.createElementNS("http://www.w3.org/2000/svg","text");t.setAttribute("font-size","15");'
           't.setAttribute("letter-spacing","2");t.textContent=' + json.dumps(label) + ';tps[0].closest("svg").appendChild(t);unit=t.getComputedTextLength();t.remove()}catch(e){}'
           'if(!unit)unit=260;var s=performance.now();function f(n){var o=-((n-s)*0.022%unit);tps.forEach(function(p,i){p.setAttribute("startOffset",(i?o-unit/2:o).toFixed(1))});'
           'requestAnimationFrame(f)}requestAnimationFrame(f)})()</script>')
-    return f'<div class="side l" aria-hidden="true">{ribbon}{petals}</div><div class="side r" aria-hidden="true">{ribbon}{petals}</div>{js}'
+    return f'<div class="deco l" aria-hidden="true">{ribbon}{petals}</div><div class="deco r" aria-hidden="true">{ribbon}{petals}</div>{js}'
 
 
 def page(path, title, desc, body, crumb=None, hero=False):
