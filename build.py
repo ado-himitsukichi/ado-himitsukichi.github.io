@@ -272,16 +272,16 @@ CSS = """
 @media (prefers-color-scheme:dark){:root{--bg:#0e1222;--card:#171c31;--ink:#e8ebf5;--sub:#a3abc2;--line:#2a3150;--ac:#7c9bff;--ac2:#ff7aa5;--hd:#0a0d1c}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.8;font-size:16px}
 a{color:var(--ac)}img{max-width:100%;display:block}
-.top{background:var(--hd);color:#fff}.top .in{max-width:1000px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top{background:var(--hd);color:#fff}.top .in{max-width:1180px;margin:auto;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .logo{color:#fff;text-decoration:none;font-weight:800;font-size:20px;letter-spacing:.02em}.logo span{color:var(--yl)}
 .badge{font-size:11px;border:1px solid #fff6;border-radius:99px;padding:1px 8px;color:#fffc}
 .gnav{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-.gnav ul{max-width:1000px;margin:auto;padding:0 8px;list-style:none;display:flex;overflow-x:auto;gap:2px}
+.gnav ul{max-width:1180px;margin:auto;padding:0 8px;list-style:none;display:flex;overflow-x:auto;gap:2px}
 .gnav a{display:block;padding:10px 12px;white-space:nowrap;text-decoration:none;color:var(--ink);font-size:14px;font-weight:600;border-bottom:3px solid transparent}
 .gnav a.on,.gnav a:hover{border-color:var(--ac2);color:var(--ac2)}
-.hero{max-width:1000px;margin:16px auto 0;padding:0 16px}.hero img,.hero .ph{width:100%;aspect-ratio:2.5/1;object-fit:cover;border-radius:14px}
+.hero{max-width:1180px;margin:16px auto 0;padding:0 16px}.hero img,.hero .ph{width:100%;aspect-ratio:2.5/1;object-fit:cover;border-radius:14px}
 .ph{background:linear-gradient(135deg,#2f5bea,#8b5cf6 55%,#e0457b)}
-.layout{max-width:1000px;margin:20px auto;padding:0 16px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px}
+.layout{max-width:1180px;margin:20px auto;padding:0 16px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px}
 @media(max-width:900px){.layout{grid-template-columns:1fr}}
 main>section,.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:20px}
 .crumb{font-size:13px;color:var(--sub);margin-bottom:8px}.crumb a{color:var(--sub)}
@@ -316,16 +316,6 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .pager{display:flex;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
 .pager a{padding:8px 14px;border:1px solid var(--line);border-radius:99px;text-decoration:none;background:var(--card)}
 .empty{color:var(--sub)}
-.deco{display:none;position:fixed;top:0;bottom:0;width:170px;pointer-events:none;z-index:0;overflow:hidden}
-.deco.l{left:0}.deco.r{right:0;transform:scaleX(-1)}
-@media(min-width:1200px){.deco{display:block;width:calc((100vw - 1000px) / 2 - 6px);max-width:190px}}
-.deco .rb{position:absolute;inset:0;width:100%;height:100%;opacity:.92;animation:sway 9s ease-in-out infinite alternate}
-.deco.r .rb{animation-delay:-4.5s}
-@keyframes sway{from{transform:translateY(-10px)}to{transform:translateY(10px)}}
-.deco .pt{position:absolute;top:-40px;left:0;transform:translate(var(--x),-40px) scale(var(--s));filter:blur(var(--b));opacity:.9;animation:fall var(--t) linear var(--d) infinite}
-@keyframes fall{0%{transform:translate(var(--x),-40px) scale(var(--s)) rotate(0deg)}50%{transform:translate(calc(var(--x) + 28px),50vh) scale(var(--s)) rotate(170deg)}100%{transform:translate(var(--x),105vh) scale(var(--s)) rotate(340deg)}}
-@media(prefers-reduced-motion:reduce){.deco .rb,.deco .pt{animation:none}}
-.layout,.hero,.gnav,.top{position:relative;z-index:1}
 .sl{margin-top:8px}.sl summary{display:inline-block;cursor:pointer;list-style:none;font-size:13px;font-weight:700;padding:3px 14px;border-radius:99px;background:#000;color:#ffd84d;border:1px solid #ffd84d}
 .sl summary::-webkit-details-marker{display:none}.sl.fan summary{color:#c9c9c9;border-color:#777;font-weight:600}.sl summary:hover{background:#1a1a1a}.sl[open] summary{margin-bottom:6px}
 .sl .slb{padding:8px 12px;background:var(--bg);border:1px solid var(--line);border-radius:10px;max-width:520px}
@@ -406,44 +396,6 @@ def sidebar():
 </aside>"""
 
 
-def side_deco(R):
-    """画面の左右の余白に、ねじれたリボン（サイト名入り）と青い花びらをゆらす飾り。
-    公式素材は使わず SVG と CSS で描く。広い画面（1200px 以上）だけに出し、動きを減らす設定では止める。"""
-    import random
-    label = "Ado ワクワク秘密基地　✿　"
-    rnd = random.Random(7)
-    petals = ""
-    for i in range(9):
-        x = rnd.randint(4, 120); t = rnd.uniform(14, 26); d = -rnd.uniform(0, 24); sc = rnd.uniform(.5, 1.25); b = rnd.choice([0, 0, 1.5, 3])
-        petals += (f'<svg class="pt" style="--x:{x}px;--t:{t:.1f}s;--d:{d:.1f}s;--s:{sc:.2f};--b:{b}px" viewBox="-14 -14 28 30" width="34" height="36">'
-                   f'<path d="M0,-12 C8,-12 12,-2 10,6 C8,12 2,14 0,14 C-2,14 -8,12 -10,6 C-12,-2 -8,-12 0,-12 Z" fill="url(#pg)"/></svg>')
-    ribbon = ('<svg class="rb" viewBox="0 0 160 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs>'
-              '<linearGradient id="rg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#efe6cf"/><stop offset=".18" stop-color="#9f8f6b"/>'
-              '<stop offset=".36" stop-color="#f1e9d4"/><stop offset=".55" stop-color="#a89877"/><stop offset=".74" stop-color="#efe6cf"/>'
-              '<stop offset=".9" stop-color="#9f8f6b"/><stop offset="1" stop-color="#efe6cf"/></linearGradient>'
-              '<linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb4ff"/><stop offset="1" stop-color="#1d4fd6"/></linearGradient>'
-              '<path id="rp" d="M 86 -80 C 240 90, -80 230, 80 380 C 240 530, -80 660, 80 800 C 170 880, 50 960, 86 1080">'
-              '<animate attributeName="d" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1" '
-              'values="M 86 -80 C 240 90, -80 230, 80 380 C 240 530, -80 660, 80 800 C 170 880, 50 960, 86 1080;'
-              'M 74 -80 C -80 90, 240 230, 80 380 C -80 530, 240 660, 80 800 C -10 880, 110 960, 74 1080;'
-              'M 86 -80 C 240 90, -80 230, 80 380 C 240 530, -80 660, 80 800 C 170 880, 50 960, 86 1080"/></path>'
-              '<path id="rp2" d="M 74 -80 C -80 90, 240 230, 80 380 C -80 530, 240 660, 80 800 C -10 880, 110 960, 74 1080">'
-              '<animate attributeName="d" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1" '
-              'values="M 74 -80 C -80 90, 240 230, 80 380 C -80 530, 240 660, 80 800 C -10 880, 110 960, 74 1080;'
-              'M 86 -80 C 240 90, -80 230, 80 380 C 240 530, -80 660, 80 800 C 170 880, 50 960, 86 1080;'
-              'M 74 -80 C -80 90, 240 230, 80 380 C -80 530, 240 660, 80 800 C -10 880, 110 960, 74 1080"/></path>'
-              '<filter id="sh" x="-20%" y="-5%" width="140%" height="110%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity=".6"/></filter></defs>'
-              '<use href="#rp2" stroke="#7d6e4e" stroke-width="12" fill="none" opacity=".85"><animate attributeName="stroke-width" values="12;34;12" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1"/></use>'
-              '<use href="#rp" stroke="url(#rg)" stroke-width="40" fill="none" filter="url(#sh)"><animate attributeName="stroke-width" values="40;14;40" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1"/></use>'
-              '<text class="rt" font-size="15" letter-spacing="2" fill="#3a3020" dominant-baseline="middle"><animate attributeName="opacity" values="1;0;1" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1"/><textPath href="#rp" startOffset="0">' + label * 14 + '</textPath></text></svg>')
-    js = ('<script>(function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var tps=document.querySelectorAll(".deco .rt textPath");'
-          'if(!tps.length)return;var unit=0;try{var t=document.createElementNS("http://www.w3.org/2000/svg","text");t.setAttribute("font-size","15");'
-          't.setAttribute("letter-spacing","2");t.textContent=' + json.dumps(label) + ';tps[0].closest("svg").appendChild(t);unit=t.getComputedTextLength();t.remove()}catch(e){}'
-          'if(!unit)unit=260;var s=performance.now();function f(n){var o=-((n-s)*0.022%unit);tps.forEach(function(p,i){p.setAttribute("startOffset",(i?o-unit/2:o).toFixed(1))});'
-          'requestAnimationFrame(f)}requestAnimationFrame(f)})()</script>')
-    return f'<div class="deco l" aria-hidden="true">{ribbon}{petals}</div><div class="deco r" aria-hidden="true">{ribbon}{petals}</div>{js}'
-
-
 def page(path, title, desc, body, crumb=None, hero=False):
     depth = path.count("/")
     R = "../" * depth
@@ -467,7 +419,6 @@ def page(path, title, desc, body, crumb=None, hero=False):
 <style>{CSS}</style></head><body>
 <header class="top"><div class="in"><a class="logo" href="{R}index.html">Ado 非公式<span>ワクワク</span>秘密基地</a><span class="badge">非公式ファンサイト</span></div></header>
 <nav class="gnav"><ul>{nav}</ul></nav>
-{side_deco(R)}
 {heroh}
 <div class="layout"><main>{cr}{body}</main>{sidebar()}</div>
 <footer><div class="fi">
