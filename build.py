@@ -321,7 +321,7 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 @media(min-width:1200px){.deco{display:block;width:calc((100vw - 1000px) / 2 - 6px);max-width:190px}}
 .deco .rb{position:absolute;inset:0;width:100%;height:100%;opacity:.92;animation:sway 9s ease-in-out infinite alternate}
 .deco.r .rb{animation-delay:-4.5s}
-@keyframes sway{from{transform:translateY(-14px) rotate(-1.5deg)}to{transform:translateY(14px) rotate(1.5deg)}}
+@keyframes sway{from{transform:translateY(-10px)}to{transform:translateY(10px)}}
 .deco .pt{position:absolute;top:-40px;left:0;transform:translate(var(--x),-40px) scale(var(--s));filter:blur(var(--b));opacity:.9;animation:fall var(--t) linear var(--d) infinite}
 @keyframes fall{0%{transform:translate(var(--x),-40px) scale(var(--s)) rotate(0deg)}50%{transform:translate(calc(var(--x) + 28px),50vh) scale(var(--s)) rotate(170deg)}100%{transform:translate(var(--x),105vh) scale(var(--s)) rotate(340deg)}}
 @media(prefers-reduced-motion:reduce){.deco .rb,.deco .pt{animation:none}}
@@ -422,10 +422,20 @@ def side_deco(R):
               '<stop offset=".36" stop-color="#f1e9d4"/><stop offset=".55" stop-color="#a89877"/><stop offset=".74" stop-color="#efe6cf"/>'
               '<stop offset=".9" stop-color="#9f8f6b"/><stop offset="1" stop-color="#efe6cf"/></linearGradient>'
               '<linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb4ff"/><stop offset="1" stop-color="#1d4fd6"/></linearGradient>'
-              '<path id="rp" d="M 86 -80 C 240 90, -80 230, 80 380 C 240 530, -80 660, 80 800 C 170 880, 50 960, 86 1080"/>'
+              '<path id="rp" d="M 86 -80 C 240 90, -80 230, 80 380 C 240 530, -80 660, 80 800 C 170 880, 50 960, 86 1080">'
+              '<animate attributeName="d" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1" '
+              'values="M 86 -80 C 240 90, -80 230, 80 380 C 240 530, -80 660, 80 800 C 170 880, 50 960, 86 1080;'
+              'M 74 -80 C -80 90, 240 230, 80 380 C -80 530, 240 660, 80 800 C -10 880, 110 960, 74 1080;'
+              'M 86 -80 C 240 90, -80 230, 80 380 C 240 530, -80 660, 80 800 C 170 880, 50 960, 86 1080"/></path>'
+              '<path id="rp2" d="M 74 -80 C -80 90, 240 230, 80 380 C -80 530, 240 660, 80 800 C -10 880, 110 960, 74 1080">'
+              '<animate attributeName="d" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1" '
+              'values="M 74 -80 C -80 90, 240 230, 80 380 C -80 530, 240 660, 80 800 C -10 880, 110 960, 74 1080;'
+              'M 86 -80 C 240 90, -80 230, 80 380 C 240 530, -80 660, 80 800 C 170 880, 50 960, 86 1080;'
+              'M 74 -80 C -80 90, 240 230, 80 380 C -80 530, 240 660, 80 800 C -10 880, 110 960, 74 1080"/></path>'
               '<filter id="sh" x="-20%" y="-5%" width="140%" height="110%"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity=".6"/></filter></defs>'
-              '<use href="#rp" stroke="url(#rg)" stroke-width="40" fill="none" filter="url(#sh)"/>'
-              '<text class="rt" font-size="15" letter-spacing="2" fill="#3a3020" dominant-baseline="middle"><textPath href="#rp" startOffset="0">' + label * 14 + '</textPath></text></svg>')
+              '<use href="#rp2" stroke="#7d6e4e" stroke-width="12" fill="none" opacity=".85"><animate attributeName="stroke-width" values="12;34;12" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1"/></use>'
+              '<use href="#rp" stroke="url(#rg)" stroke-width="40" fill="none" filter="url(#sh)"><animate attributeName="stroke-width" values="40;14;40" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1"/></use>'
+              '<text class="rt" font-size="15" letter-spacing="2" fill="#3a3020" dominant-baseline="middle"><animate attributeName="opacity" values="1;0;1" dur="16s" repeatCount="indefinite" calcMode="spline" keySplines=".42 0 .58 1;.42 0 .58 1"/><textPath href="#rp" startOffset="0">' + label * 14 + '</textPath></text></svg>')
     js = ('<script>(function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;var tps=document.querySelectorAll(".deco .rt textPath");'
           'if(!tps.length)return;var unit=0;try{var t=document.createElementNS("http://www.w3.org/2000/svg","text");t.setAttribute("font-size","15");'
           't.setAttribute("letter-spacing","2");t.textContent=' + json.dumps(label) + ';tps[0].closest("svg").appendChild(t);unit=t.getComputedTextLength();t.remove()}catch(e){}'
