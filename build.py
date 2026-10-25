@@ -322,17 +322,27 @@ h1{font-size:26px;line-height:1.4;margin:0 0 8px}h2{font-size:20px;margin:0 0 12
 .sl ol{margin:0;padding-left:24px;font-size:14px;line-height:1.75}.sl .sec{margin:6px 0 2px;font-weight:700;color:var(--ac2);font-size:13px}
 .sl ol li small{color:var(--sub);font-size:12px;margin-left:6px}.sl .src{font-size:12px;color:var(--sub);margin:4px 0 0}
 .ys{font-size:13px;color:var(--sub);font-weight:400}.ys2{margin:4px 0 0;font-size:14px;color:var(--ac2);font-weight:700}
-.bars{display:grid;gap:6px}.br{display:grid;grid-template-columns:44px 1fr 110px;gap:8px;align-items:center;text-decoration:none;color:var(--ink);font-size:13.5px}
-.bt{position:relative;height:18px;background:linear-gradient(180deg,rgba(120,160,255,.08),rgba(120,160,255,.02));border:1px solid rgba(130,170,255,.18);border-radius:9px;overflow:hidden}
-.bt i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:9px;transition:width 1.3s cubic-bezier(.2,.8,.2,1) var(--d,0s);overflow:hidden}
+.bars{display:grid;gap:9px}.br{display:grid;grid-template-columns:44px 1fr 110px;gap:8px;align-items:center;text-decoration:none;color:var(--ink);font-size:13.5px}
+.bt{position:relative;height:28px;overflow:visible}
+.bt i{position:absolute;left:0;height:17px;width:0;border-radius:9px;transition:width 1.3s cubic-bezier(.2,.8,.2,1) var(--d,0s);overflow:hidden}
 .bars.on .bt i{width:var(--w)}
-.b1{background:linear-gradient(180deg,#d9f4ff 0%,#8fdcff 40%,#5cc6f5 70%,#9fe2ff 100%);
-box-shadow:inset 0 0 0 1px rgba(255,255,255,.45),0 0 8px rgba(110,210,255,.45)}
-.b2{background:linear-gradient(180deg,#4a67c9 0%,#1f3a8f 40%,#132a6e 70%,#2a4aa8 100%);
-box-shadow:inset 0 0 0 1px rgba(170,195,255,.4),inset 0 -3px 6px rgba(0,8,40,.5),0 0 10px rgba(40,80,200,.55)}
-.bt i::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.65) 0%,rgba(255,255,255,.12) 45%,transparent 55%);mix-blend-mode:screen}
+.b1{top:0;z-index:1;background:linear-gradient(180deg,#e4f7ff 0%,#9fe0ff 38%,#5fc6f3 72%,#a6e4ff 100%);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.85),inset 0 -4px 6px rgba(20,90,150,.35),0 3px 0 #2f8fc0,0 5px 0 #1d6a93,0 9px 14px rgba(0,0,0,.45)}
+.b2{top:8px;left:6px;z-index:2;background:linear-gradient(180deg,#5d7ad8 0%,#2a47a3 38%,#15297a 72%,#3353b8 100%);
+box-shadow:inset 0 1px 0 rgba(190,210,255,.6),inset 0 -4px 6px rgba(0,8,40,.55),0 3px 0 #0d1d5e,0 5px 0 #081241,0 9px 14px rgba(0,0,0,.5)}
+.bt i::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.6) 0%,rgba(255,255,255,.1) 45%,transparent 55%);mix-blend-mode:screen}
 @media (prefers-reduced-motion:reduce){.bt i{transition:none}}.bn small{color:var(--sub);font-size:12px}
 .br:hover .by{color:var(--ac2)}
+main>section.glass{position:relative;border:1px solid rgba(140,180,255,.3);border-radius:18px;
+background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.015) 40%),linear-gradient(135deg,rgba(40,70,160,.35),rgba(10,20,60,.55));
+backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+box-shadow:-1px 1px 0 rgba(40,110,150,.8),-2px 2px 0 rgba(22,70,110,.8),-3px 3px 0 rgba(12,45,80,.8),-4px 4px 0 rgba(6,25,50,.75),-22px 30px 40px rgba(0,0,0,.5),22px 8px 26px rgba(0,0,0,.45);
+transform:perspective(1800px) rotateY(-5deg) rotateX(1.5deg);transform-origin:0 50%;margin-right:10px}
+main>section.glass::before{content:"";position:absolute;left:-1px;top:-1px;width:22px;height:22px;border-top:2px solid #ffd84d;border-left:2px solid #ffd84d;border-top-left-radius:16px;opacity:.9;pointer-events:none}
+main>section.glass::after{content:"";position:absolute;right:12px;top:12px;width:6px;height:6px;border-radius:50%;background:rgba(77,141,255,.75);box-shadow:0 0 8px rgba(77,141,255,.75),0 0 2px #fff inset;animation:breathe 3.2s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
+@media(max-width:900px){main>section.glass{transform:none;margin-right:0}}
+@media(prefers-reduced-motion:reduce){main>section.glass::after{animation:none}}
 .shows{margin-top:8px;border:1px solid var(--line);border-radius:10px;background:var(--bg);max-width:560px}
 .shows summary{cursor:pointer;padding:6px 12px;font-size:14px;font-weight:700;color:var(--ac)}
 .shows table{width:100%;border-collapse:collapse;font-size:13.5px}.shows th,.shows td{padding:5px 10px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
@@ -497,7 +507,7 @@ def build():
         bars += (f'<a class="br" href="{{R}}year/{y}.html"><span class="by">{y}</span><span class="bt"><i class="b1" style="--w:{tot / mx * 100:.1f}%;--d:{len(bars_n) * 0.07:.2f}s"></i>'
                  f'<i class="b2" style="--w:{lv / mx * 100:.1f}%;--d:{len(bars_n) * 0.07 + 0.25:.2f}s"></i></span><span class="bn">{tot}<small>（ライブ {lv}）</small></span></a>')
     n_live = sum(1 for x in T if x["cat"] == "live")
-    activity = (f'<section><h2 class="sec-t">活動のあしあと</h2><p class="lead" style="margin-bottom:10px">これまでのできごと {len(T)} 件、ライブ・フェス出演 {n_live} 公演。'
+    activity = (f'<section class="glass"><h2 class="sec-t">活動のあしあと</h2><p class="lead" style="margin-bottom:10px">これまでのできごと {len(T)} 件、ライブ・フェス出演 {n_live} 公演。'
                 f'年ごとにどれだけ動いてきたかを並べました（水色ができごと全体、紺がライブ公演）。</p><div class="bars" id="bars">{bars}</div></section>'
                 '<script>(function(){var b=document.getElementById("bars");if(!b)return;function go(){b.classList.add("on")}'
                 'if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches){go();return}'
