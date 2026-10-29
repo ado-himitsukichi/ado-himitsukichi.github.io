@@ -356,7 +356,7 @@ main>section.glass::after{content:"";position:absolute;right:12px;top:12px;width
 .mv .mt{font-size:14px;font-weight:700;line-height:1.5}.mv .mt small{display:block;font-weight:400;color:var(--sub);font-size:12px}
 @media(max-width:560px){.mv .th{flex-basis:120px}.mv .th img{width:120px}}
 .xpost{max-width:460px;margin-top:6px}.xpost .twitter-tweet{margin:6px 0!important}
-.hero .hdr{width:100%;height:auto;aspect-ratio:auto;border-radius:14px;display:block;margin-bottom:10px}
+.hero .htxt{background:var(--hd);color:#fff;border-radius:14px;padding:26px 24px;margin-bottom:10px}.hero .htxt b{display:block;font-size:clamp(26px,5vw,42px);line-height:1.25;letter-spacing:.02em}.hero .htxt p{margin:10px 0 0;font-size:15px;line-height:1.8;opacity:.92}.hero .htxt .xs{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.25);font-size:14px}.hero .htxt .xs a{color:#fff}
 .mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-radius:14px;overflow:hidden}
 .mosaic a{position:relative;display:block}.mosaic img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:opacity .15s}.mosaic a:hover img{opacity:.8}
 @media(max-width:700px){.mosaic{grid-template-columns:repeat(2,1fr)}}
@@ -415,7 +415,7 @@ def page(path, title, desc, body, crumb=None, hero=False):
         cr = '<div class="crumb"><a href="' + R + 'index.html">基地トップ</a> › ' + " › ".join(crumb) + "</div>"
     full = NAME if path == "index.html" else f"{title}｜{NAME}"
     heroh = f'<div class="hero">{hero}</div>' if hero else ""
-    og = SITE + "img/header.jpg" if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")) else thumb_url(MV["うっせぇわ"]["id"], "hqdefault")
+    og = thumb_url(MV["うっせぇわ"]["id"], "hqdefault")  # 公式 MV のサムネイル（YouTube）。AI 画像は置かない
     widgets = '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' if "twitter-tweet" in body else ""
     doc = f"""<!doctype html><html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -435,7 +435,7 @@ def page(path, title, desc, body, crumb=None, hero=False):
 <p class="f1">{NAME}</p>
 <p>Ado さんを応援する<b>非公式</b>のファンサイトです。<br>Ado さん本人・所属事務所・レーベルとは関係ありません。</p>
 <p>掲載情報は、公開されている報道・公式発表をもとにしています。<br>最新・正確な情報は<a href="https://www.universal-music.co.jp/ado/" target="_blank" rel="noopener">公式サイト</a>でご確認ください。</p>
-<p>ヘッダー画像は運営者が用意したイラストです。<br>公式の画像ファイルの複製・転載はしていません。<br>MV のサムネイルは YouTube・ニコニコ動画から、<br>公式 X の画像は X の埋め込みで表示しています。<br>（権利は各権利者に帰属します）</p>
+<p>公式の画像ファイルの複製・転載はしていません。<br>MV のサムネイルは YouTube・ニコニコ動画から、<br>公式 X の画像は X の埋め込みで表示しています。<br>（権利は各権利者に帰属します）</p>
 <p class="fl"><a href="{R}about.html">この基地について・プライバシー</a><br>最終更新: {TODAY}</p>
 </div></footer>
 {widgets}</body></html>"""
@@ -456,8 +456,24 @@ def upcoming_box(limit, title="これからの予定", more=True):
 today=t.getFullYear()+'-'+pad(t.getMonth()+1)+'-'+pad(t.getDate()),K={{live:'ライブ',release:'リリース',tieup:'タイアップ',event:'イベント',anniv:'記念日',media:'テレビ・ラジオ・配信',ticket:'チケット'}},
 W='日月火水木金土',it=(window.ADO_UPCOMING||[]).filter(function(e){{return e.date>=today}}).slice(0,lim);
 if(!it.length){{el.innerHTML='<li class="empty">いま分かっている予定はありません。</li>';return}}
-el.innerHTML=it.map(function(e){{var d=new Date(e.date+'T00:00:00');return '<li><div class="d">'+(d.getMonth()+1)+'/'+d.getDate()+'<small>'+d.getFullYear()+'（'+W[d.getDay()]+'）</small></div><div><span class="k">'+(K[e.kind]||'')+'</span><div>'+e.title.replace(/[<>&]/g,'')+'</div></div></li>'}}).join('')}})();
+el.innerHTML=it.map(function(e){{var d=new Date(e.date+'T00:00:00');return '<li><div class="d">'+(e.when?e.when[0]+'<small>'+e.when[1]+'</small>':(d.getMonth()+1)+'/'+d.getDate()+'<small>'+d.getFullYear()+'（'+W[d.getDay()]+'）</small>')+'</div><div><span class="k">'+(K[e.kind]||'')+'</span><div>'+e.title.replace(/[<>&]/g,'')+'</div></div></li>'}}).join('')}})();
 </script>"""
+
+
+def vague(e):
+    """タイトルに「要確認」がある予定は、日付をぼかして when に「11月」「上旬（予定）」を入れ、タイトルから注記を外す。"""
+    t = e["title"]
+    if "要確認" not in t:
+        return e
+    m = int(e["date"][5:7])
+    pm = re.search(r"(\d+)\s*月\s*(上旬|中旬|下旬)予定", t)
+    part = pm.group(2) if pm else ("" if e["date"].endswith("-01") else ("上旬" if int(e["date"][8:]) <= 10 else "中旬" if int(e["date"][8:]) <= 20 else "下旬"))
+    if pm:
+        m = int(pm.group(1))
+    t = re.sub(r"[・／]?\s*\d+\s*月\s*(上旬|中旬|下旬)予定", "", t)
+    t = re.sub(r"[・／]?\s*(日付は)?要確認", "", t)
+    t = re.sub(r"（\s*）", "", t).replace("（・", "（").replace("・）", "）").strip()
+    return {**e, "title": t, "when": [f"{m}月", f"{part}（予定）"]}
 
 
 def write_upcoming():
@@ -470,6 +486,7 @@ def write_upcoming():
                 continue
             items.append({"date": d, "title": t, "kind": k})
     items.sort(key=lambda e: e["date"])
+    items = [vague(e) for e in items]
     open(os.path.join(OUT, "upcoming.js"), "w", encoding="utf-8").write(
         "window.ADO_UPCOMING=" + json.dumps(items, ensure_ascii=False) + ";\n")
     return len(items)
@@ -484,10 +501,7 @@ def build():
             shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
     os.makedirs(OUT, exist_ok=True)
     open(os.path.join(OUT, ".nojekyll"), "w").close()
-    # ユーザーが用意したヘッダー画像（assets/header.jpg）だけを置く。公式素材はコピーしない
-    if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")):
-        os.makedirs(os.path.join(OUT, "img"), exist_ok=True)
-        shutil.copy(os.path.join(ROOT, "assets", "header.jpg"), os.path.join(OUT, "img", "header.jpg"))
+    # 画像ファイルは置かない（公式素材はコピーしない・AI 画像は置かない 2026-10-29）
     n_up = write_upcoming()
 
     # トップ
@@ -527,7 +541,7 @@ def build():
     mosaic = '<div class="mosaic">' + "".join(
         f'<a href="{watch(MV[k]["id"])}" target="_blank" rel="noopener" title="{esc(MV[k]["title"])}"><img src="{thumb_url(MV[k]["id"])}" alt="{esc(MV[k]["title"])}"></a>'
         for k in top if k in MV) + "</div>"
-    page("index.html", NAME, "歌い手 Ado さんの歩みを、あなたの思い出と一緒にたどれる非公式ファンサイト。ニコニコ動画の歌ってみた時代から今までを年表に。毎月のイベントごとに更新。", body, hero=(f'<img class="hdr" src="img/header.jpg" alt="{esc(NAME)}" width="1600" height="640">' if os.path.exists(os.path.join(ROOT, "assets", "header.jpg")) else "") + mosaic)
+    page("index.html", NAME, "歌い手 Ado さんの歩みを、あなたの思い出と一緒にたどれる非公式ファンサイト。ニコニコ動画の歌ってみた時代から今までを年表に。毎月のイベントごとに更新。", body, hero=f'<div class="htxt"><b>{esc(NAME)}</b><p>Ado さんの歩みを、ニコニコ動画の歌ってみた時代から今まで年表にまとめた非公式ファンサイトです。毎月書き足しています。</p></div>' + mosaic)
 
     # 全年表
     jump = " ".join(f'<a href="#y{y}">{y}</a>' for y in YEARS)
@@ -679,8 +693,11 @@ function go(){{window.twttr&&twttr.widgets?twttr.widgets.load(d):setTimeout(go,3
 <li>情報は公式発表・報道・Wikipedia などの公開情報をもとにしています。まちがいに気づいたときは直します</li></ul>
 <h2>やらないこと</h2><ul>
 <li>広告・アフィリエイトは載せません</li>
-<li>歌詞の引用、公式の写真・イラスト・ロゴの複製・転載はしません。トップのヘッダー画像は運営者が用意したイラストです。それ以外の画像は、YouTube 公式チャンネル・各アーティスト公式・ニコニコ動画の動画サムネイル（各サービスから直接表示し、動画にリンク）と、Ado さん・Ado Staff の公式 X ポストの埋め込みだけです。権利は各権利者に帰属します。削除のご依頼があればすぐに対応します</li>
+<li>歌詞の引用、公式の写真・イラスト・ロゴの複製・転載はしません。画像は、YouTube 公式チャンネル・各アーティスト公式・ニコニコ動画の動画サムネイル（各サービスから直接表示し、動画にリンク）と、Ado さん・Ado Staff の公式 X ポストの埋め込みだけです。権利は各権利者に帰属します</li>
 <li>うわさ話や私生活に関することは書きません</li></ul>
+<h2>AI の使い方と、お問い合わせ</h2>
+<p>年表・紹介文の下書きにAIを使い、内容は運営者が公式の発表で確かめています。画像はアーティスト・作り手への敬意から、公式の埋め込みとサムネイルだけを使い、AIで作った絵は置いていません。</p>
+<p>削除のご依頼や誤りのご指摘は、<a href="https://x.com/masabee1029" target="_blank" rel="noopener">X @masabee1029</a> の DM（ダイレクトメッセージ）でお知らせください。すぐに対応します。</p>
 <h2>見に来てくださって、ありがとうございます</h2>
 <p>歌声ひとつで道を切りひらいてきた Ado さん、その曲を生んだ作詞・作曲のクリエイター、MV を手がけた映像・イラストの作り手の皆さん、そして応援を続けるファンの皆さんに、心から感謝しています。この基地が、あなたの「好き」をもう一度たしかめる場所になればうれしいです。</p>
 <p>あなたの好きな Ado さんの曲は、何ですか？</p>
