@@ -1,0 +1,853 @@
+{
+ "君の体温": [
+  {
+   "role": "イラスト・映像",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "うっせぇわ": [
+  {
+   "role": "映像",
+   "name": "WOOMA",
+   "x": "tomapocpo"
+  },
+  {
+   "role": "イメージディレクター",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "レディメイド": [
+  {
+   "role": "映像",
+   "name": "ヤスタツ",
+   "x": "yasutatsu_"
+  },
+  {
+   "role": "イメージディレクター",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "ギラギラ": [
+  {
+   "role": "映像",
+   "name": "沼田ゾンビ",
+   "x": "Dobuu_2"
+  },
+  {
+   "role": "イメージディレクター",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "踊": [
+  {
+   "role": "イラスト",
+   "name": "かゆか",
+   "x": "17_s_kyk"
+  },
+  {
+   "role": "映像",
+   "name": "藍瀬 まなみ",
+   "x": "AiseManami"
+  },
+  {
+   "role": "イメージディレクター",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "夜のピエロ": [
+  {
+   "role": "イラスト",
+   "name": "ケイゴイノウエ",
+   "x": "mushiki_k"
+  },
+  {
+   "role": "映像",
+   "name": "神宮司",
+   "x": "jgj05"
+  },
+  {
+   "role": "イメージディレクター",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "会いたくて": [
+  {
+   "role": "映像",
+   "name": "イノウエマナ",
+   "x": "inoue_mnac"
+  },
+  {
+   "role": "イラスト",
+   "name": "チェリ子",
+   "x": "chie_rico"
+  },
+  {
+   "role": "イメージディレクター",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "阿修羅ちゃん": [
+  {
+   "role": "イラスト",
+   "name": "寺田てら",
+   "x": "trcoot"
+  },
+  {
+   "role": "映像",
+   "name": "MONO-Devoid",
+   "x": "DevoidFire"
+  },
+  {
+   "role": "イメージディレクター",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "心という名の不可解": [
+  {
+   "role": "イラスト",
+   "name": "0楼",
+   "x": "0oL_ou"
+  },
+  {
+   "role": "イメージディレクター",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "アタシは問題作": [
+  {
+   "role": "映像",
+   "name": "えいりな刃物",
+   "x": "eiri7hamono"
+  }
+ ],
+ "向日葵": [
+  {
+   "role": "イラスト",
+   "name": "メレ",
+   "x": "mele_ck"
+  },
+  {
+   "role": "映像",
+   "name": "KZM",
+   "x": "yomogi_KZM"
+  }
+ ],
+ "唱": [
+  {
+   "role": "イラスト",
+   "name": "ヤスタツ",
+   "x": "yasutatsu_"
+  },
+  {
+   "role": "映像",
+   "name": "TOHRU MITSUHASHI",
+   "x": "tohru_m"
+  }
+ ],
+ "クラクラ": [
+  {
+   "role": "イラスト",
+   "name": "s!on",
+   "x": "sion001250"
+  },
+  {
+   "role": "映像",
+   "name": "KZM",
+   "x": "yomogi_KZM"
+  }
+ ],
+ "桜日和とタイムマシン": [
+  {
+   "role": "イラスト",
+   "name": "ア行",
+   "x": "agyou_sonokou_l"
+  },
+  {
+   "role": "映像",
+   "name": "Saki Naito",
+   "x": null
+  }
+ ],
+ "初夏": [
+  {
+   "role": "イラスト",
+   "name": "Tru",
+   "x": "true_root_tw"
+  },
+  {
+   "role": "映像",
+   "name": "mino",
+   "x": null
+  }
+ ],
+ "Episode X": [
+  {
+   "role": "映像",
+   "name": "Nina",
+   "x": "nina_o0o0"
+  }
+ ],
+ "エルフ": [
+  {
+   "role": "イラスト",
+   "name": "沼田ゾンビ!?",
+   "x": "Dobuu_2"
+  },
+  {
+   "role": "映像",
+   "name": "mino",
+   "x": "nanonoff"
+  }
+ ],
+ "MAGIC": [
+  {
+   "role": "イラスト",
+   "name": "BAKUI",
+   "x": "bakuiukabu"
+  },
+  {
+   "role": "映像",
+   "name": "ZIIEK",
+   "x": "smoken4129"
+  }
+ ],
+ "DND": [
+  {
+   "role": "映像",
+   "name": "YP",
+   "x": null
+  },
+  {
+   "role": "イラスト",
+   "name": "好都",
+   "x": null
+  }
+ ],
+ "逆光": [
+  {
+   "role": "イラスト",
+   "name": "so品",
+   "x": null
+  },
+  {
+   "role": "映像",
+   "name": "Hironobu Nagasawa",
+   "x": null
+  }
+ ],
+ "ウタカタララバイ": [
+  {
+   "role": "映像",
+   "name": "Wotakichi(NIN)",
+   "x": null
+  }
+ ],
+ "Tot Musica": [
+  {
+   "role": "イラスト",
+   "name": "WOOMA",
+   "x": "tomapocpo"
+  }
+ ],
+ "私は最強": [
+  {
+   "role": "映像",
+   "name": "藍にいな",
+   "x": null
+  }
+ ],
+ "ルル": [
+  {
+   "role": "イラスト",
+   "name": "一",
+   "x": "nnme__618"
+  },
+  {
+   "role": "映像",
+   "name": "ﾅﾑﾙ",
+   "x": "nmrgtk"
+  }
+ ],
+ "Overdose": [
+  {
+   "role": "イラスト",
+   "name": "𝕾𝕻𝕮",
+   "x": "errrr_404"
+  }
+ ],
+ "unravel": [
+  {
+   "role": "イラスト",
+   "name": "辛口梟",
+   "x": "ZPICYOWL"
+  },
+  {
+   "role": "映像",
+   "name": "ハノ",
+   "x": "8no_cha_n"
+  }
+ ],
+ "cover:ラブカ?": [
+  {
+   "role": "映像",
+   "name": "りゅうせー",
+   "x": "ryuuseee"
+  }
+ ],
+ "風のゆくえ": [
+  {
+   "role": "映像",
+   "name": "東映アニメーション ONE PIECE from TV animation",
+   "x": null
+  }
+ ],
+ "世界のつづき": [
+  {
+   "role": "イラスト",
+   "name": "sto1e",
+   "x": "sto1e"
+  },
+  {
+   "role": "映像",
+   "name": "HIDEKI INABA",
+   "x": null
+  }
+ ],
+ "ブリキノダンス": [
+  {
+   "role": "イラスト",
+   "name": "くるくる数字",
+   "x": "kuru2suuziman"
+  },
+  {
+   "role": "映像",
+   "name": "iga kitty",
+   "x": "iga_kitty"
+  }
+ ],
+ "罪と罰": [
+  {
+   "role": "映像",
+   "name": "Saki Naito",
+   "x": null
+  }
+ ],
+ "cover:邪魔": [
+  {
+   "role": "イラスト",
+   "name": "戸部じろ",
+   "x": "tobeG6"
+  },
+  {
+   "role": "映像",
+   "name": "中山 明飛",
+   "x": "Nemui_All"
+  }
+ ],
+ "cover:bin": [
+  {
+   "role": "イラスト",
+   "name": "廵鹵",
+   "x": "_Junro"
+  },
+  {
+   "role": "映像",
+   "name": "中山 明飛",
+   "x": "Nemui_All"
+  }
+ ],
+ "cover:ラストリゾート": [
+  {
+   "role": "イラスト",
+   "name": "戸部じろ",
+   "x": "tobeG6"
+  },
+  {
+   "role": "映像",
+   "name": "中山 明飛",
+   "x": "Nemui_All"
+  }
+ ],
+ "cover:馬鹿": [
+  {
+   "role": "イラスト",
+   "name": "戸部じろ",
+   "x": "tobeG6"
+  },
+  {
+   "role": "映像",
+   "name": "中山 明飛",
+   "x": "Nemui_All"
+  }
+ ],
+ "cover:ヒステリックナイトガール": [
+  {
+   "role": "イラスト",
+   "name": "MID",
+   "x": "doa_3d"
+  },
+  {
+   "role": "映像",
+   "name": "明飛",
+   "x": "nemui_all"
+  }
+ ],
+ "cover:ブラック★ロックシューター": [
+  {
+   "role": "イラスト・映像",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "cover:恋は戦争": [
+  {
+   "role": "イラスト・映像",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "cover:アダムとイブになれたら": [
+  {
+   "role": "映像",
+   "name": "沼田ゾンビ",
+   "x": "Dobuu_2"
+  }
+ ],
+ "cover:ダーリンダンス": [
+  {
+   "role": "イラスト",
+   "name": "BUDO",
+   "x": "t_akemitch"
+  },
+  {
+   "role": "映像",
+   "name": "Akito Nakayama",
+   "x": "Nemui_All"
+  }
+ ],
+ "cover:東京は夜": [
+  {
+   "role": "イラスト",
+   "name": "トゥル",
+   "x": "true_root_tw"
+  },
+  {
+   "role": "映像",
+   "name": "Akito Nakayama",
+   "x": "Nemui_All"
+  }
+ ],
+ "cover:新人類": [
+  {
+   "role": "イラスト",
+   "name": "そおの",
+   "x": "soOno2020"
+  },
+  {
+   "role": "映像",
+   "name": "INPINE",
+   "x": "INPINE_JP"
+  }
+ ],
+ "cover:インタビュア": [
+  {
+   "role": "イラスト",
+   "name": "りょーの",
+   "x": "ryonon"
+  }
+ ],
+ "cover:シュガーバイン": [
+  {
+   "role": "イラスト",
+   "name": "モゲラッタ",
+   "x": "mogelatte"
+  }
+ ],
+ "cover:Fairytale": [
+  {
+   "role": "映像",
+   "name": "大鳥",
+   "x": "otori0704"
+  }
+ ],
+ "cover:え?あぁ、そう。": [
+  {
+   "role": "イラスト",
+   "name": "りんく",
+   "x": "__rin9"
+  },
+  {
+   "role": "映像",
+   "name": "Kazz Fukuda",
+   "x": "kazz_fukuda"
+  }
+ ],
+ "cover:彗星列車のベルが鳴る": [
+  {
+   "role": "イラスト",
+   "name": "白湯",
+   "x": "_sayu_t"
+  },
+  {
+   "role": "映像",
+   "name": "ZIIEK",
+   "x": "smoken4129"
+  }
+ ],
+ "cover:勇気のReason": [
+  {
+   "role": "イラスト",
+   "name": "ア行",
+   "x": "agyou_sonokou_l"
+  },
+  {
+   "role": "映像",
+   "name": "ZIIEK",
+   "x": "smoken4129"
+  }
+ ],
+ "cover:夏夜のマジック": [
+  {
+   "role": "イラスト",
+   "name": "周憂",
+   "x": "shuu_illust"
+  },
+  {
+   "role": "映像",
+   "name": "Kazz Fukuda",
+   "x": "kazz_fukuda"
+  }
+ ],
+ "cover:怪盗・窪園チヨコは絶対ミスらない": [
+  {
+   "role": "イラスト",
+   "name": "椎名もた（ぽわぽわP）",
+   "x": null
+  }
+ ],
+ "cover:橙ゲノム": [
+  {
+   "role": "イラスト",
+   "name": "f*cla",
+   "x": null
+  }
+ ],
+ "cover:ヒバナ": [
+  {
+   "role": "イラスト",
+   "name": "からながれ",
+   "x": "karanagare_4"
+  },
+  {
+   "role": "映像",
+   "name": "ZIIEK",
+   "x": "smoken4129"
+  }
+ ],
+ "cover:渇愛論II": [
+  {
+   "role": "イラスト",
+   "name": "百々田",
+   "x": "momota_ro5555"
+  },
+  {
+   "role": "映像",
+   "name": "Akito Nakayama",
+   "x": "Nemui_All"
+  }
+ ],
+ "cover:夜のくじら": [
+  {
+   "role": "イラスト",
+   "name": "りょーの",
+   "x": "ryonon"
+  }
+ ],
+ "cover:メーベル": [
+  {
+   "role": "映像",
+   "name": "アボガド6",
+   "x": "avogado6"
+  }
+ ],
+ "cover:カルチャ": [
+  {
+   "role": "イラスト",
+   "name": "大好きさん",
+   "x": "adochansukisuki"
+  }
+ ],
+ "cover:Blue Flame": [
+  {
+   "role": "イラスト",
+   "name": "John Kafka 씨",
+   "x": "john_kafka02"
+  },
+  {
+   "role": "映像",
+   "name": "Kazz Fukuda",
+   "x": "kazz_fukuda"
+  }
+ ],
+ "cover:プリキュア5、スマイル go go!": [
+  {
+   "role": "イラスト",
+   "name": "Noyu",
+   "x": "NOYU23386566"
+  },
+  {
+   "role": "映像",
+   "name": "ヨルノ",
+   "x": "yoruno_sayokuji"
+  }
+ ],
+ "永遠のあくる日": [
+  {
+   "role": "イラスト",
+   "name": "沼田ゾンビ!?",
+   "x": "Dobuu_2"
+  },
+  {
+   "role": "映像",
+   "name": "ナノン",
+   "x": "nanonoff"
+  },
+  {
+   "role": "イメージディレクター",
+   "name": "ORIHARA",
+   "x": "ewkkyorhr"
+  }
+ ],
+ "リベリオン": [
+  {
+   "role": "映像",
+   "name": "カンタロ",
+   "x": "_akikan"
+  }
+ ],
+ "行方知れず": [
+  {
+   "role": "映像",
+   "name": "sakiyama",
+   "x": "sakiyama8ma"
+  }
+ ],
+ "いばら": [
+  {
+   "role": "イラスト",
+   "name": "てんてこ",
+   "x": "tenteko_mai51"
+  },
+  {
+   "role": "映像",
+   "name": "KZM",
+   "x": "yomogi_KZM"
+  }
+ ],
+ "DIGNITY": [
+  {
+   "role": "イラスト",
+   "name": "omao",
+   "x": "omao_51061954"
+  },
+  {
+   "role": "映像",
+   "name": "kairi",
+   "x": "kairi_09160"
+  }
+ ],
+ "MIRROR": [
+  {
+   "role": "イラスト",
+   "name": "SPC",
+   "x": "errrr_404"
+  },
+  {
+   "role": "映像",
+   "name": "KZM",
+   "x": "yomogi_KZM"
+  }
+ ],
+ "わたしに花束": [
+  {
+   "role": "イラスト",
+   "name": "八三",
+   "x": "xxhachisan"
+  },
+  {
+   "role": "映像",
+   "name": "あげは",
+   "x": "ageage_kaza"
+  }
+ ],
+ "風と私の物語": [
+  {
+   "role": "イラスト",
+   "name": "中辻作太朗",
+   "x": "39ar_39ca"
+  },
+  {
+   "role": "映像",
+   "name": "ﾅﾑﾙ",
+   "x": "nmrgtk"
+  }
+ ],
+ "エンゼルシーク": [
+  {
+   "role": "イラスト",
+   "name": "ちゃっぴー",
+   "x": "Chapi__01"
+  },
+  {
+   "role": "映像",
+   "name": "ZIIEK",
+   "x": "smoken4129"
+  }
+ ],
+ "アイ・アイ・ア": [
+  {
+   "role": "イラスト",
+   "name": "沼田ゾンビ!?",
+   "x": "Dobuu_2"
+  }
+ ],
+ "春に舞う": [
+  {
+   "role": "イラスト",
+   "name": "猫目トヲル",
+   "x": "towor_n"
+  },
+  {
+   "role": "映像",
+   "name": "omu",
+   "x": "omu929"
+  }
+ ],
+ "モンストロ": [
+  {
+   "role": "イラスト",
+   "name": "LAM",
+   "x": null
+  },
+  {
+   "role": "映像",
+   "name": "お菊",
+   "x": null
+  },
+  {
+   "role": "映像",
+   "name": "益山亮司",
+   "x": null
+  },
+  {
+   "role": "映像",
+   "name": "山田俊太郎",
+   "x": null
+  }
+ ],
+ "好きでいて": [
+  {
+   "role": "イラスト",
+   "name": "酉野蛙",
+   "x": "TORI_NO_s"
+  }
+ ],
+ "CAT'S EYE": [
+  {
+   "role": "映像",
+   "name": "擬態するメタ",
+   "x": "MimicryMeta"
+  },
+  {
+   "role": "映像",
+   "name": "月世亘",
+   "x": "tukiyowataru"
+  },
+  {
+   "role": "映像",
+   "name": "史耕",
+   "x": "osato_9g"
+  },
+  {
+   "role": "映像",
+   "name": "葱びーだま",
+   "x": "ne_gibby_o"
+  }
+ ],
+ "患者A": [
+  {
+   "role": "イラスト",
+   "name": "小骨トモ",
+   "x": "Kobone_Tomo"
+  },
+  {
+   "role": "映像",
+   "name": "Cymo",
+   "x": "Re_lightnovel"
+  }
+ ],
+ "オールナイトレディオ": [
+  {
+   "role": "イラスト",
+   "name": "美好よしみ",
+   "x": "yoshi_mi_yoshi"
+  },
+  {
+   "role": "映像",
+   "name": "大澤創太",
+   "x": "coppeqn"
+  }
+ ],
+ "綺羅": [
+  {
+   "role": "イラスト",
+   "name": "Noritaka Koizumi",
+   "x": null
+  },
+  {
+   "role": "キャラクターデザイン",
+   "name": "YORUGATA・Asuka Dokai",
+   "x": null
+  },
+  {
+   "role": "映像",
+   "name": "Nao Watanabe",
+   "x": null
+  }
+ ],
+ "ビバリウム": [
+  {
+   "role": "映像（実写）",
+   "name": "Kyotaro Hayashi",
+   "x": null
+  }
+ ],
+ "新時代": [
+  {
+   "role": "映像",
+   "name": "hmng（監督・アニメーション）",
+   "x": null
+  }
+ ],
+ "ショコラカタブラ": [
+  {
+   "role": "キャラクターデザイン",
+   "name": "吉成曜（監督）",
+   "x": null
+  },
+  {
+   "role": "アニメーション制作",
+   "name": "TRIGGER",
+   "x": "trigger_inc"
+  }
+ ]
+}

@@ -65,6 +65,7 @@ OFF_DATE = {d: o for o in OFFICIAL for d in o["dates"]}
 SL_DATE = {}
 for x in SETLISTS:
     SL_DATE.setdefault(x["date"], []).append(x)
+CREDITS = json.load(open(os.path.join(ROOT, "data", "credits.json"), encoding="utf-8"))  # MV の説明欄から: イラスト・映像の作り手と X
 MAGS = sorted(json.load(open(os.path.join(ROOT, "data", "magazines.json"), encoding="utf-8")), key=lambda e: e["date"])
 T = sorted(json.load(open(os.path.join(ROOT, "data", "timeline.json"), encoding="utf-8")),
            key=lambda e: e["date"])
@@ -165,6 +166,20 @@ def where(m, svc):
     return f"{svc} で見る（Ado 公式チャンネル）" if svc == "YouTube" else "ニコニコ動画で見る（Ado さんの投稿）"
 
 
+def credit_line(k):
+    """MV の作り手（イラスト・映像）を、X のアカウントへのリンクつきで 1 行に。"""
+    rows = CREDITS.get(k)
+    if not rows:
+        return ""
+    parts = []
+    for r in rows:
+        name = esc(r["name"])
+        if r.get("x"):
+            name = f'<a href="https://x.com/{esc(r["x"])}" target="_blank" rel="noopener">{name}<small>@{esc(r["x"])}</small></a>'
+        parts.append(f'<span class="cr"><b>{esc(r["role"])}</b> {name}</span>')
+    return '<p class="crl">🎨 ' + " ／ ".join(parts) + "</p>"
+
+
 def mv_card(k):
     m = MV[k]
     href, src, svc = link_of(m)
@@ -175,7 +190,7 @@ def mv_card(k):
         nico = f'<a class="nl" href="{nico_url(m["nico"])}" target="_blank" rel="noopener">ニコニコ動画でも見る →</a>'
     return (f'<div class="mvw"><a class="mv{" nc" if svc != "YouTube" else ""}" href="{href}" target="_blank" rel="noopener">'
             f'<span class="th"><img src="{src}" alt="" loading="lazy"><i>▶</i></span>'
-            f'<span class="mt">{esc(m["title"])}<small>{where(m, svc)}</small></span></a>{nico}</div>')
+            f'<span class="mt">{esc(m["title"])}<small>{where(m, svc)}</small></span></a>{nico}{credit_line(k)}</div>')
 
 
 def x_embed(url):
@@ -350,6 +365,8 @@ main>section.glass::after{content:"";position:absolute;right:12px;top:12px;width
 .mv{display:flex;gap:10px;align-items:center;margin-top:8px;padding:6px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);background:var(--bg);max-width:460px}
 .mv:hover{border-color:#ff4d6a}.mv.nc:hover{border-color:#bbb}.mv.nc .th i{color:#e6e6e6;border-color:#e6e6e6}
 .mvw .nl{display:inline-block;font-size:12.5px;margin:4px 0 0 4px}
+.crl{margin:4px 0 0 4px;font-size:12.5px;color:var(--sub);line-height:1.7;max-width:460px}.crl .cr b{font-weight:700;color:var(--ac2);margin-right:2px}
+.crl a{color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--sub)}.crl a small{color:var(--sub);font-size:11px;margin-left:3px}.crl a:hover{color:var(--ac)}
 .tuw{margin-top:10px;padding:8px 10px 4px;border-left:3px solid #ffd84d;background:color-mix(in srgb,#ffd84d 6%,transparent);border-radius:0 10px 10px 0;max-width:480px}
 .tul{margin:0 0 4px;font-size:13px;font-weight:700;color:#ffd84d}.tuw .mv{margin:6px 0}.tuw .mv:hover{border-color:#ffd84d}.tuw .mv .th i{color:#ffd84d;border-color:#ffd84d}.mv .th{position:relative;flex:0 0 160px}.mv .th img{width:160px;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
 .mv .th i{position:absolute;inset:0;margin:auto;width:34px;height:24px;border-radius:7px;background:#000c;color:#ff4d6a;border:1px solid #ff4d6a;font-style:normal;font-size:12px;display:grid;place-items:center}
@@ -582,7 +599,8 @@ def build():
         href, src, svc = link_of(m)
         by = f'<small style="display:block;font-weight:400;color:var(--sub)">{esc(m["by"])}</small>' if m.get("by") else ""
         nl = f' ／ <a href="{nico_url(m["nico"])}" target="_blank" rel="noopener" style="font-weight:400;font-size:12.5px">ニコニコ</a>' if m.get("id") and m.get("nico") else ""
-        return f'<div><a href="{href}" target="_blank" rel="noopener"><img src="{src}" alt="" loading="lazy">{esc(m["title"])}</a>{by}<small style="color:var(--sub);font-size:12px">{svc}{nl}</small></div>'
+        k = next((kk for kk, mm in MV.items() if mm is m), None)
+        return f'<div><a href="{href}" target="_blank" rel="noopener"><img src="{src}" alt="" loading="lazy">{esc(m["title"])}</a>{by}<small style="color:var(--sub);font-size:12px">{svc}{nl}</small>{credit_line(k) if k else ""}</div>'
     for kind, lead in [("オリジナル", "オリジナル曲の MV"), ("ウタ", "映画『ONE PIECE FILM RED』ウタの歌唱曲"),
                        ("ライブ映像", "公式のライブ映像（押すと YouTube で開きます）"), ("feat", "feat.・客演（ボカロP・アーティストの公式動画）"), ("歌ってみた", "歌ってみた・カバー"),
                        ("ニコニコのみ", "ニコニコ動画だけの歌ってみた")]:
