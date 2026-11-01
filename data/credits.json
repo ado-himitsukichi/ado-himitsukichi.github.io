@@ -849,5 +849,17 @@
    "name": "TRIGGER",
    "x": "trigger_inc"
   }
+ ],
+ "Raven Sky": [
+  {
+   "role": "イラスト",
+   "name": "PODO",
+   "x": "PDOzip"
+  },
+  {
+   "role": "映像",
+   "name": "ZIIEK",
+   "x": "ZIIEK_VETH"
+  }
  ]
 }

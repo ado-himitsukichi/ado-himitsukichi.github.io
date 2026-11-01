@@ -1353,6 +1353,13 @@
  },
  {
   "date": "2024-03-25",
+  "cat": "media",
+  "title": "「Ado のオールナイトニッポン」最終回",
+  "note": "1年間の月曜1部を終える。",
+  "big": false
+ },
+ {
+  "date": "2024-03-25",
   "cat": "cover",
   "title": "「夜のくじら」を歌ってみた",
   "note": "YouTube に投稿。",
@@ -1360,13 +1367,6 @@
   "videos": [
    "cover:夜のくじら"
   ]
- },
- {
-  "date": "2024-03-25",
-  "cat": "media",
-  "title": "「Ado のオールナイトニッポン」最終回",
-  "note": "1年間の月曜1部を終える。",
-  "big": false
  },
  {
   "date": "2024-04-19",
@@ -2386,6 +2386,13 @@
   }
  },
  {
+  "date": "2026-10-21",
+  "cat": "release",
+  "title": "LIVE Blu-ray & DVD『よだか』発売",
+  "note": "2025 年の初ドームツアー「よだか」を収めた映像作品。",
+  "big": false
+ },
+ {
   "date": "2026-10-24",
   "cat": "live",
   "title": "FC 限定ライブ「お前ら起きろ！Ado のドキドキ秘密基地 作戦本部大集合」",
@@ -2410,5 +2417,15 @@
   "title": "「患者A」をサプライズ配信",
   "note": "ヨエコさんのプロデュース・作詞作曲、菅原敏さんの編曲。代々木のライブ初日に初披露され、同じ日に配信と MV 公開。",
   "big": false
+ },
+ {
+  "date": "2026-10-31",
+  "cat": "cover",
+  "title": "「And July (Feat. DEAN, DJ Friz)」を歌ってみた",
+  "note": "YouTube に投稿。",
+  "big": false,
+  "videos": [
+   "cover:And July (Feat. DEAN, DJ Friz)"
+  ]
  }
 ]
