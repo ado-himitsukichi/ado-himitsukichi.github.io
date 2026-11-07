@@ -2427,5 +2427,32 @@
   "videos": [
    "cover:And July (Feat. DEAN, DJ Friz)"
   ]
+ },
+ {
+  "date": "2026-11-06",
+  "cat": "tieup",
+  "title": "「シンカ」（アニメ『デモンズ・クレスト』オープニング）",
+  "note": "配信リリース。川原礫さん原作のアニメのオープニングテーマ。ノンクレジット OP 映像は Ado さんとワーナー ブラザース ジャパンの共同投稿。",
+  "big": false,
+  "videos": [
+   "シンカ"
+  ],
+  "tieup": {
+   "work": "アニメ『デモンズ・クレスト』オープニング",
+   "videos": [
+    {
+     "id": "jvxgudW4FCs",
+     "kind": "PV 第1弾",
+     "title": "アニメ 『デモンズ・クレスト』 PV第1弾",
+     "by": "Warner Bros. Japan Anime"
+    },
+    {
+     "id": "z_aHrTag3Ig",
+     "kind": "PV 第2弾",
+     "title": "アニメ 『デモンズ・クレスト』 PV第2弾",
+     "by": "Warner Bros. Japan Anime"
+    }
+   ]
+  }
  }
 ]
