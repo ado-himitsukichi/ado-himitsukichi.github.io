@@ -424,6 +424,12 @@
   "kind": "オリジナル",
   "yt_date": "2026-10-24"
  },
+ "シンカ": {
+  "id": "H-QtHcjP0aY",
+  "title": "アニメ『デモンズ・クレスト』ノンクレジットオープニング Ado「シンカ」",
+  "kind": "オリジナル",
+  "yt_date": "2026-11-06"
+ },
  "cover:スターナイトスノウ": {
   "title": "【春だけど】スターナイトスノウ歌ってみた【Adovantage】",
   "kind": "ニコニコのみ",
@@ -820,6 +826,12 @@
   "id": "OyrXt_XnHEE",
   "yt_date": "2024-09-23"
  },
+ "cover:BRAIN": {
+  "title": "【Ado】BRAIN 歌いました",
+  "kind": "歌ってみた",
+  "id": "wodpaLwL7II",
+  "yt_date": "2026-11-14"
+ },
  "cover:And July (Feat. DEAN, DJ Friz)": {
   "title": "【Ado】And July (Feat. DEAN, DJ Friz) cover (원곡：헤이즈 (Heize) )",
   "kind": "歌ってみた",
@@ -951,11 +963,5 @@
   "kind": "歌ってみた",
   "id": "Io9gOyAlq9g",
   "yt_date": "2018-08-26"
- },
- "シンカ": {
-  "id": "H-QtHcjP0aY",
-  "title": "アニメ『デモンズ・クレスト』ノンクレジットオープニング Ado「シンカ」",
-  "kind": "オリジナル",
-  "yt_date": "2026-11-06"
  }
 }
